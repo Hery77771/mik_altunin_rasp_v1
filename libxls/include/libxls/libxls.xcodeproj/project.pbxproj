@@ -1,0 +1,154 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		986545AD1A8A08BA00822291 /* brdb.c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brdb.c.h; sourceTree = "<group>"; };
+		986545AE1A8A08BA00822291 /* brdb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brdb.h; sourceTree = "<group>"; };
+		986545AF1A8A08BA00822291 /* endian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = endian.h; sourceTree = "<group>"; };
+		986545B01A8A08BA00822291 /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		986545B11A8A08BA00822291 /* Makefile.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		986545B21A8A08BA00822291 /* ole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ole.h; sourceTree = "<group>"; };
+		986545B31A8A08BA00822291 /* xls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xls.h; sourceTree = "<group>"; };
+		986545B41A8A08BA00822291 /* xlsstruct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xlsstruct.h; sourceTree = "<group>"; };
+		986545B51A8A08BA00822291 /* xlstool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xlstool.h; sourceTree = "<group>"; };
+		986545B61A8A08BA00822291 /* xlstypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xlstypes.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		986545A71A8A08BA00822291 = {
+			isa = PBXGroup;
+			children = (
+				986545AD1A8A08BA00822291 /* brdb.c.h */,
+				986545AE1A8A08BA00822291 /* brdb.h */,
+				986545AF1A8A08BA00822291 /* endian.h */,
+				986545B01A8A08BA00822291 /* Makefile.am */,
+				986545B11A8A08BA00822291 /* Makefile.in */,
+				986545B21A8A08BA00822291 /* ole.h */,
+				986545B31A8A08BA00822291 /* xls.h */,
+				986545B41A8A08BA00822291 /* xlsstruct.h */,
+				986545B51A8A08BA00822291 /* xlstool.h */,
+				986545B61A8A08BA00822291 /* xlstypes.h */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		986545AC1A8A08BA00822291 /* libxls */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 986545B71A8A08BA00822291 /* Build configuration list for PBXLegacyTarget "libxls" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/altuninmihail/Desktop/DHlibxls-master-2/libxls/include/libxls";
+			dependencies = (
+			);
+			name = libxls;
+			passBuildSettingsInEnvironment = 1;
+			productName = libxls;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		986545A81A8A08BA00822291 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 986545AB1A8A08BA00822291 /* Build configuration list for PBXProject "libxls" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 986545A71A8A08BA00822291;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				986545AC1A8A08BA00822291 /* libxls */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		986545A91A8A08BA00822291 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		986545AA1A8A08BA00822291 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		986545B81A8A08BA00822291 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libxls;
+			};
+			name = Debug;
+		};
+		986545B91A8A08BA00822291 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libxls;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		986545AB1A8A08BA00822291 /* Build configuration list for PBXProject "libxls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				986545A91A8A08BA00822291 /* Debug */,
+				986545AA1A8A08BA00822291 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		986545B71A8A08BA00822291 /* Build configuration list for PBXLegacyTarget "libxls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				986545B81A8A08BA00822291 /* Debug */,
+				986545B91A8A08BA00822291 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 986545A81A8A08BA00822291 /* Project object */;
+}

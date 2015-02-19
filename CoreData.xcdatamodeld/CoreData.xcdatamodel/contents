@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="14C109" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AMCustomVSchedule" representedClassName="AMCustomVSchedule" parentEntity="AMObjects" syncable="YES">
+        <attribute name="courseArray" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="groupName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scheduleName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="AMObjects" representedClassName="AMObjects" syncable="YES"/>
+    <elements>
+        <element name="AMCustomVSchedule" positionX="-684" positionY="-11826" width="128" height="88"/>
+        <element name="AMObjects" positionX="-405" positionY="-11941" width="128" height="43"/>
+    </elements>
+</model>

@@ -1,0 +1,184 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		98DB7EC01A88FE2F00D6C84D /* aclocal.m4 */ = {isa = PBXFileReference; lastKnownFileType = text; path = aclocal.m4; sourceTree = "<group>"; };
+		98DB7EC11A88FE2F00D6C84D /* AUTHORS */ = {isa = PBXFileReference; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
+		98DB7EC21A88FE2F00D6C84D /* bootstrap */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = bootstrap; sourceTree = "<group>"; };
+		98DB7EC31A88FE2F00D6C84D /* config.guess */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = config.guess; sourceTree = "<group>"; };
+		98DB7EC41A88FE2F00D6C84D /* config.h.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = config.h.in; sourceTree = "<group>"; };
+		98DB7EC51A88FE2F00D6C84D /* config.sub */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = config.sub; sourceTree = "<group>"; };
+		98DB7EC61A88FE2F00D6C84D /* configure */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = configure; sourceTree = "<group>"; };
+		98DB7EC71A88FE2F00D6C84D /* configure.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = configure.in; sourceTree = "<group>"; };
+		98DB7EC81A88FE2F00D6C84D /* cplusplus */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cplusplus; sourceTree = "<group>"; };
+		98DB7EC91A88FE2F00D6C84D /* depcomp */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = depcomp; sourceTree = "<group>"; };
+		98DB7ECA1A88FE2F00D6C84D /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
+		98DB7ECB1A88FE2F00D6C84D /* formulas */ = {isa = PBXFileReference; lastKnownFileType = folder; path = formulas; sourceTree = "<group>"; };
+		98DB7ECC1A88FE2F00D6C84D /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		98DB7ECD1A88FE2F00D6C84D /* INSTALL */ = {isa = PBXFileReference; lastKnownFileType = text; path = INSTALL; sourceTree = "<group>"; };
+		98DB7ECE1A88FE2F00D6C84D /* install-sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "install-sh"; sourceTree = "<group>"; };
+		98DB7ECF1A88FE2F00D6C84D /* ltmain.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ltmain.sh; sourceTree = "<group>"; };
+		98DB7ED01A88FE2F00D6C84D /* m4 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = m4; sourceTree = "<group>"; };
+		98DB7ED11A88FE2F00D6C84D /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		98DB7ED21A88FE2F00D6C84D /* Makefile.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		98DB7ED31A88FE2F00D6C84D /* missing */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = missing; sourceTree = "<group>"; };
+		98DB7ED41A88FE2F00D6C84D /* mkinstalldirs */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = mkinstalldirs; sourceTree = "<group>"; };
+		98DB7ED51A88FE2F00D6C84D /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
+		98DB7ED61A88FE2F00D6C84D /* stamp-h.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = "stamp-h.in"; sourceTree = "<group>"; };
+		98DB7ED71A88FE2F00D6C84D /* test */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test; sourceTree = "<group>"; };
+		98DB7ED81A88FE2F00D6C84D /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		98DB7EBA1A88FE2F00D6C84D = {
+			isa = PBXGroup;
+			children = (
+				98DB7EC01A88FE2F00D6C84D /* aclocal.m4 */,
+				98DB7EC11A88FE2F00D6C84D /* AUTHORS */,
+				98DB7EC21A88FE2F00D6C84D /* bootstrap */,
+				98DB7EC31A88FE2F00D6C84D /* config.guess */,
+				98DB7EC41A88FE2F00D6C84D /* config.h.in */,
+				98DB7EC51A88FE2F00D6C84D /* config.sub */,
+				98DB7EC61A88FE2F00D6C84D /* configure */,
+				98DB7EC71A88FE2F00D6C84D /* configure.in */,
+				98DB7EC81A88FE2F00D6C84D /* cplusplus */,
+				98DB7EC91A88FE2F00D6C84D /* depcomp */,
+				98DB7ECA1A88FE2F00D6C84D /* doc */,
+				98DB7ECB1A88FE2F00D6C84D /* formulas */,
+				98DB7ECC1A88FE2F00D6C84D /* include */,
+				98DB7ECD1A88FE2F00D6C84D /* INSTALL */,
+				98DB7ECE1A88FE2F00D6C84D /* install-sh */,
+				98DB7ECF1A88FE2F00D6C84D /* ltmain.sh */,
+				98DB7ED01A88FE2F00D6C84D /* m4 */,
+				98DB7ED11A88FE2F00D6C84D /* Makefile.am */,
+				98DB7ED21A88FE2F00D6C84D /* Makefile.in */,
+				98DB7ED31A88FE2F00D6C84D /* missing */,
+				98DB7ED41A88FE2F00D6C84D /* mkinstalldirs */,
+				98DB7ED51A88FE2F00D6C84D /* src */,
+				98DB7ED61A88FE2F00D6C84D /* stamp-h.in */,
+				98DB7ED71A88FE2F00D6C84D /* test */,
+				98DB7ED81A88FE2F00D6C84D /* TODO */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		98DB7EBF1A88FE2F00D6C84D /* libxls */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 98DB7ED91A88FE2F00D6C84D /* Build configuration list for PBXLegacyTarget "libxls" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/altuninmihail/Desktop/Obj-C/testDiplom/libxls";
+			dependencies = (
+			);
+			name = libxls;
+			passBuildSettingsInEnvironment = 1;
+			productName = libxls;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		98DB7EBB1A88FE2F00D6C84D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 98DB7EBE1A88FE2F00D6C84D /* Build configuration list for PBXProject "libxls" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 98DB7EBA1A88FE2F00D6C84D;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98DB7EBF1A88FE2F00D6C84D /* libxls */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		98DB7EBC1A88FE2F00D6C84D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		98DB7EBD1A88FE2F00D6C84D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		98DB7EDA1A88FE2F00D6C84D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libxls;
+			};
+			name = Debug;
+		};
+		98DB7EDB1A88FE2F00D6C84D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libxls;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98DB7EBE1A88FE2F00D6C84D /* Build configuration list for PBXProject "libxls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98DB7EBC1A88FE2F00D6C84D /* Debug */,
+				98DB7EBD1A88FE2F00D6C84D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98DB7ED91A88FE2F00D6C84D /* Build configuration list for PBXLegacyTarget "libxls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98DB7EDA1A88FE2F00D6C84D /* Debug */,
+				98DB7EDB1A88FE2F00D6C84D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98DB7EBB1A88FE2F00D6C84D /* Project object */;
+}

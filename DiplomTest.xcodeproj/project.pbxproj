@@ -1,0 +1,660 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		981EBC981A88C75F0031E7D8 /* AMGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 981EBC971A88C75F0031E7D8 /* AMGroup.m */; };
+		981EBC9B1A88D0BA0031E7D8 /* AMCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 981EBC9A1A88D0BA0031E7D8 /* AMCourse.m */; };
+		98240A1B1A94E72C00911983 /* 1_1.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A041A94E72C00911983 /* 1_1.xls */; };
+		98240A1C1A94E72C00911983 /* 1_2.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A051A94E72C00911983 /* 1_2.xls */; };
+		98240A1D1A94E72C00911983 /* 1_3.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A061A94E72C00911983 /* 1_3.xls */; };
+		98240A1E1A94E72C00911983 /* 1_4.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A071A94E72C00911983 /* 1_4.xls */; };
+		98240A1F1A94E72C00911983 /* 1_5.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A081A94E72C00911983 /* 1_5.xls */; };
+		98240A201A94E72C00911983 /* 2_1.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A0A1A94E72C00911983 /* 2_1.xls */; };
+		98240A211A94E72C00911983 /* 2_2.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A0B1A94E72C00911983 /* 2_2.xls */; };
+		98240A221A94E72C00911983 /* 2_3.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A0C1A94E72C00911983 /* 2_3.xls */; };
+		98240A231A94E72C00911983 /* 2_4.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A0D1A94E72C00911983 /* 2_4.xls */; };
+		98240A241A94E72C00911983 /* 2_5.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A0E1A94E72C00911983 /* 2_5.xls */; };
+		98240A251A94E72C00911983 /* 3_1.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A101A94E72C00911983 /* 3_1.xls */; };
+		98240A261A94E72C00911983 /* 3_2.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A111A94E72C00911983 /* 3_2.xls */; };
+		98240A271A94E72C00911983 /* 3_3.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A121A94E72C00911983 /* 3_3.xls */; };
+		98240A281A94E72C00911983 /* 3_4.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A131A94E72C00911983 /* 3_4.xls */; };
+		98240A291A94E72C00911983 /* 3_5.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A141A94E72C00911983 /* 3_5.xls */; };
+		98240A2A1A94E72C00911983 /* 4_1.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A161A94E72C00911983 /* 4_1.xls */; };
+		98240A2B1A94E72C00911983 /* 4_2.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A171A94E72C00911983 /* 4_2.xls */; };
+		98240A2C1A94E72C00911983 /* 4_3.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A181A94E72C00911983 /* 4_3.xls */; };
+		98240A2D1A94E72C00911983 /* 4_4.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A191A94E72C00911983 /* 4_4.xls */; };
+		98240A2E1A94E72C00911983 /* 4_5.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A1A1A94E72C00911983 /* 4_5.xls */; };
+		98372AB61A8A8C4100B1ACCF /* AMGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98372AB51A8A8C4100B1ACCF /* AMGroupTableViewCell.m */; };
+		98372AB91A8A905800B1ACCF /* AMReaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98372AB81A8A905800B1ACCF /* AMReaderManager.m */; };
+		9843842E1A921B260068C329 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9843842C1A921B260068C329 /* CoreData.xcdatamodeld */; };
+		984384331A921D1B0068C329 /* AMDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 984384321A921D1B0068C329 /* AMDataManager.m */; };
+		984384361A92200A0068C329 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984384341A921E990068C329 /* CoreData.framework */; };
+		984384391A9224040068C329 /* AMCustomVSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 984384381A9224040068C329 /* AMCustomVSchedule.m */; };
+		9843843C1A9224050068C329 /* AMObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 9843843B1A9224050068C329 /* AMObjects.m */; };
+		98479B591A91006100C5F4EF /* AMSelVScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98479B581A91006100C5F4EF /* AMSelVScheduleTableViewController.m */; };
+		984C38E01A8B83A3004A4E2E /* AMWeekTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 984C38DF1A8B83A3004A4E2E /* AMWeekTabBarController.m */; };
+		984C38E51A8BC173004A4E2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984C38E41A8BC173004A4E2E /* Images.xcassets */; };
+		986545E81A8A116F00822291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986545E71A8A116F00822291 /* Main.storyboard */; };
+		986545EC1A8A11E000822291 /* AMGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986545EB1A8A11E000822291 /* AMGroupsTableViewController.m */; };
+		986545F71A8A2C7100822291 /* AMClassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986545F61A8A2C7100822291 /* AMClassTableViewController.m */; };
+		986D72401A93A86000DD3F46 /* AMAddCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986D723F1A93A86000DD3F46 /* AMAddCourseTableViewController.m */; };
+		98760D3F1A8FD19700B67F43 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98760D3E1A8FD19700B67F43 /* Default-568h@2x.png */; };
+		98760D431A8FDA5E00B67F43 /* AMSetupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98760D421A8FDA5E00B67F43 /* AMSetupTableViewController.m */; };
+		98760D461A8FE15900B67F43 /* AMPickerSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98760D451A8FE15900B67F43 /* AMPickerSetupViewController.m */; };
+		987F18EA1A8A2D35005D1FBC /* AMClassTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 987F18E91A8A2D35005D1FBC /* AMClassTableViewCell.m */; };
+		DE9798C814BC8349006E5AC2 /* libDHxlsReaderIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B9A14BC7D9700845894 /* libDHxlsReaderIOS.a */; };
+		DE9798CD14BC83C1006E5AC2 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */; };
+		DE97994614BCD72E006E5AC2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DE97994514BCD72E006E5AC2 /* Icon.png */; };
+		DEB78B7514BC7D4400845894 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B7414BC7D4400845894 /* UIKit.framework */; };
+		DEB78B7714BC7D4400845894 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B7614BC7D4400845894 /* Foundation.framework */; };
+		DEB78B7914BC7D4400845894 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B7814BC7D4400845894 /* CoreGraphics.framework */; };
+		DEB78B7F14BC7D4400845894 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEB78B7D14BC7D4400845894 /* InfoPlist.strings */; };
+		DEB78B8114BC7D4400845894 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB78B8014BC7D4400845894 /* main.m */; };
+		DEB78B8514BC7D4400845894 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB78B8414BC7D4400845894 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3DA903E4179AC8B7006C2EF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEB78B9514BC7D9600845894 /* DHxlsReaderIOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 97BCBBE716DD4E9A00FF978C;
+			remoteInfo = DHxlsReader;
+		};
+		DEB78B9914BC7D9700845894 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEB78B9514BC7D9600845894 /* DHxlsReaderIOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DEB78ABF14BB9ABF00845894;
+			remoteInfo = DHxlsReaderIOS;
+		};
+		DEB78BA714BC7E8700845894 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEB78B9514BC7D9600845894 /* DHxlsReaderIOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DEB78ABE14BB9ABF00845894;
+			remoteInfo = DHxlsReaderIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DE9798C714BC800C006E5AC2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		981EBC961A88C75F0031E7D8 /* AMGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGroup.h; sourceTree = "<group>"; };
+		981EBC971A88C75F0031E7D8 /* AMGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGroup.m; sourceTree = "<group>"; };
+		981EBC991A88D0BA0031E7D8 /* AMCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCourse.h; sourceTree = "<group>"; };
+		981EBC9A1A88D0BA0031E7D8 /* AMCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCourse.m; sourceTree = "<group>"; };
+		98240A041A94E72C00911983 /* 1_1.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_1.xls; sourceTree = "<group>"; };
+		98240A051A94E72C00911983 /* 1_2.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_2.xls; sourceTree = "<group>"; };
+		98240A061A94E72C00911983 /* 1_3.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_3.xls; sourceTree = "<group>"; };
+		98240A071A94E72C00911983 /* 1_4.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_4.xls; sourceTree = "<group>"; };
+		98240A081A94E72C00911983 /* 1_5.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_5.xls; sourceTree = "<group>"; };
+		98240A0A1A94E72C00911983 /* 2_1.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_1.xls; sourceTree = "<group>"; };
+		98240A0B1A94E72C00911983 /* 2_2.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_2.xls; sourceTree = "<group>"; };
+		98240A0C1A94E72C00911983 /* 2_3.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_3.xls; sourceTree = "<group>"; };
+		98240A0D1A94E72C00911983 /* 2_4.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_4.xls; sourceTree = "<group>"; };
+		98240A0E1A94E72C00911983 /* 2_5.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_5.xls; sourceTree = "<group>"; };
+		98240A101A94E72C00911983 /* 3_1.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_1.xls; sourceTree = "<group>"; };
+		98240A111A94E72C00911983 /* 3_2.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_2.xls; sourceTree = "<group>"; };
+		98240A121A94E72C00911983 /* 3_3.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_3.xls; sourceTree = "<group>"; };
+		98240A131A94E72C00911983 /* 3_4.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_4.xls; sourceTree = "<group>"; };
+		98240A141A94E72C00911983 /* 3_5.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_5.xls; sourceTree = "<group>"; };
+		98240A161A94E72C00911983 /* 4_1.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_1.xls; sourceTree = "<group>"; };
+		98240A171A94E72C00911983 /* 4_2.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_2.xls; sourceTree = "<group>"; };
+		98240A181A94E72C00911983 /* 4_3.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_3.xls; sourceTree = "<group>"; };
+		98240A191A94E72C00911983 /* 4_4.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_4.xls; sourceTree = "<group>"; };
+		98240A1A1A94E72C00911983 /* 4_5.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_5.xls; sourceTree = "<group>"; };
+		98372AB41A8A8C4100B1ACCF /* AMGroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGroupTableViewCell.h; sourceTree = "<group>"; };
+		98372AB51A8A8C4100B1ACCF /* AMGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGroupTableViewCell.m; sourceTree = "<group>"; };
+		98372AB71A8A905800B1ACCF /* AMReaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMReaderManager.h; sourceTree = "<group>"; };
+		98372AB81A8A905800B1ACCF /* AMReaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMReaderManager.m; sourceTree = "<group>"; };
+		9843842D1A921B260068C329 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		984384311A921D1B0068C329 /* AMDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDataManager.h; sourceTree = "<group>"; };
+		984384321A921D1B0068C329 /* AMDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDataManager.m; sourceTree = "<group>"; };
+		984384341A921E990068C329 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		984384371A9224040068C329 /* AMCustomVSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCustomVSchedule.h; sourceTree = "<group>"; };
+		984384381A9224040068C329 /* AMCustomVSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCustomVSchedule.m; sourceTree = "<group>"; };
+		9843843A1A9224050068C329 /* AMObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMObjects.h; sourceTree = "<group>"; };
+		9843843B1A9224050068C329 /* AMObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMObjects.m; sourceTree = "<group>"; };
+		98479B571A91006100C5F4EF /* AMSelVScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSelVScheduleTableViewController.h; sourceTree = "<group>"; };
+		98479B581A91006100C5F4EF /* AMSelVScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSelVScheduleTableViewController.m; sourceTree = "<group>"; };
+		984C38DE1A8B83A3004A4E2E /* AMWeekTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMWeekTabBarController.h; sourceTree = "<group>"; };
+		984C38DF1A8B83A3004A4E2E /* AMWeekTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMWeekTabBarController.m; sourceTree = "<group>"; };
+		984C38E41A8BC173004A4E2E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		986545E71A8A116F00822291 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		986545EA1A8A11E000822291 /* AMGroupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGroupsTableViewController.h; sourceTree = "<group>"; };
+		986545EB1A8A11E000822291 /* AMGroupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGroupsTableViewController.m; sourceTree = "<group>"; };
+		986545F51A8A2C7100822291 /* AMClassTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMClassTableViewController.h; sourceTree = "<group>"; };
+		986545F61A8A2C7100822291 /* AMClassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMClassTableViewController.m; sourceTree = "<group>"; };
+		986D723E1A93A86000DD3F46 /* AMAddCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAddCourseTableViewController.h; sourceTree = "<group>"; };
+		986D723F1A93A86000DD3F46 /* AMAddCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAddCourseTableViewController.m; sourceTree = "<group>"; };
+		98760D3E1A8FD19700B67F43 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		98760D411A8FDA5E00B67F43 /* AMSetupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSetupTableViewController.h; sourceTree = "<group>"; };
+		98760D421A8FDA5E00B67F43 /* AMSetupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSetupTableViewController.m; sourceTree = "<group>"; };
+		98760D441A8FE15900B67F43 /* AMPickerSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPickerSetupViewController.h; sourceTree = "<group>"; };
+		98760D451A8FE15900B67F43 /* AMPickerSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPickerSetupViewController.m; sourceTree = "<group>"; };
+		987F18E81A8A2D35005D1FBC /* AMClassTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMClassTableViewCell.h; sourceTree = "<group>"; };
+		987F18E91A8A2D35005D1FBC /* AMClassTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMClassTableViewCell.m; sourceTree = "<group>"; };
+		DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		DE97994514BCD72E006E5AC2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		DEB78B7014BC7D4400845894 /* DiplomTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiplomTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEB78B7414BC7D4400845894 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DEB78B7614BC7D4400845894 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DEB78B7814BC7D4400845894 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DEB78B7C14BC7D4400845894 /* TestDHlibxls-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestDHlibxls-Info.plist"; sourceTree = "<group>"; };
+		DEB78B7E14BC7D4400845894 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DEB78B8014BC7D4400845894 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DEB78B8214BC7D4400845894 /* DiplomTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiplomTest-Prefix.pch"; sourceTree = "<group>"; };
+		DEB78B8314BC7D4400845894 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DEB78B8414BC7D4400845894 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DEB78B9514BC7D9600845894 /* DHxlsReaderIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DHxlsReaderIOS.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DEB78B6D14BC7D4400845894 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE9798CD14BC83C1006E5AC2 /* libiconv.dylib in Frameworks */,
+				DE9798C814BC8349006E5AC2 /* libDHxlsReaderIOS.a in Frameworks */,
+				DEB78B7914BC7D4400845894 /* CoreGraphics.framework in Frameworks */,
+				DEB78B7514BC7D4400845894 /* UIKit.framework in Frameworks */,
+				DEB78B7714BC7D4400845894 /* Foundation.framework in Frameworks */,
+				984384361A92200A0068C329 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		981EBC951A88C7400031E7D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				981EBC961A88C75F0031E7D8 /* AMGroup.h */,
+				981EBC971A88C75F0031E7D8 /* AMGroup.m */,
+				981EBC991A88D0BA0031E7D8 /* AMCourse.h */,
+				981EBC9A1A88D0BA0031E7D8 /* AMCourse.m */,
+				9843843A1A9224050068C329 /* AMObjects.h */,
+				9843843B1A9224050068C329 /* AMObjects.m */,
+				984384371A9224040068C329 /* AMCustomVSchedule.h */,
+				984384381A9224040068C329 /* AMCustomVSchedule.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		98240A021A94E72C00911983 /* xlsFile */ = {
+			isa = PBXGroup;
+			children = (
+				98240A031A94E72C00911983 /* 1 */,
+				98240A091A94E72C00911983 /* 2 */,
+				98240A0F1A94E72C00911983 /* 3 */,
+				98240A151A94E72C00911983 /* 4 */,
+			);
+			path = xlsFile;
+			sourceTree = "<group>";
+		};
+		98240A031A94E72C00911983 /* 1 */ = {
+			isa = PBXGroup;
+			children = (
+				98240A041A94E72C00911983 /* 1_1.xls */,
+				98240A051A94E72C00911983 /* 1_2.xls */,
+				98240A061A94E72C00911983 /* 1_3.xls */,
+				98240A071A94E72C00911983 /* 1_4.xls */,
+				98240A081A94E72C00911983 /* 1_5.xls */,
+			);
+			path = 1;
+			sourceTree = "<group>";
+		};
+		98240A091A94E72C00911983 /* 2 */ = {
+			isa = PBXGroup;
+			children = (
+				98240A0A1A94E72C00911983 /* 2_1.xls */,
+				98240A0B1A94E72C00911983 /* 2_2.xls */,
+				98240A0C1A94E72C00911983 /* 2_3.xls */,
+				98240A0D1A94E72C00911983 /* 2_4.xls */,
+				98240A0E1A94E72C00911983 /* 2_5.xls */,
+			);
+			path = 2;
+			sourceTree = "<group>";
+		};
+		98240A0F1A94E72C00911983 /* 3 */ = {
+			isa = PBXGroup;
+			children = (
+				98240A101A94E72C00911983 /* 3_1.xls */,
+				98240A111A94E72C00911983 /* 3_2.xls */,
+				98240A121A94E72C00911983 /* 3_3.xls */,
+				98240A131A94E72C00911983 /* 3_4.xls */,
+				98240A141A94E72C00911983 /* 3_5.xls */,
+			);
+			path = 3;
+			sourceTree = "<group>";
+		};
+		98240A151A94E72C00911983 /* 4 */ = {
+			isa = PBXGroup;
+			children = (
+				98240A161A94E72C00911983 /* 4_1.xls */,
+				98240A171A94E72C00911983 /* 4_2.xls */,
+				98240A181A94E72C00911983 /* 4_3.xls */,
+				98240A191A94E72C00911983 /* 4_4.xls */,
+				98240A1A1A94E72C00911983 /* 4_5.xls */,
+			);
+			path = 4;
+			sourceTree = "<group>";
+		};
+		984384301A921CF20068C329 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				98372AB71A8A905800B1ACCF /* AMReaderManager.h */,
+				98372AB81A8A905800B1ACCF /* AMReaderManager.m */,
+				984384311A921D1B0068C329 /* AMDataManager.h */,
+				984384321A921D1B0068C329 /* AMDataManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		986545F01A8A181D00822291 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				986545F51A8A2C7100822291 /* AMClassTableViewController.h */,
+				986545F61A8A2C7100822291 /* AMClassTableViewController.m */,
+				986545EA1A8A11E000822291 /* AMGroupsTableViewController.h */,
+				986545EB1A8A11E000822291 /* AMGroupsTableViewController.m */,
+				984C38DE1A8B83A3004A4E2E /* AMWeekTabBarController.h */,
+				984C38DF1A8B83A3004A4E2E /* AMWeekTabBarController.m */,
+				98760D411A8FDA5E00B67F43 /* AMSetupTableViewController.h */,
+				98760D421A8FDA5E00B67F43 /* AMSetupTableViewController.m */,
+				98760D441A8FE15900B67F43 /* AMPickerSetupViewController.h */,
+				98760D451A8FE15900B67F43 /* AMPickerSetupViewController.m */,
+				98479B571A91006100C5F4EF /* AMSelVScheduleTableViewController.h */,
+				98479B581A91006100C5F4EF /* AMSelVScheduleTableViewController.m */,
+				986D723E1A93A86000DD3F46 /* AMAddCourseTableViewController.h */,
+				986D723F1A93A86000DD3F46 /* AMAddCourseTableViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		986545F11A8A27F100822291 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				987F18E81A8A2D35005D1FBC /* AMClassTableViewCell.h */,
+				987F18E91A8A2D35005D1FBC /* AMClassTableViewCell.m */,
+				98372AB41A8A8C4100B1ACCF /* AMGroupTableViewCell.h */,
+				98372AB51A8A8C4100B1ACCF /* AMGroupTableViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		DEB78B6514BC7D4400845894 = {
+			isa = PBXGroup;
+			children = (
+				98760D3E1A8FD19700B67F43 /* Default-568h@2x.png */,
+				DEB78B9514BC7D9600845894 /* DHxlsReaderIOS.xcodeproj */,
+				DEB78B7A14BC7D4400845894 /* DimlomTest */,
+				DEB78B7314BC7D4400845894 /* Frameworks */,
+				DEB78B7114BC7D4400845894 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DEB78B7114BC7D4400845894 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DEB78B7014BC7D4400845894 /* DiplomTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DEB78B7314BC7D4400845894 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */,
+				984384341A921E990068C329 /* CoreData.framework */,
+				DEB78B7414BC7D4400845894 /* UIKit.framework */,
+				DEB78B7614BC7D4400845894 /* Foundation.framework */,
+				DEB78B7814BC7D4400845894 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DEB78B7A14BC7D4400845894 /* DimlomTest */ = {
+			isa = PBXGroup;
+			children = (
+				DEB78B8314BC7D4400845894 /* AppDelegate.h */,
+				DEB78B8414BC7D4400845894 /* AppDelegate.m */,
+				986545E71A8A116F00822291 /* Main.storyboard */,
+				984384301A921CF20068C329 /* Managers */,
+				981EBC951A88C7400031E7D8 /* Models */,
+				986545F11A8A27F100822291 /* Cell */,
+				986545F01A8A181D00822291 /* ViewControllers */,
+				DEB78B7B14BC7D4400845894 /* Supporting Files */,
+			);
+			name = DimlomTest;
+			path = TestDHlibxls;
+			sourceTree = "<group>";
+		};
+		DEB78B7B14BC7D4400845894 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				984C38E41A8BC173004A4E2E /* Images.xcassets */,
+				98240A021A94E72C00911983 /* xlsFile */,
+				9843842C1A921B260068C329 /* CoreData.xcdatamodeld */,
+				DE97994514BCD72E006E5AC2 /* Icon.png */,
+				DEB78B7C14BC7D4400845894 /* TestDHlibxls-Info.plist */,
+				DEB78B7D14BC7D4400845894 /* InfoPlist.strings */,
+				DEB78B8014BC7D4400845894 /* main.m */,
+				DEB78B8214BC7D4400845894 /* DiplomTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DEB78B9614BC7D9600845894 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DEB78B9A14BC7D9700845894 /* libDHxlsReaderIOS.a */,
+				3DA903E5179AC8B7006C2EF2 /* libDHxlsReader.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DEB78B6F14BC7D4400845894 /* DiplomTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEB78B8E14BC7D4400845894 /* Build configuration list for PBXNativeTarget "DiplomTest" */;
+			buildPhases = (
+				DEB78B6C14BC7D4400845894 /* Sources */,
+				DEB78B6D14BC7D4400845894 /* Frameworks */,
+				DEB78B6E14BC7D4400845894 /* Resources */,
+				DE9798C714BC800C006E5AC2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DEB78BA814BC7E8700845894 /* PBXTargetDependency */,
+			);
+			name = DiplomTest;
+			productName = TestDHlibxls;
+			productReference = DEB78B7014BC7D4400845894 /* DiplomTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DEB78B6714BC7D4400845894 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = DEB78B6A14BC7D4400845894 /* Build configuration list for PBXProject "DiplomTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DEB78B6514BC7D4400845894;
+			productRefGroup = DEB78B7114BC7D4400845894 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DEB78B9614BC7D9600845894 /* Products */;
+					ProjectRef = DEB78B9514BC7D9600845894 /* DHxlsReaderIOS.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				DEB78B6F14BC7D4400845894 /* DiplomTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3DA903E5179AC8B7006C2EF2 /* libDHxlsReader.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDHxlsReader.a;
+			remoteRef = 3DA903E4179AC8B7006C2EF2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DEB78B9A14BC7D9700845894 /* libDHxlsReaderIOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDHxlsReaderIOS.a;
+			remoteRef = DEB78B9914BC7D9700845894 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DEB78B6E14BC7D4400845894 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98240A2E1A94E72C00911983 /* 4_5.xls in Resources */,
+				98240A1E1A94E72C00911983 /* 1_4.xls in Resources */,
+				DEB78B7F14BC7D4400845894 /* InfoPlist.strings in Resources */,
+				98240A281A94E72C00911983 /* 3_4.xls in Resources */,
+				98240A2D1A94E72C00911983 /* 4_4.xls in Resources */,
+				984C38E51A8BC173004A4E2E /* Images.xcassets in Resources */,
+				98240A271A94E72C00911983 /* 3_3.xls in Resources */,
+				98240A241A94E72C00911983 /* 2_5.xls in Resources */,
+				98240A211A94E72C00911983 /* 2_2.xls in Resources */,
+				DE97994614BCD72E006E5AC2 /* Icon.png in Resources */,
+				98240A1B1A94E72C00911983 /* 1_1.xls in Resources */,
+				98240A221A94E72C00911983 /* 2_3.xls in Resources */,
+				98240A261A94E72C00911983 /* 3_2.xls in Resources */,
+				986545E81A8A116F00822291 /* Main.storyboard in Resources */,
+				98240A1C1A94E72C00911983 /* 1_2.xls in Resources */,
+				98240A1F1A94E72C00911983 /* 1_5.xls in Resources */,
+				98760D3F1A8FD19700B67F43 /* Default-568h@2x.png in Resources */,
+				98240A2A1A94E72C00911983 /* 4_1.xls in Resources */,
+				98240A1D1A94E72C00911983 /* 1_3.xls in Resources */,
+				98240A2C1A94E72C00911983 /* 4_3.xls in Resources */,
+				98240A201A94E72C00911983 /* 2_1.xls in Resources */,
+				98240A231A94E72C00911983 /* 2_4.xls in Resources */,
+				98240A251A94E72C00911983 /* 3_1.xls in Resources */,
+				98240A291A94E72C00911983 /* 3_5.xls in Resources */,
+				98240A2B1A94E72C00911983 /* 4_2.xls in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DEB78B6C14BC7D4400845894 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				987F18EA1A8A2D35005D1FBC /* AMClassTableViewCell.m in Sources */,
+				DEB78B8114BC7D4400845894 /* main.m in Sources */,
+				DEB78B8514BC7D4400845894 /* AppDelegate.m in Sources */,
+				981EBC9B1A88D0BA0031E7D8 /* AMCourse.m in Sources */,
+				981EBC981A88C75F0031E7D8 /* AMGroup.m in Sources */,
+				984C38E01A8B83A3004A4E2E /* AMWeekTabBarController.m in Sources */,
+				9843842E1A921B260068C329 /* CoreData.xcdatamodeld in Sources */,
+				98479B591A91006100C5F4EF /* AMSelVScheduleTableViewController.m in Sources */,
+				986D72401A93A86000DD3F46 /* AMAddCourseTableViewController.m in Sources */,
+				984384331A921D1B0068C329 /* AMDataManager.m in Sources */,
+				9843843C1A9224050068C329 /* AMObjects.m in Sources */,
+				986545F71A8A2C7100822291 /* AMClassTableViewController.m in Sources */,
+				984384391A9224040068C329 /* AMCustomVSchedule.m in Sources */,
+				98760D431A8FDA5E00B67F43 /* AMSetupTableViewController.m in Sources */,
+				986545EC1A8A11E000822291 /* AMGroupsTableViewController.m in Sources */,
+				98372AB91A8A905800B1ACCF /* AMReaderManager.m in Sources */,
+				98372AB61A8A8C4100B1ACCF /* AMGroupTableViewCell.m in Sources */,
+				98760D461A8FE15900B67F43 /* AMPickerSetupViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DEB78BA814BC7E8700845894 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DHxlsReaderIOS;
+			targetProxy = DEB78BA714BC7E8700845894 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DEB78B7D14BC7D4400845894 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEB78B7E14BC7D4400845894 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DE97994314BCD581006E5AC2 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = DHxlsReader;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		DE97994414BCD581006E5AC2 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
+				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
+				PRODUCT_NAME = DiplomTest;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Distribution;
+		};
+		DEB78B8C14BC7D4400845894 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = DHxlsReader;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DEB78B8D14BC7D4400845894 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = DHxlsReader;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DEB78B8F14BC7D4400845894 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
+				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
+				PRODUCT_NAME = DiplomTest;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DEB78B9014BC7D4400845894 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
+				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
+				PRODUCT_NAME = DiplomTest;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DEB78B6A14BC7D4400845894 /* Build configuration list for PBXProject "DiplomTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEB78B8C14BC7D4400845894 /* Debug */,
+				DEB78B8D14BC7D4400845894 /* Release */,
+				DE97994314BCD581006E5AC2 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEB78B8E14BC7D4400845894 /* Build configuration list for PBXNativeTarget "DiplomTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEB78B8F14BC7D4400845894 /* Debug */,
+				DEB78B9014BC7D4400845894 /* Release */,
+				DE97994414BCD581006E5AC2 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9843842C1A921B260068C329 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9843842D1A921B260068C329 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 9843842D1A921B260068C329 /* CoreData.xcdatamodel */;
+			name = CoreData.xcdatamodeld;
+			path = ../CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DEB78B6714BC7D4400845894 /* Project object */;
+}
