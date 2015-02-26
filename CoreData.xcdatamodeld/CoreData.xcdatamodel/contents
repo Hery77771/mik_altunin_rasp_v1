@@ -5,9 +5,16 @@
         <attribute name="groupName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="scheduleName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="AMNotes" representedClassName="AMNotes" parentEntity="AMObjects" syncable="YES">
+        <attribute name="addTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="AMObjects" representedClassName="AMObjects" syncable="YES"/>
     <elements>
-        <element name="AMCustomVSchedule" positionX="-684" positionY="-11826" width="128" height="88"/>
-        <element name="AMObjects" positionX="-405" positionY="-11941" width="128" height="43"/>
+        <element name="AMCustomVSchedule" positionX="-650" positionY="-11752" width="128" height="88"/>
+        <element name="AMNotes" positionX="-407" positionY="-11749" width="128" height="103"/>
+        <element name="AMObjects" positionX="-432" positionY="-11952" width="128" height="45"/>
     </elements>
 </model>

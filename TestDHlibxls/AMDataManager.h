@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "AMCustomVSchedule.h"
 
+@class  AMNotes;
+
 @interface AMDataManager : NSObject
 
 +(AMDataManager*)sharedManager;
@@ -26,7 +28,9 @@
 - (NSArray*) allCustomScheduleWithGroupName:(NSString*) groupName;
 
 - (AMCustomVSchedule*) addScheduleWithName:(NSString*) name groupName:(NSString*) groupName andCourseArray:(NSArray*) courseArray;
+- (AMNotes*) addNoteWithName:(NSString*) name;
 
 -(BOOL) updateSchedule:(AMCustomVSchedule*)schedule withCourseArray:(NSArray*)courseArray;
+-(BOOL) updateNote:(AMNotes*)note withText:(NSString*)text name:(NSString*)name endDate:(NSDate*)date;
 
 @end

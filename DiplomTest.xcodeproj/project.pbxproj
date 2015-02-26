@@ -42,14 +42,18 @@
 		986545E81A8A116F00822291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986545E71A8A116F00822291 /* Main.storyboard */; };
 		986545EC1A8A11E000822291 /* AMGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986545EB1A8A11E000822291 /* AMGroupsTableViewController.m */; };
 		986545F71A8A2C7100822291 /* AMClassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986545F61A8A2C7100822291 /* AMClassTableViewController.m */; };
+		986C74B11A9DF11900DC412D /* AMNotesNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 986C74B01A9DF11900DC412D /* AMNotesNameCell.m */; };
+		986C74B51A9DF15500DC412D /* AMNotesTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 986C74B41A9DF15500DC412D /* AMNotesTextCell.m */; };
 		986D72401A93A86000DD3F46 /* AMAddCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986D723F1A93A86000DD3F46 /* AMAddCourseTableViewController.m */; };
-		98760D3F1A8FD19700B67F43 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98760D3E1A8FD19700B67F43 /* Default-568h@2x.png */; };
 		98760D431A8FDA5E00B67F43 /* AMSetupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98760D421A8FDA5E00B67F43 /* AMSetupTableViewController.m */; };
 		98760D461A8FE15900B67F43 /* AMPickerSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98760D451A8FE15900B67F43 /* AMPickerSetupViewController.m */; };
 		987F18EA1A8A2D35005D1FBC /* AMClassTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 987F18E91A8A2D35005D1FBC /* AMClassTableViewCell.m */; };
+		9895652B1A9B7750005AF795 /* AMNotesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895652A1A9B7750005AF795 /* AMNotesTableViewCell.m */; };
+		9895652F1A9B7830005AF795 /* AMNotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895652E1A9B7830005AF795 /* AMNotesTableViewController.m */; };
+		989565321A9B79C3005AF795 /* AMNotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 989565311A9B79C3005AF795 /* AMNotes.m */; };
+		989565351A9B8781005AF795 /* AMAddNotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989565341A9B8781005AF795 /* AMAddNotesTableViewController.m */; };
 		DE9798C814BC8349006E5AC2 /* libDHxlsReaderIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B9A14BC7D9700845894 /* libDHxlsReaderIOS.a */; };
 		DE9798CD14BC83C1006E5AC2 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */; };
-		DE97994614BCD72E006E5AC2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DE97994514BCD72E006E5AC2 /* Icon.png */; };
 		DEB78B7514BC7D4400845894 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B7414BC7D4400845894 /* UIKit.framework */; };
 		DEB78B7714BC7D4400845894 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B7614BC7D4400845894 /* Foundation.framework */; };
 		DEB78B7914BC7D4400845894 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B7814BC7D4400845894 /* CoreGraphics.framework */; };
@@ -141,17 +145,27 @@
 		986545EB1A8A11E000822291 /* AMGroupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGroupsTableViewController.m; sourceTree = "<group>"; };
 		986545F51A8A2C7100822291 /* AMClassTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMClassTableViewController.h; sourceTree = "<group>"; };
 		986545F61A8A2C7100822291 /* AMClassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMClassTableViewController.m; sourceTree = "<group>"; };
+		986C74AF1A9DF11900DC412D /* AMNotesNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNotesNameCell.h; sourceTree = "<group>"; };
+		986C74B01A9DF11900DC412D /* AMNotesNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotesNameCell.m; sourceTree = "<group>"; };
+		986C74B31A9DF15500DC412D /* AMNotesTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNotesTextCell.h; sourceTree = "<group>"; };
+		986C74B41A9DF15500DC412D /* AMNotesTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotesTextCell.m; sourceTree = "<group>"; };
 		986D723E1A93A86000DD3F46 /* AMAddCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAddCourseTableViewController.h; sourceTree = "<group>"; };
 		986D723F1A93A86000DD3F46 /* AMAddCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAddCourseTableViewController.m; sourceTree = "<group>"; };
-		98760D3E1A8FD19700B67F43 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		98760D411A8FDA5E00B67F43 /* AMSetupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSetupTableViewController.h; sourceTree = "<group>"; };
 		98760D421A8FDA5E00B67F43 /* AMSetupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSetupTableViewController.m; sourceTree = "<group>"; };
 		98760D441A8FE15900B67F43 /* AMPickerSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPickerSetupViewController.h; sourceTree = "<group>"; };
 		98760D451A8FE15900B67F43 /* AMPickerSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPickerSetupViewController.m; sourceTree = "<group>"; };
 		987F18E81A8A2D35005D1FBC /* AMClassTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMClassTableViewCell.h; sourceTree = "<group>"; };
 		987F18E91A8A2D35005D1FBC /* AMClassTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMClassTableViewCell.m; sourceTree = "<group>"; };
+		989565291A9B7750005AF795 /* AMNotesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNotesTableViewCell.h; sourceTree = "<group>"; };
+		9895652A1A9B7750005AF795 /* AMNotesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotesTableViewCell.m; sourceTree = "<group>"; };
+		9895652D1A9B7830005AF795 /* AMNotesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNotesTableViewController.h; sourceTree = "<group>"; };
+		9895652E1A9B7830005AF795 /* AMNotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotesTableViewController.m; sourceTree = "<group>"; };
+		989565301A9B79C3005AF795 /* AMNotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNotes.h; sourceTree = "<group>"; };
+		989565311A9B79C3005AF795 /* AMNotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotes.m; sourceTree = "<group>"; };
+		989565331A9B8781005AF795 /* AMAddNotesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAddNotesTableViewController.h; sourceTree = "<group>"; };
+		989565341A9B8781005AF795 /* AMAddNotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAddNotesTableViewController.m; sourceTree = "<group>"; };
 		DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
-		DE97994514BCD72E006E5AC2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		DEB78B7014BC7D4400845894 /* DiplomTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiplomTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB78B7414BC7D4400845894 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DEB78B7614BC7D4400845894 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -193,6 +207,8 @@
 				9843843B1A9224050068C329 /* AMObjects.m */,
 				984384371A9224040068C329 /* AMCustomVSchedule.h */,
 				984384381A9224040068C329 /* AMCustomVSchedule.m */,
+				989565301A9B79C3005AF795 /* AMNotes.h */,
+				989565311A9B79C3005AF795 /* AMNotes.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -284,6 +300,10 @@
 				98479B581A91006100C5F4EF /* AMSelVScheduleTableViewController.m */,
 				986D723E1A93A86000DD3F46 /* AMAddCourseTableViewController.h */,
 				986D723F1A93A86000DD3F46 /* AMAddCourseTableViewController.m */,
+				9895652D1A9B7830005AF795 /* AMNotesTableViewController.h */,
+				9895652E1A9B7830005AF795 /* AMNotesTableViewController.m */,
+				989565331A9B8781005AF795 /* AMAddNotesTableViewController.h */,
+				989565341A9B8781005AF795 /* AMAddNotesTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -295,6 +315,12 @@
 				987F18E91A8A2D35005D1FBC /* AMClassTableViewCell.m */,
 				98372AB41A8A8C4100B1ACCF /* AMGroupTableViewCell.h */,
 				98372AB51A8A8C4100B1ACCF /* AMGroupTableViewCell.m */,
+				989565291A9B7750005AF795 /* AMNotesTableViewCell.h */,
+				9895652A1A9B7750005AF795 /* AMNotesTableViewCell.m */,
+				986C74AF1A9DF11900DC412D /* AMNotesNameCell.h */,
+				986C74B01A9DF11900DC412D /* AMNotesNameCell.m */,
+				986C74B31A9DF15500DC412D /* AMNotesTextCell.h */,
+				986C74B41A9DF15500DC412D /* AMNotesTextCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -302,7 +328,6 @@
 		DEB78B6514BC7D4400845894 = {
 			isa = PBXGroup;
 			children = (
-				98760D3E1A8FD19700B67F43 /* Default-568h@2x.png */,
 				DEB78B9514BC7D9600845894 /* DHxlsReaderIOS.xcodeproj */,
 				DEB78B7A14BC7D4400845894 /* DimlomTest */,
 				DEB78B7314BC7D4400845894 /* Frameworks */,
@@ -350,9 +375,8 @@
 			isa = PBXGroup;
 			children = (
 				984C38E41A8BC173004A4E2E /* Images.xcassets */,
-				98240A021A94E72C00911983 /* xlsFile */,
 				9843842C1A921B260068C329 /* CoreData.xcdatamodeld */,
-				DE97994514BCD72E006E5AC2 /* Icon.png */,
+				98240A021A94E72C00911983 /* xlsFile */,
 				DEB78B7C14BC7D4400845894 /* TestDHlibxls-Info.plist */,
 				DEB78B7D14BC7D4400845894 /* InfoPlist.strings */,
 				DEB78B8014BC7D4400845894 /* main.m */,
@@ -406,6 +430,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = DEB78B6514BC7D4400845894;
 			productRefGroup = DEB78B7114BC7D4400845894 /* Products */;
@@ -454,14 +479,12 @@
 				98240A271A94E72C00911983 /* 3_3.xls in Resources */,
 				98240A241A94E72C00911983 /* 2_5.xls in Resources */,
 				98240A211A94E72C00911983 /* 2_2.xls in Resources */,
-				DE97994614BCD72E006E5AC2 /* Icon.png in Resources */,
 				98240A1B1A94E72C00911983 /* 1_1.xls in Resources */,
 				98240A221A94E72C00911983 /* 2_3.xls in Resources */,
 				98240A261A94E72C00911983 /* 3_2.xls in Resources */,
 				986545E81A8A116F00822291 /* Main.storyboard in Resources */,
 				98240A1C1A94E72C00911983 /* 1_2.xls in Resources */,
 				98240A1F1A94E72C00911983 /* 1_5.xls in Resources */,
-				98760D3F1A8FD19700B67F43 /* Default-568h@2x.png in Resources */,
 				98240A2A1A94E72C00911983 /* 4_1.xls in Resources */,
 				98240A1D1A94E72C00911983 /* 1_3.xls in Resources */,
 				98240A2C1A94E72C00911983 /* 4_3.xls in Resources */,
@@ -481,12 +504,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				987F18EA1A8A2D35005D1FBC /* AMClassTableViewCell.m in Sources */,
+				989565351A9B8781005AF795 /* AMAddNotesTableViewController.m in Sources */,
+				989565321A9B79C3005AF795 /* AMNotes.m in Sources */,
 				DEB78B8114BC7D4400845894 /* main.m in Sources */,
+				9895652B1A9B7750005AF795 /* AMNotesTableViewCell.m in Sources */,
 				DEB78B8514BC7D4400845894 /* AppDelegate.m in Sources */,
 				981EBC9B1A88D0BA0031E7D8 /* AMCourse.m in Sources */,
 				981EBC981A88C75F0031E7D8 /* AMGroup.m in Sources */,
+				986C74B51A9DF15500DC412D /* AMNotesTextCell.m in Sources */,
 				984C38E01A8B83A3004A4E2E /* AMWeekTabBarController.m in Sources */,
 				9843842E1A921B260068C329 /* CoreData.xcdatamodeld in Sources */,
+				986C74B11A9DF11900DC412D /* AMNotesNameCell.m in Sources */,
 				98479B591A91006100C5F4EF /* AMSelVScheduleTableViewController.m in Sources */,
 				986D72401A93A86000DD3F46 /* AMAddCourseTableViewController.m in Sources */,
 				984384331A921D1B0068C329 /* AMDataManager.m in Sources */,
@@ -496,6 +524,7 @@
 				98760D431A8FDA5E00B67F43 /* AMSetupTableViewController.m in Sources */,
 				986545EC1A8A11E000822291 /* AMGroupsTableViewController.m in Sources */,
 				98372AB91A8A905800B1ACCF /* AMReaderManager.m in Sources */,
+				9895652F1A9B7830005AF795 /* AMNotesTableViewController.m in Sources */,
 				98372AB61A8A8C4100B1ACCF /* AMGroupTableViewCell.m in Sources */,
 				98760D461A8FE15900B67F43 /* AMPickerSetupViewController.m in Sources */,
 			);
@@ -545,9 +574,12 @@
 		DE97994414BCD581006E5AC2 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = DiplomTest;
 				WRAPPER_EXTENSION = app;
 			};
@@ -598,9 +630,12 @@
 		DEB78B8F14BC7D4400845894 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = DiplomTest;
 				WRAPPER_EXTENSION = app;
 			};
@@ -609,9 +644,12 @@
 		DEB78B9014BC7D4400845894 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = DiplomTest;
 				WRAPPER_EXTENSION = app;
 			};

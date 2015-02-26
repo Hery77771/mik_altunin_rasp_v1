@@ -8,12 +8,14 @@
 
 #import "AppDelegate.h"
 #import "AMGroupsTableViewController.h"
+#import "AMDataManager.h"
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //[[AMDataManager sharedManager]deleteAllObjects];
     return YES;
 }
 

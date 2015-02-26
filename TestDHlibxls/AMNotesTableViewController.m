@@ -1,21 +1,22 @@
 //
-//  AMSelVScheduleTableViewController.m
-//  DimlomTest
+//  AMNotesTableViewController.m
+//  DiplomTest
 //
-//  Created by Алтунин Михаил on 15.02.15.
+//  Created by Алтунин Михаил on 23.02.15.
 //
 //
 
-#import "AMSelVScheduleTableViewController.h"
-#import "AMWeekTabBarController.h"
-#import "AMSetupTableViewController.h"
+#import "AMNotesTableViewController.h"
 #import "AMDataManager.h"
+#import "AMNotes.h"
+#import "AMNotesTableViewCell.h"
+#import "AMAddNotesTableViewController.h"
 
-@interface AMSelVScheduleTableViewController () <UITableViewDataSource>
-@property (strong,nonatomic) AMSetupTableViewController* setup;
+@interface AMNotesTableViewController () <UITableViewDataSource>
+
 @end
 
-@implementation AMSelVScheduleTableViewController
+@implementation AMNotesTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,21 +31,6 @@
 {
     [super viewDidLoad];
     
-    UITabBarController* tb = (UITabBarController*)[[self navigationController] parentViewController];
-    
-    for (int i = 0; i < [[tb viewControllers] count]; i++) {
-        id obj = [[[[tb viewControllers]objectAtIndex:i] childViewControllers]firstObject];
-        if ([obj isKindOfClass:[AMSetupTableViewController class]]) {
-            self.setup = obj;
-            break;
-        }
-    }
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
@@ -63,18 +49,15 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"AMCustomVSchedule" inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"AMNotes" inManagedObjectContext:[self managedObjectContext]];
     [fetchRequest setEntity:entity];
     
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"groupName = %@",self.setup.selectedGroupe.text];
-    [fetchRequest setPredicate:predicate];
-    
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"groupName" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"addTime" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -122,46 +105,38 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* indentifier = @"Cell";
+    static NSString* indentifier = @"NotesCell";
     
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
+    AMNotesTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
+        cell = [[AMNotesTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
     }
-    
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
 
-- (IBAction)addCustomSchedule:(id)sender {
+- (IBAction)addCustomNotes:(id)sender; {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Создание расписания." message:@"Имя нового расписания:" delegate:self cancelButtonTitle:@"Отмена" otherButtonTitles:@"Используя шаблон mati.ru",@"Пустой шаблон", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Создание заметкт." message:@"Имя новой заметки:" delegate:self cancelButtonTitle:@"Отмена" otherButtonTitles:@"Ок", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
 }
 
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
     switch (buttonIndex) {
         case 1: {
             
-            NSString* scheduleName = [[alertView textFieldAtIndex:0]text];
-            [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.setup.selectedGroupe.text andCourseArray:self.setup.courseArray];
+            NSString* noteName = [[NSString alloc]initWithString:[[alertView textFieldAtIndex:0]text]];
+            [[AMDataManager sharedManager]addNoteWithName:noteName];
             [[AMDataManager sharedManager]saveContext];
-            break;
-             }
-        case 2: {
             
-            NSString* scheduleName = [[alertView textFieldAtIndex:0]text];
-            [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.setup.selectedGroupe.text andCourseArray:nil];
-            [[AMDataManager sharedManager]saveContext];
             break;
         }
-            
         default:
             break;
     }
@@ -171,20 +146,19 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    AMWeekTabBarController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"WeekTabBar"];
+    AMAddNotesTableViewController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"AddNote"];
     
-   
-        AMCustomVSchedule* sh = [[[AMDataManager sharedManager]allCustomScheduleWithGroupName:self.setup.selectedGroupe.text]objectAtIndex:indexPath.row];
-        [dest setCustomSchedule:sh];
+    AMNotes* note = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
+    [dest setDelegate:note];
     
-        UIViewController* mainVC = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
+    [self.navigationController pushViewController:dest animated:YES];
     
-        [mainVC presentViewController:dest animated:YES completion:nil];
+    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        return YES;
+    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -262,16 +236,18 @@
     [self.tableView endUpdates];
 }
 
-
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    AMCustomVSchedule* sh = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
-    cell.textLabel.text = sh.scheduleName;
+    AMNotes* notes = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
+    AMNotesTableViewCell* notesCell = (AMNotesTableViewCell*)cell;
+    notesCell.NameLable.text = notes.name;
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"dd.MM.yyyy";
+    notesCell.timeLabe.text = [dateFormatter stringFromDate:notes.endTime];
 }
 
-
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    return @"Нажмите + для добавления расписания.";
+    return @"Нажмите + для добавления заметки.";
 }
 
 @end

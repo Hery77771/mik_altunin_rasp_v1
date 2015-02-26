@@ -7,6 +7,7 @@
 //
 
 #import "AMDataManager.h"
+#import "AMNotes.h"
 
 @implementation AMDataManager
 
@@ -124,6 +125,17 @@
     return schedule;
 }
 
+- (AMNotes*) addNoteWithName:(NSString*) name {
+    
+    AMNotes* note =
+    [NSEntityDescription insertNewObjectForEntityForName:@"AMNotes"
+                                  inManagedObjectContext:self.managedObjectContext];
+    note.name = name;
+    note.addTime = [[NSDate alloc]init];
+    note.endTime = [[NSDate alloc]initWithTimeIntervalSinceNow:24*60*60];
+    return note;
+}
+
 
 - (void)saveContext
 {
@@ -232,4 +244,37 @@
         return YES;
     }
 }
+
+-(BOOL) updateNote:(AMNotes*)note
+          withText:(NSString*)text
+              name:(NSString*)name
+           endDate:(NSDate*)date {
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity =
+    [NSEntityDescription entityForName:@"AMNotes"
+                inManagedObjectContext:self.managedObjectContext];
+    
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@ AND addTime = %@", note.name,note.addTime];
+    
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (array == nil) {
+        return NO;
+    } else {
+        AMNotes* updateNote = [array firstObject];
+        updateNote.name = name;
+        updateNote.endTime = date;
+        updateNote.text = text;
+        [self saveContext];
+        return YES;
+    }
+}
+
 @end

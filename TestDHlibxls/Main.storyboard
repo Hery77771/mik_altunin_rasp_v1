@@ -75,7 +75,7 @@
         <scene sceneID="YtU-jK-2Hn">
             <objects>
                 <navigationController definesPresentationContext="YES" id="I7G-uw-i7n" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Расписание" image="book-grey" id="720-lJ-FSm"/>
+                    <tabBarItem key="tabBarItem" title="Расписание" image="groups" id="720-lJ-FSm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pno-qN-vwr">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -120,8 +120,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="oZ3-yL-bca" kind="relationship" relationship="viewControllers" id="lJb-6z-eEQ"/>
-                        <segue destination="I7G-uw-i7n" kind="relationship" relationship="viewControllers" id="ZGU-fQ-llE"/>
+                        <segue destination="RRb-Du-9xc" kind="relationship" relationship="viewControllers" id="fN6-oJ-b79"/>
+                        <segue destination="oZ3-yL-bca" kind="relationship" relationship="viewControllers" id="Sej-Sp-azv"/>
+                        <segue destination="I7G-uw-i7n" kind="relationship" relationship="viewControllers" id="xnq-aB-bUd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EfZ-ll-9Ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -302,6 +303,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDr-66-PCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="587" y="993"/>
+        </scene>
+        <!--Notes Table View Controller - Заметки-->
+        <scene sceneID="j7F-af-F9M">
+            <objects>
+                <tableViewController id="4uM-pI-Xyk" customClass="AMNotesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="j3E-My-IG7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NotesCell" rowHeight="60" id="HCa-3c-QQE" customClass="AMNotesTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HCa-3c-QQE" id="2a8-ES-hpv">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q5j-l1-6hT">
+                                            <rect key="frame" x="20" y="0.0" width="275" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZLC-kt-CUr">
+                                            <rect key="frame" x="180" y="31" width="115" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выполнить до:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DFO-qO-Of5">
+                                            <rect key="frame" x="53" y="31" width="119" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock3030" id="Nsi-i4-GN2">
+                                            <rect key="frame" x="20" y="29" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="NameLable" destination="q5j-l1-6hT" id="cZf-iP-GIR"/>
+                                    <outlet property="timeLabe" destination="ZLC-kt-CUr" id="VWf-Mm-icN"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4uM-pI-Xyk" id="UHe-Ww-snP"/>
+                            <outlet property="delegate" destination="4uM-pI-Xyk" id="OeB-ed-F2V"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Заметки" id="Wjz-ui-T95">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IUD-IY-72N">
+                            <connections>
+                                <action selector="addCustomNotes:" destination="4uM-pI-Xyk" id="GFF-Iu-0Oq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3VP-oB-WtO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169" y="2477"/>
+        </scene>
+        <!--Navigation Controller - Заметки-->
+        <scene sceneID="nLW-JZ-FOa">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="RRb-Du-9xc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Заметки" image="book-grey" id="jZp-M4-hhD"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="spq-6N-0BH">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4uM-pI-Xyk" kind="relationship" relationship="rootViewController" id="2OW-d0-qNn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLy-z4-VBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="587" y="2453"/>
         </scene>
         <!--Class Table View Controller-->
         <scene sceneID="QDJ-n3-deI">
@@ -713,10 +795,153 @@
             </objects>
             <point key="canvasLocation" x="3837" y="251"/>
         </scene>
+        <!--Add Notes Table View Controller - DateCell-->
+        <scene sceneID="R1N-q7-gPo">
+            <objects>
+                <tableViewController storyboardIdentifier="AddNote" id="OCM-C1-npK" customClass="AMAddNotesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="apa-T2-uuP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="nameCell" rowHeight="55" id="l8I-yj-b2N" customClass="AMNotesNameCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="55"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l8I-yj-b2N" id="Bcg-JB-EAY">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите имя заметки" textAlignment="center" minimumFontSize="17" id="MFw-AD-NVS">
+                                            <rect key="frame" x="20" y="7" width="280" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="OCM-C1-npK" id="3sz-aB-VYx"/>
+                                            </connections>
+                                        </textField>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата создания:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3cl-b4-iSV">
+                                            <rect key="frame" x="173" y="38" width="70" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21.10.1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Hb-y5-PY9">
+                                            <rect key="frame" x="251" y="38" width="49" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="noteAddDate" destination="5Hb-y5-PY9" id="UPk-6g-XKQ"/>
+                                    <outlet property="noteName" destination="MFw-AD-NVS" id="loa-el-BTO"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="dateCell" textLabel="qVc-0H-yYP" detailTextLabel="yE2-Yv-6NZ" style="IBUITableViewCellStyleValue1" id="Ukj-zX-JCp">
+                                <rect key="frame" x="0.0" y="77" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ukj-zX-JCp" id="ovG-mr-AhK">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Выполнить до:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qVc-0H-yYP">
+                                            <rect key="frame" x="15" y="12" width="127" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yE2-Yv-6NZ">
+                                            <rect key="frame" x="261" y="12" width="44" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="datePicker" rowHeight="216" id="XWK-ZB-err">
+                                <rect key="frame" x="0.0" y="121" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XWK-ZB-err" id="YAz-qw-6ex">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <datePicker tag="99" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="2zl-5r-a6e">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                            <date key="date" timeIntervalSinceReferenceDate="393205466.33293098">
+                                                <!--2013-06-17 23:44:26 +0000-->
+                                            </date>
+                                            <connections>
+                                                <action selector="dateAction:" destination="OCM-C1-npK" eventType="valueChanged" id="fL4-Tf-YQ3"/>
+                                            </connections>
+                                        </datePicker>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textCell" rowHeight="360" id="08X-HF-Egv" customClass="AMNotesTextCell">
+                                <rect key="frame" x="0.0" y="337" width="320" height="360"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="08X-HF-Egv" id="FHU-qi-lv4">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="vo8-9B-kSv">
+                                            <rect key="frame" x="0.0" y="1" width="320" height="359"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="OCM-C1-npK" id="4Ph-KM-yF6"/>
+                                            </connections>
+                                        </textView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="noteText" destination="vo8-9B-kSv" id="cfb-eC-pVd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="DateCell" id="7m1-nI-qyA"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="doneButton" destination="YAO-md-NrW" id="wEG-lK-ynx"/>
+                        <outlet property="pickerView" destination="zrn-if-6E7" id="Dq6-Ct-jiD"/>
+                        <outlet property="view" destination="apa-T2-uuP" id="kuL-aI-kbS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M9C-AJ-orQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Done" style="done" id="YAO-md-NrW" userLabel="Done Button">
+                    <connections>
+                        <action selector="doneAction:" destination="OCM-C1-npK" id="97N-9N-Uwx"/>
+                    </connections>
+                </barButtonItem>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="zrn-if-6E7">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <date key="date" timeIntervalSinceReferenceDate="377204788.09288597">
+                        <!--2012-12-14 19:06:28 +0000-->
+                    </date>
+                    <connections>
+                        <action selector="dateAction:" destination="OCM-C1-npK" eventType="valueChanged" id="N4w-xk-Fjw"/>
+                    </connections>
+                </datePicker>
+            </objects>
+            <point key="canvasLocation" x="1631" y="2477"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Numbers-1-icon3030" width="30" height="30"/>
         <image name="book-grey" width="30" height="29"/>
+        <image name="clock3030" width="30" height="30"/>
+        <image name="groups" width="30" height="30"/>
         <image name="numbers-2-icon3030" width="30" height="30"/>
         <image name="setupIcon3030" width="30" height="30"/>
     </resources>
