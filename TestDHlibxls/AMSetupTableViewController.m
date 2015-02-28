@@ -13,6 +13,7 @@
 
 @interface AMSetupTableViewController () <UITableViewDelegate>
 
+
 @end
 
 @implementation AMSetupTableViewController
@@ -29,9 +30,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.courseArray = [[NSArray alloc]init];
     [self loadInUserDefaults];
-    [self loadCourseArray];
+    
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:70/255.0f green:150/255.0f blue:240/255.0f alpha:0.9f]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [self.navigationController.navigationBar setBarStyle:UIStatusBarStyleLightContent];
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
@@ -65,16 +71,16 @@
         self.selectedGroupe.text = [defaults objectForKey:@"selectedGroupe"];
 }
 
--(void)loadCourseArray {
-    if ([self.selectedCourse.text isEqualToString:@"Выберите курс"] || [self.selectedInstitute.text isEqualToString:@"Выберите институт"] || [self.selectedInstitute.text isEqualToString:@"Выберите  группу"]) {
-        return;
-    } else {
-        NSLog(@"%@",[NSString stringWithFormat:@"%ld_%ld.xls",(long)self.instituteIndex,(long)self.courseIndex]);
-        NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld_%ld.xls",(long)self.instituteIndex,(long)self.courseIndex]];
-        AMReaderManager* reader = [[AMReaderManager alloc]initWithPath:path];
-        self.courseArray = [reader getCourseArrayOfGroupName:self.selectedGroupe.text];
-    }
-}
+//-(void)loadCourseArray {
+//    if ([self.selectedCourse.text isEqualToString:@"Выберите курс"] || [self.selectedInstitute.text isEqualToString:@"Выберите институт"] || [self.selectedInstitute.text isEqualToString:@"Выберите  группу"]) {
+//        return;
+//    } else {
+//        NSLog(@"%@",[NSString stringWithFormat:@"%ld_%ld.xls",(long)self.instituteIndex,(long)self.courseIndex]);
+//        NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld_%ld.xls",(long)self.instituteIndex,(long)self.courseIndex]];
+//        AMReaderManager* reader = [[AMReaderManager alloc]initWithPath:path];
+//        self.courseArray = [reader getCourseArrayOfGroupName:self.selectedGroupe.text];
+//    }
+//}
 
 - (void)didReceiveMemoryWarning
 {

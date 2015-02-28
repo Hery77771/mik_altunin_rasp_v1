@@ -31,6 +31,7 @@
 		98240A2E1A94E72C00911983 /* 4_5.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A1A1A94E72C00911983 /* 4_5.xls */; };
 		98372AB61A8A8C4100B1ACCF /* AMGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98372AB51A8A8C4100B1ACCF /* AMGroupTableViewCell.m */; };
 		98372AB91A8A905800B1ACCF /* AMReaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98372AB81A8A905800B1ACCF /* AMReaderManager.m */; };
+		98390BD21A9F545F008FB583 /* THNotesTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98390BD11A9F545F008FB583 /* THNotesTextView.m */; };
 		9843842E1A921B260068C329 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9843842C1A921B260068C329 /* CoreData.xcdatamodeld */; };
 		984384331A921D1B0068C329 /* AMDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 984384321A921D1B0068C329 /* AMDataManager.m */; };
 		984384361A92200A0068C329 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984384341A921E990068C329 /* CoreData.framework */; };
@@ -127,6 +128,8 @@
 		98372AB51A8A8C4100B1ACCF /* AMGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGroupTableViewCell.m; sourceTree = "<group>"; };
 		98372AB71A8A905800B1ACCF /* AMReaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMReaderManager.h; sourceTree = "<group>"; };
 		98372AB81A8A905800B1ACCF /* AMReaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMReaderManager.m; sourceTree = "<group>"; };
+		98390BD01A9F545F008FB583 /* THNotesTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THNotesTextView.h; path = TestDHlibxls/THNotesTextView.h; sourceTree = SOURCE_ROOT; };
+		98390BD11A9F545F008FB583 /* THNotesTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = THNotesTextView.m; path = TestDHlibxls/THNotesTextView.m; sourceTree = SOURCE_ROOT; };
 		9843842D1A921B260068C329 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		984384311A921D1B0068C329 /* AMDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDataManager.h; sourceTree = "<group>"; };
 		984384321A921D1B0068C329 /* AMDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDataManager.m; sourceTree = "<group>"; };
@@ -272,6 +275,16 @@
 			path = 4;
 			sourceTree = "<group>";
 		};
+		98390BCB1A9F5351008FB583 /* THNotesTextView */ = {
+			isa = PBXGroup;
+			children = (
+				98390BD01A9F545F008FB583 /* THNotesTextView.h */,
+				98390BD11A9F545F008FB583 /* THNotesTextView.m */,
+			);
+			name = THNotesTextView;
+			path = ../../THNotesTextView;
+			sourceTree = "<group>";
+		};
 		984384301A921CF20068C329 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +374,7 @@
 				DEB78B8314BC7D4400845894 /* AppDelegate.h */,
 				DEB78B8414BC7D4400845894 /* AppDelegate.m */,
 				986545E71A8A116F00822291 /* Main.storyboard */,
+				98390BCB1A9F5351008FB583 /* THNotesTextView */,
 				984384301A921CF20068C329 /* Managers */,
 				981EBC951A88C7400031E7D8 /* Models */,
 				986545F11A8A27F100822291 /* Cell */,
@@ -516,6 +530,7 @@
 				9843842E1A921B260068C329 /* CoreData.xcdatamodeld in Sources */,
 				986C74B11A9DF11900DC412D /* AMNotesNameCell.m in Sources */,
 				98479B591A91006100C5F4EF /* AMSelVScheduleTableViewController.m in Sources */,
+				98390BD21A9F545F008FB583 /* THNotesTextView.m in Sources */,
 				986D72401A93A86000DD3F46 /* AMAddCourseTableViewController.m in Sources */,
 				984384331A921D1B0068C329 /* AMDataManager.m in Sources */,
 				9843843C1A9224050068C329 /* AMObjects.m in Sources */,

@@ -53,10 +53,10 @@ extern int xls_debug;
     [self selectRowAtGroupName];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    AMSetupTableViewController* setup = self.delegate;
-    setup.courseArray = [self.reader getCourseArrayOfGroupName:setup.selectedGroupe.text];
-}
+//- (void)viewDidDisappear:(BOOL)animated {
+//    AMSetupTableViewController* setup = self.delegate;
+//    setup.courseArray = [self.reader getCourseArrayOfGroupName:setup.selectedGroupe.text];
+//}
 
 - (void)didReceiveMemoryWarning
 {

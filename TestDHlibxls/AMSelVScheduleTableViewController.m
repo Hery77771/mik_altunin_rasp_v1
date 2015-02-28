@@ -10,9 +10,14 @@
 #import "AMWeekTabBarController.h"
 #import "AMSetupTableViewController.h"
 #import "AMDataManager.h"
+#import "AMReaderManager.h"
 
 @interface AMSelVScheduleTableViewController () <UITableViewDataSource>
-@property (strong,nonatomic) AMSetupTableViewController* setup;
+//@property (strong,nonatomic) AMSetupTableViewController* setup;
+
+@property (strong,nonatomic)NSString* selectedGroupe;
+@property (strong,nonatomic)NSArray* courseArray;
+
 @end
 
 @implementation AMSelVScheduleTableViewController
@@ -29,22 +34,48 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadCourseArray];
     
-    UITabBarController* tb = (UITabBarController*)[[self navigationController] parentViewController];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:33/255.0f green:180/255.0f blue:82/255.0f alpha:0.9f]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [self.navigationController.navigationBar setBarStyle:UIStatusBarStyleLightContent];
     
-    for (int i = 0; i < [[tb viewControllers] count]; i++) {
-        id obj = [[[[tb viewControllers]objectAtIndex:i] childViewControllers]firstObject];
-        if ([obj isKindOfClass:[AMSetupTableViewController class]]) {
-            self.setup = obj;
-            break;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self loadCourseArray];
+    [self.tableView reloadData];
+}
+
+     
+-(void)loadCourseArray {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults objectForKey:@"selectedGroupe"]) {
+        if ([self.selectedGroupe isEqualToString:[defaults objectForKey:@"selectedGroupe"]]) {
+            return;
         }
+        else
+            self.selectedGroupe = [defaults objectForKey:@"selectedGroupe"];
     }
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    NSInteger courseIndex;
+    NSInteger instituteIndex;
+
+    if ([defaults objectForKey:@"selectedInstitute"]) {
+        instituteIndex = [defaults integerForKey:@"instituteIndex"];
+    }
+    if ([defaults objectForKey:@"selectedCourse"]) {
+        courseIndex = [defaults integerForKey:@"courseIndex"];
+    }
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld_%ld.xls",(long)instituteIndex,(long)courseIndex]];
+    AMReaderManager* reader = [[AMReaderManager alloc]initWithPath:path];
+    self.courseArray = [reader getCourseArrayOfGroupName:self.selectedGroupe];
 }
 
 
@@ -70,11 +101,11 @@
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"groupName = %@",self.setup.selectedGroupe.text];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"groupName = %@",self.selectedGroupe];
     [fetchRequest setPredicate:predicate];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"groupName" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"scheduleName" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -95,11 +126,6 @@
 	}
     
     return _fetchedResultsController;
-}
-
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.tableView reloadData];
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
@@ -150,15 +176,13 @@
         case 1: {
             
             NSString* scheduleName = [[alertView textFieldAtIndex:0]text];
-            [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.setup.selectedGroupe.text andCourseArray:self.setup.courseArray];
-            [[AMDataManager sharedManager]saveContext];
+            [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.selectedGroupe andCourseArray:self.courseArray];
             break;
-             }
+        }
         case 2: {
             
             NSString* scheduleName = [[alertView textFieldAtIndex:0]text];
-            [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.setup.selectedGroupe.text andCourseArray:nil];
-            [[AMDataManager sharedManager]saveContext];
+            [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.selectedGroupe andCourseArray:nil];
             break;
         }
             
@@ -173,18 +197,18 @@
     
     AMWeekTabBarController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"WeekTabBar"];
     
-   
-        AMCustomVSchedule* sh = [[[AMDataManager sharedManager]allCustomScheduleWithGroupName:self.setup.selectedGroupe.text]objectAtIndex:indexPath.row];
-        [dest setCustomSchedule:sh];
     
-        UIViewController* mainVC = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
+    AMCustomVSchedule* sh = [[[AMDataManager sharedManager]allCustomScheduleWithGroupName:self.selectedGroupe]objectAtIndex:indexPath.row];
+    [dest setCustomSchedule:sh];
     
-        [mainVC presentViewController:dest animated:YES completion:nil];
+    UIViewController* mainVC = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
+    
+    [mainVC presentViewController:dest animated:YES completion:nil];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        return YES;
+    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -272,6 +296,13 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     return @"Нажмите + для добавления расписания.";
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return CGFLOAT_MIN;
+    return tableView.sectionHeaderHeight;
 }
 
 @end

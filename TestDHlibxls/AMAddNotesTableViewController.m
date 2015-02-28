@@ -16,9 +16,6 @@
 #define kPickerAnimationDuration    0.40   // duration for the animation to slide the date picker into view
 #define kDatePickerTag              99     // view tag identifiying the date picker view
 
-#define kTitleKey       @"title"   // key for obtaining the data source item's title
-#define kDateKey        @"date"    // key for obtaining the data source item's date value
-
 // keep track of which rows have date cells
 #define kDateStartRow   1
 #define kDateEndRow     2
@@ -31,7 +28,7 @@ static NSInteger textCellRowHeight = 360;
 static NSInteger nameCellRowHeight = 55;
 
 @interface AMAddNotesTableViewController () <UITextFieldDelegate,UITextViewDelegate>
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSDate *selectedDate;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @property (nonatomic, strong) AMNotesNameCell *nameCell;
@@ -56,13 +53,9 @@ static NSInteger nameCellRowHeight = 55;
 {
     [super viewDidLoad];
     
-        NSMutableDictionary *itemOne = [@{ kTitleKey : @"Tap a cell to change its date:"} mutableCopy];
-    
-        NSMutableDictionary *itemTwo = [@{ kTitleKey : @"Выполнить до:",
-                                           kDateKey : self.delegate.endTime } mutableCopy];
-        NSMutableDictionary *itemFour = [@{ kTitleKey : @"(other item1)" } mutableCopy];
-        self.dataArray = @[itemOne, itemTwo, itemFour];
-        
+    if (self.delegate) {
+        self.selectedDate = self.delegate.endTime;
+    }
         
         self.dateFormatter = [[NSDateFormatter alloc] init];
         self.dateFormatter.dateFormat = @"dd.MM.yyyy";
@@ -70,10 +63,12 @@ static NSInteger nameCellRowHeight = 55;
         // obtain the picker view cell's height, works because the cell was pre-defined in our storyboard
         UITableViewCell *pickerViewCellToCheck = [self.tableView dequeueReusableCellWithIdentifier:kDatePickerID];
         self.pickerCellRowHeight = CGRectGetHeight(pickerViewCellToCheck.frame);
+        self.title = @"Редактирование";
         
         // if the local changes while in the background, we need to be notified so we can update the date
         // format in the table view cells
         //
+    
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(localeChanged:)
                                                      name:NSCurrentLocaleDidChangeNotification
@@ -163,8 +158,7 @@ NSUInteger DeviceSystemMajorVersion()
         {
             // we found a UIDatePicker in this cell, so update it's date value
             //
-            NSDictionary *itemData = self.dataArray[self.datePickerIndexPath.row - 1];
-            [targetedDatePicker setDate:[itemData valueForKey:kDateKey] animated:NO];
+            [targetedDatePicker setDate:self.selectedDate animated:NO];
         }
     }
 }
@@ -271,21 +265,13 @@ NSUInteger DeviceSystemMajorVersion()
         self.textCell.noteText.text = self.delegate.text;
     }
     
-    NSInteger modelRow = indexPath.row;
-    if (self.datePickerIndexPath != nil && self.datePickerIndexPath.row <= indexPath.row)
-    {
-        modelRow--;
-    }
-    
-    NSDictionary *itemData = self.dataArray[modelRow];
-    
     // proceed to configure our cell
     if ([cellID isEqualToString:kDateCellID])
     {
         // we have either start or end date cells, populate their date field
         //
-        cell.textLabel.text = [itemData valueForKey:kTitleKey];
-        cell.detailTextLabel.text = [self.dateFormatter stringFromDate:[itemData valueForKey:kDateKey]];
+        
+        cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.selectedDate];
     }
     
 	return cell;
@@ -371,8 +357,7 @@ NSUInteger DeviceSystemMajorVersion()
 - (void)displayExternalDatePickerForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // first update the date picker's date value according to our model
-    NSDictionary *itemData = self.dataArray[indexPath.row];
-    [self.pickerView setDate:[itemData valueForKey:kDateKey] animated:YES];
+    [self.pickerView setDate:self.selectedDate animated:YES];
     
     // the date picker might already be showing, so don't add it to our view
     if (self.pickerView.superview == nil)
@@ -444,9 +429,7 @@ NSUInteger DeviceSystemMajorVersion()
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:targetedCellIndexPath];
     UIDatePicker *targetedDatePicker = sender;
     
-    // update our data model
-    NSMutableDictionary *itemData = self.dataArray[targetedCellIndexPath.row];
-    [itemData setValue:targetedDatePicker.date forKey:kDateKey];
+    self.selectedDate = targetedDatePicker.date;
     
     // update the cell's date string
     cell.detailTextLabel.text = [self.dateFormatter stringFromDate:targetedDatePicker.date];
@@ -480,9 +463,8 @@ NSUInteger DeviceSystemMajorVersion()
 
 - (void)saveNote:(id)sender {
     
-    NSDictionary *itemData = self.dataArray[kDateStartRow];
     
-    [[AMDataManager sharedManager]updateNote:self.delegate withText:self.textCell.noteText.text name:self.nameCell.noteName.text endDate:[itemData valueForKey:kDateKey]];
+    [[AMDataManager sharedManager]updateNote:self.delegate withText:self.textCell.noteText.text name:self.nameCell.noteName.text endDate:self.selectedDate];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
