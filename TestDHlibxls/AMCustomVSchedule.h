@@ -1,19 +1,20 @@
 //
 //  AMCustomVSchedule.h
-//  DimlomTest
+//  DiplomTest
 //
-//  Created by Алтунин Михаил on 16.02.15.
+//  Created by Алтунин Михаил on 03.03.15.
 //
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "AMObjects.h"
 
 
-@interface AMCustomVSchedule : NSManagedObject
+@interface AMCustomVSchedule : AMObjects
 
-@property (nonatomic, retain) NSString * scheduleName;
-@property (nonatomic, retain) NSString * groupName;
 @property (nonatomic, retain) NSData * courseArray;
+@property (nonatomic, retain) NSString * groupName;
+@property (nonatomic, retain) NSString * scheduleName;
 
 @end

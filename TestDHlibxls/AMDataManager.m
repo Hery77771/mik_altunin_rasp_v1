@@ -8,6 +8,7 @@
 
 #import "AMDataManager.h"
 #import "AMNotes.h"
+#import "AMxlsFile.h"
 
 @implementation AMDataManager
 
@@ -234,6 +235,10 @@
     NSError *error = nil;
     NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
     
+    if (error) {
+        NSLog(@"error = %@",[error localizedDescription]);
+    }
+    
     if (array == nil) {
         return NO;
     } else {
@@ -265,9 +270,12 @@
     NSError *error = nil;
     NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
     
-    if (array == nil) {
-        return NO;
-    } else {
+    
+    if (error) {
+        NSLog(@"error = %@",[error localizedDescription]);
+    }
+    
+    if (array.count != 0) {
         AMNotes* updateNote = [array firstObject];
         updateNote.name = name;
         updateNote.endTime = date;
@@ -275,6 +283,73 @@
         [self saveContext];
         return YES;
     }
+    return YES;
+}
+
+-(BOOL) havexlsFileWithName:(NSString*)name andchangeDate:(NSDate*)date {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity =
+    [NSEntityDescription entityForName:@"AMxlsFile"
+                inManagedObjectContext:self.managedObjectContext];
+    
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@ AND changeDate = %@",name,date];
+    
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"error = %@",[error localizedDescription]);
+    }
+    
+    if (array.count!= 0)
+        return YES;
+    
+    return NO;
+}
+
+- (AMxlsFile*) addxlsFileWithName:(NSString*) name andChangeDate:(NSDate*) date {
+    AMxlsFile* xls =
+    [NSEntityDescription insertNewObjectForEntityForName:@"AMxlsFile"
+                                  inManagedObjectContext:self.managedObjectContext];
+    xls.name = name;
+    xls.changeDate = date;
+    [self saveContext];
+    return xls;
+}
+
+-(BOOL) deletexlsFileWithName:(NSString*) name {
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity =
+    [NSEntityDescription entityForName:@"AMxlsFile"
+                inManagedObjectContext:self.managedObjectContext];
+    
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@",name];
+    
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"error = %@",[error localizedDescription]);
+    }
+    
+    if (array.count!= 0) {
+        [self.managedObjectContext deleteObject:[array firstObject]];
+        [self saveContext];
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end

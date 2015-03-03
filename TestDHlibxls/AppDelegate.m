@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //[[AMDataManager sharedManager]deleteAllObjects];
+    [[AMDataManager sharedManager]deleteAllObjects];
     return YES;
 }
 
@@ -57,5 +57,13 @@
 	 See also applicationDidEnterBackground:.
 	 */
 }
+
+#pragma mark - Backgrounding Methods -
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier
+  completionHandler:(void (^)())completionHandler
+{
+	self.backgroundSessionCompletionHandler = completionHandler;
+}
+
 
 @end

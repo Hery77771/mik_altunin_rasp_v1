@@ -1,8 +1,8 @@
 //
-//  AMXLSFile.h
-//  DimlomTest
+//  AMxlsFile.h
+//  DiplomTest
 //
-//  Created by Алтунин Михаил on 18.02.15.
+//  Created by Алтунин Михаил on 03.03.15.
 //
 //
 
@@ -11,10 +11,9 @@
 #import "AMObjects.h"
 
 
-@interface AMXLSFile : AMObjects
+@interface AMxlsFile : AMObjects
 
-@property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) NSString * course;
-@property (nonatomic, retain) NSString * institute;
+@property (nonatomic, retain) NSDate * changeDate;
+@property (nonatomic, retain) NSString * name;
 
 @end

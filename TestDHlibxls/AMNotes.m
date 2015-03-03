@@ -2,7 +2,7 @@
 //  AMNotes.m
 //  DiplomTest
 //
-//  Created by Алтунин Михаил on 23.02.15.
+//  Created by Алтунин Михаил on 03.03.15.
 //
 //
 
@@ -11,9 +11,9 @@
 
 @implementation AMNotes
 
-@dynamic text;
-@dynamic name;
-@dynamic endTime;
 @dynamic addTime;
+@dynamic endTime;
+@dynamic name;
+@dynamic text;
 
 @end

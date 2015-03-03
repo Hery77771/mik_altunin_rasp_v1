@@ -7,13 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ServiceConnector.h"
+#import "MZDownloadManagerViewController.h"
 
-@interface AMSetupTableViewController : UITableViewController
+@interface AMSetupTableViewController : UITableViewController <ServiceConnectorDelegate,MZDownloadDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *selectedInstitute;
 @property (weak, nonatomic) IBOutlet UILabel *selectedCourse;
 @property (weak, nonatomic) IBOutlet UILabel *selectedGroupe;
 
 @property (nonatomic, assign) NSInteger courseIndex;
 @property (nonatomic, assign) NSInteger instituteIndex;
+
+@property (weak, nonatomic) IBOutlet UIButton *updateButton;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *UpdateLable;
+
+- (void)downloadRequestFinished:(NSString *)fileName;
 
 @end

@@ -1,8 +1,8 @@
 //
 //  AMObjects.h
-//  DimlomTest
+//  DiplomTest
 //
-//  Created by Алтунин Михаил on 16.02.15.
+//  Created by Алтунин Михаил on 03.03.15.
 //
 //
 

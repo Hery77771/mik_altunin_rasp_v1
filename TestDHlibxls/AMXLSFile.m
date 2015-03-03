@@ -1,18 +1,17 @@
 //
-//  AMXLSFile.m
-//  DimlomTest
+//  AMxlsFile.m
+//  DiplomTest
 //
-//  Created by Алтунин Михаил on 18.02.15.
+//  Created by Алтунин Михаил on 03.03.15.
 //
 //
 
-#import "AMXLSFile.h"
+#import "AMxlsFile.h"
 
 
-@implementation AMXLSFile
+@implementation AMxlsFile
 
-@dynamic url;
-@dynamic course;
-@dynamic institute;
+@dynamic changeDate;
+@dynamic name;
 
 @end

@@ -98,7 +98,6 @@ extern int xls_debug;
     }
     
     return cell;
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

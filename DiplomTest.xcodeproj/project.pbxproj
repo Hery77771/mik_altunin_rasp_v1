@@ -7,36 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98158CB41AA618BA00F028C9 /* ServiceConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 98158CB31AA618BA00F028C9 /* ServiceConnector.m */; };
+		98158CB81AA61D6400F028C9 /* AMObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 98158CB71AA61D6400F028C9 /* AMObjects.m */; };
+		98158CBB1AA61D6500F028C9 /* AMxlsFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 98158CBA1AA61D6500F028C9 /* AMxlsFile.m */; };
+		98158CBE1AA61D6500F028C9 /* AMCustomVSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 98158CBD1AA61D6500F028C9 /* AMCustomVSchedule.m */; };
+		98158CC11AA61D6500F028C9 /* AMNotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 98158CC01AA61D6500F028C9 /* AMNotes.m */; };
 		981EBC981A88C75F0031E7D8 /* AMGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 981EBC971A88C75F0031E7D8 /* AMGroup.m */; };
 		981EBC9B1A88D0BA0031E7D8 /* AMCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 981EBC9A1A88D0BA0031E7D8 /* AMCourse.m */; };
-		98240A1B1A94E72C00911983 /* 1_1.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A041A94E72C00911983 /* 1_1.xls */; };
-		98240A1C1A94E72C00911983 /* 1_2.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A051A94E72C00911983 /* 1_2.xls */; };
-		98240A1D1A94E72C00911983 /* 1_3.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A061A94E72C00911983 /* 1_3.xls */; };
-		98240A1E1A94E72C00911983 /* 1_4.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A071A94E72C00911983 /* 1_4.xls */; };
-		98240A1F1A94E72C00911983 /* 1_5.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A081A94E72C00911983 /* 1_5.xls */; };
-		98240A201A94E72C00911983 /* 2_1.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A0A1A94E72C00911983 /* 2_1.xls */; };
-		98240A211A94E72C00911983 /* 2_2.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A0B1A94E72C00911983 /* 2_2.xls */; };
-		98240A221A94E72C00911983 /* 2_3.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A0C1A94E72C00911983 /* 2_3.xls */; };
-		98240A231A94E72C00911983 /* 2_4.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A0D1A94E72C00911983 /* 2_4.xls */; };
-		98240A241A94E72C00911983 /* 2_5.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A0E1A94E72C00911983 /* 2_5.xls */; };
-		98240A251A94E72C00911983 /* 3_1.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A101A94E72C00911983 /* 3_1.xls */; };
-		98240A261A94E72C00911983 /* 3_2.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A111A94E72C00911983 /* 3_2.xls */; };
-		98240A271A94E72C00911983 /* 3_3.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A121A94E72C00911983 /* 3_3.xls */; };
-		98240A281A94E72C00911983 /* 3_4.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A131A94E72C00911983 /* 3_4.xls */; };
-		98240A291A94E72C00911983 /* 3_5.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A141A94E72C00911983 /* 3_5.xls */; };
-		98240A2A1A94E72C00911983 /* 4_1.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A161A94E72C00911983 /* 4_1.xls */; };
-		98240A2B1A94E72C00911983 /* 4_2.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A171A94E72C00911983 /* 4_2.xls */; };
-		98240A2C1A94E72C00911983 /* 4_3.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A181A94E72C00911983 /* 4_3.xls */; };
-		98240A2D1A94E72C00911983 /* 4_4.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A191A94E72C00911983 /* 4_4.xls */; };
-		98240A2E1A94E72C00911983 /* 4_5.xls in Resources */ = {isa = PBXBuildFile; fileRef = 98240A1A1A94E72C00911983 /* 4_5.xls */; };
 		98372AB61A8A8C4100B1ACCF /* AMGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98372AB51A8A8C4100B1ACCF /* AMGroupTableViewCell.m */; };
 		98372AB91A8A905800B1ACCF /* AMReaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98372AB81A8A905800B1ACCF /* AMReaderManager.m */; };
 		98390BD21A9F545F008FB583 /* THNotesTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98390BD11A9F545F008FB583 /* THNotesTextView.m */; };
 		9843842E1A921B260068C329 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9843842C1A921B260068C329 /* CoreData.xcdatamodeld */; };
 		984384331A921D1B0068C329 /* AMDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 984384321A921D1B0068C329 /* AMDataManager.m */; };
 		984384361A92200A0068C329 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984384341A921E990068C329 /* CoreData.framework */; };
-		984384391A9224040068C329 /* AMCustomVSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 984384381A9224040068C329 /* AMCustomVSchedule.m */; };
-		9843843C1A9224050068C329 /* AMObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 9843843B1A9224050068C329 /* AMObjects.m */; };
 		98479B591A91006100C5F4EF /* AMSelVScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98479B581A91006100C5F4EF /* AMSelVScheduleTableViewController.m */; };
 		984C38E01A8B83A3004A4E2E /* AMWeekTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 984C38DF1A8B83A3004A4E2E /* AMWeekTabBarController.m */; };
 		984C38E51A8BC173004A4E2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984C38E41A8BC173004A4E2E /* Images.xcassets */; };
@@ -51,8 +34,10 @@
 		987F18EA1A8A2D35005D1FBC /* AMClassTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 987F18E91A8A2D35005D1FBC /* AMClassTableViewCell.m */; };
 		9895652B1A9B7750005AF795 /* AMNotesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895652A1A9B7750005AF795 /* AMNotesTableViewCell.m */; };
 		9895652F1A9B7830005AF795 /* AMNotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895652E1A9B7830005AF795 /* AMNotesTableViewController.m */; };
-		989565321A9B79C3005AF795 /* AMNotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 989565311A9B79C3005AF795 /* AMNotes.m */; };
 		989565351A9B8781005AF795 /* AMAddNotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989565341A9B8781005AF795 /* AMAddNotesTableViewController.m */; };
+		98D915031AA63A01006C370A /* MZDownloadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D914FE1AA63A01006C370A /* MZDownloadingCell.m */; };
+		98D915041AA63A01006C370A /* MZDownloadManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D915001AA63A01006C370A /* MZDownloadManagerViewController.m */; };
+		98D915051AA63A01006C370A /* MZUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D915021AA63A01006C370A /* MZUtility.m */; };
 		DE9798C814BC8349006E5AC2 /* libDHxlsReaderIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B9A14BC7D9700845894 /* libDHxlsReaderIOS.a */; };
 		DE9798CD14BC83C1006E5AC2 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */; };
 		DEB78B7514BC7D4400845894 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B7414BC7D4400845894 /* UIKit.framework */; };
@@ -100,30 +85,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		98158CB21AA618BA00F028C9 /* ServiceConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceConnector.h; sourceTree = "<group>"; };
+		98158CB31AA618BA00F028C9 /* ServiceConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceConnector.m; sourceTree = "<group>"; };
+		98158CB51AA619A200F028C9 /* JSONDictionaryExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDictionaryExtensions.h; sourceTree = "<group>"; };
+		98158CB61AA61D6400F028C9 /* AMObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMObjects.h; sourceTree = "<group>"; };
+		98158CB71AA61D6400F028C9 /* AMObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMObjects.m; sourceTree = "<group>"; };
+		98158CB91AA61D6500F028C9 /* AMxlsFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMxlsFile.h; sourceTree = "<group>"; };
+		98158CBA1AA61D6500F028C9 /* AMxlsFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMxlsFile.m; sourceTree = "<group>"; };
+		98158CBC1AA61D6500F028C9 /* AMCustomVSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCustomVSchedule.h; sourceTree = "<group>"; };
+		98158CBD1AA61D6500F028C9 /* AMCustomVSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCustomVSchedule.m; sourceTree = "<group>"; };
+		98158CBF1AA61D6500F028C9 /* AMNotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNotes.h; sourceTree = "<group>"; };
+		98158CC01AA61D6500F028C9 /* AMNotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotes.m; sourceTree = "<group>"; };
 		981EBC961A88C75F0031E7D8 /* AMGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGroup.h; sourceTree = "<group>"; };
 		981EBC971A88C75F0031E7D8 /* AMGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGroup.m; sourceTree = "<group>"; };
 		981EBC991A88D0BA0031E7D8 /* AMCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCourse.h; sourceTree = "<group>"; };
 		981EBC9A1A88D0BA0031E7D8 /* AMCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCourse.m; sourceTree = "<group>"; };
-		98240A041A94E72C00911983 /* 1_1.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_1.xls; sourceTree = "<group>"; };
-		98240A051A94E72C00911983 /* 1_2.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_2.xls; sourceTree = "<group>"; };
-		98240A061A94E72C00911983 /* 1_3.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_3.xls; sourceTree = "<group>"; };
-		98240A071A94E72C00911983 /* 1_4.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_4.xls; sourceTree = "<group>"; };
-		98240A081A94E72C00911983 /* 1_5.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_5.xls; sourceTree = "<group>"; };
-		98240A0A1A94E72C00911983 /* 2_1.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_1.xls; sourceTree = "<group>"; };
-		98240A0B1A94E72C00911983 /* 2_2.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_2.xls; sourceTree = "<group>"; };
-		98240A0C1A94E72C00911983 /* 2_3.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_3.xls; sourceTree = "<group>"; };
-		98240A0D1A94E72C00911983 /* 2_4.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_4.xls; sourceTree = "<group>"; };
-		98240A0E1A94E72C00911983 /* 2_5.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_5.xls; sourceTree = "<group>"; };
-		98240A101A94E72C00911983 /* 3_1.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_1.xls; sourceTree = "<group>"; };
-		98240A111A94E72C00911983 /* 3_2.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_2.xls; sourceTree = "<group>"; };
-		98240A121A94E72C00911983 /* 3_3.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_3.xls; sourceTree = "<group>"; };
-		98240A131A94E72C00911983 /* 3_4.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_4.xls; sourceTree = "<group>"; };
-		98240A141A94E72C00911983 /* 3_5.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_5.xls; sourceTree = "<group>"; };
-		98240A161A94E72C00911983 /* 4_1.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_1.xls; sourceTree = "<group>"; };
-		98240A171A94E72C00911983 /* 4_2.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_2.xls; sourceTree = "<group>"; };
-		98240A181A94E72C00911983 /* 4_3.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_3.xls; sourceTree = "<group>"; };
-		98240A191A94E72C00911983 /* 4_4.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_4.xls; sourceTree = "<group>"; };
-		98240A1A1A94E72C00911983 /* 4_5.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_5.xls; sourceTree = "<group>"; };
 		98372AB41A8A8C4100B1ACCF /* AMGroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGroupTableViewCell.h; sourceTree = "<group>"; };
 		98372AB51A8A8C4100B1ACCF /* AMGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGroupTableViewCell.m; sourceTree = "<group>"; };
 		98372AB71A8A905800B1ACCF /* AMReaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMReaderManager.h; sourceTree = "<group>"; };
@@ -134,10 +110,6 @@
 		984384311A921D1B0068C329 /* AMDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDataManager.h; sourceTree = "<group>"; };
 		984384321A921D1B0068C329 /* AMDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDataManager.m; sourceTree = "<group>"; };
 		984384341A921E990068C329 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		984384371A9224040068C329 /* AMCustomVSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCustomVSchedule.h; sourceTree = "<group>"; };
-		984384381A9224040068C329 /* AMCustomVSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCustomVSchedule.m; sourceTree = "<group>"; };
-		9843843A1A9224050068C329 /* AMObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMObjects.h; sourceTree = "<group>"; };
-		9843843B1A9224050068C329 /* AMObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMObjects.m; sourceTree = "<group>"; };
 		98479B571A91006100C5F4EF /* AMSelVScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSelVScheduleTableViewController.h; sourceTree = "<group>"; };
 		98479B581A91006100C5F4EF /* AMSelVScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSelVScheduleTableViewController.m; sourceTree = "<group>"; };
 		984C38DE1A8B83A3004A4E2E /* AMWeekTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMWeekTabBarController.h; sourceTree = "<group>"; };
@@ -164,10 +136,14 @@
 		9895652A1A9B7750005AF795 /* AMNotesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotesTableViewCell.m; sourceTree = "<group>"; };
 		9895652D1A9B7830005AF795 /* AMNotesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNotesTableViewController.h; sourceTree = "<group>"; };
 		9895652E1A9B7830005AF795 /* AMNotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotesTableViewController.m; sourceTree = "<group>"; };
-		989565301A9B79C3005AF795 /* AMNotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNotes.h; sourceTree = "<group>"; };
-		989565311A9B79C3005AF795 /* AMNotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotes.m; sourceTree = "<group>"; };
 		989565331A9B8781005AF795 /* AMAddNotesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAddNotesTableViewController.h; sourceTree = "<group>"; };
 		989565341A9B8781005AF795 /* AMAddNotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAddNotesTableViewController.m; sourceTree = "<group>"; };
+		98D914FD1AA63A01006C370A /* MZDownloadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZDownloadingCell.h; sourceTree = "<group>"; };
+		98D914FE1AA63A01006C370A /* MZDownloadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZDownloadingCell.m; sourceTree = "<group>"; };
+		98D914FF1AA63A01006C370A /* MZDownloadManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZDownloadManagerViewController.h; sourceTree = "<group>"; };
+		98D915001AA63A01006C370A /* MZDownloadManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZDownloadManagerViewController.m; sourceTree = "<group>"; };
+		98D915011AA63A01006C370A /* MZUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZUtility.h; sourceTree = "<group>"; };
+		98D915021AA63A01006C370A /* MZUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZUtility.m; sourceTree = "<group>"; };
 		DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		DEB78B7014BC7D4400845894 /* DiplomTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiplomTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB78B7414BC7D4400845894 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -199,6 +175,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98158CB01AA618A100F028C9 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				98158CB51AA619A200F028C9 /* JSONDictionaryExtensions.h */,
+				98158CB21AA618BA00F028C9 /* ServiceConnector.h */,
+				98158CB31AA618BA00F028C9 /* ServiceConnector.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
 		981EBC951A88C7400031E7D8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,73 +192,16 @@
 				981EBC971A88C75F0031E7D8 /* AMGroup.m */,
 				981EBC991A88D0BA0031E7D8 /* AMCourse.h */,
 				981EBC9A1A88D0BA0031E7D8 /* AMCourse.m */,
-				9843843A1A9224050068C329 /* AMObjects.h */,
-				9843843B1A9224050068C329 /* AMObjects.m */,
-				984384371A9224040068C329 /* AMCustomVSchedule.h */,
-				984384381A9224040068C329 /* AMCustomVSchedule.m */,
-				989565301A9B79C3005AF795 /* AMNotes.h */,
-				989565311A9B79C3005AF795 /* AMNotes.m */,
+				98158CB61AA61D6400F028C9 /* AMObjects.h */,
+				98158CB71AA61D6400F028C9 /* AMObjects.m */,
+				98158CBC1AA61D6500F028C9 /* AMCustomVSchedule.h */,
+				98158CBD1AA61D6500F028C9 /* AMCustomVSchedule.m */,
+				98158CBF1AA61D6500F028C9 /* AMNotes.h */,
+				98158CC01AA61D6500F028C9 /* AMNotes.m */,
+				98158CB91AA61D6500F028C9 /* AMxlsFile.h */,
+				98158CBA1AA61D6500F028C9 /* AMxlsFile.m */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		98240A021A94E72C00911983 /* xlsFile */ = {
-			isa = PBXGroup;
-			children = (
-				98240A031A94E72C00911983 /* 1 */,
-				98240A091A94E72C00911983 /* 2 */,
-				98240A0F1A94E72C00911983 /* 3 */,
-				98240A151A94E72C00911983 /* 4 */,
-			);
-			path = xlsFile;
-			sourceTree = "<group>";
-		};
-		98240A031A94E72C00911983 /* 1 */ = {
-			isa = PBXGroup;
-			children = (
-				98240A041A94E72C00911983 /* 1_1.xls */,
-				98240A051A94E72C00911983 /* 1_2.xls */,
-				98240A061A94E72C00911983 /* 1_3.xls */,
-				98240A071A94E72C00911983 /* 1_4.xls */,
-				98240A081A94E72C00911983 /* 1_5.xls */,
-			);
-			path = 1;
-			sourceTree = "<group>";
-		};
-		98240A091A94E72C00911983 /* 2 */ = {
-			isa = PBXGroup;
-			children = (
-				98240A0A1A94E72C00911983 /* 2_1.xls */,
-				98240A0B1A94E72C00911983 /* 2_2.xls */,
-				98240A0C1A94E72C00911983 /* 2_3.xls */,
-				98240A0D1A94E72C00911983 /* 2_4.xls */,
-				98240A0E1A94E72C00911983 /* 2_5.xls */,
-			);
-			path = 2;
-			sourceTree = "<group>";
-		};
-		98240A0F1A94E72C00911983 /* 3 */ = {
-			isa = PBXGroup;
-			children = (
-				98240A101A94E72C00911983 /* 3_1.xls */,
-				98240A111A94E72C00911983 /* 3_2.xls */,
-				98240A121A94E72C00911983 /* 3_3.xls */,
-				98240A131A94E72C00911983 /* 3_4.xls */,
-				98240A141A94E72C00911983 /* 3_5.xls */,
-			);
-			path = 3;
-			sourceTree = "<group>";
-		};
-		98240A151A94E72C00911983 /* 4 */ = {
-			isa = PBXGroup;
-			children = (
-				98240A161A94E72C00911983 /* 4_1.xls */,
-				98240A171A94E72C00911983 /* 4_2.xls */,
-				98240A181A94E72C00911983 /* 4_3.xls */,
-				98240A191A94E72C00911983 /* 4_4.xls */,
-				98240A1A1A94E72C00911983 /* 4_5.xls */,
-			);
-			path = 4;
 			sourceTree = "<group>";
 		};
 		98390BCB1A9F5351008FB583 /* THNotesTextView */ = {
@@ -338,6 +267,19 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		98D914FB1AA639C3006C370A /* MZDownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				98D914FD1AA63A01006C370A /* MZDownloadingCell.h */,
+				98D914FE1AA63A01006C370A /* MZDownloadingCell.m */,
+				98D914FF1AA63A01006C370A /* MZDownloadManagerViewController.h */,
+				98D915001AA63A01006C370A /* MZDownloadManagerViewController.m */,
+				98D915011AA63A01006C370A /* MZUtility.h */,
+				98D915021AA63A01006C370A /* MZUtility.m */,
+			);
+			name = MZDownloadManager;
+			sourceTree = "<group>";
+		};
 		DEB78B6514BC7D4400845894 = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +317,8 @@
 				DEB78B8414BC7D4400845894 /* AppDelegate.m */,
 				986545E71A8A116F00822291 /* Main.storyboard */,
 				98390BCB1A9F5351008FB583 /* THNotesTextView */,
+				98D914FB1AA639C3006C370A /* MZDownloadManager */,
+				98158CB01AA618A100F028C9 /* Server */,
 				984384301A921CF20068C329 /* Managers */,
 				981EBC951A88C7400031E7D8 /* Models */,
 				986545F11A8A27F100822291 /* Cell */,
@@ -390,7 +334,6 @@
 			children = (
 				984C38E41A8BC173004A4E2E /* Images.xcassets */,
 				9843842C1A921B260068C329 /* CoreData.xcdatamodeld */,
-				98240A021A94E72C00911983 /* xlsFile */,
 				DEB78B7C14BC7D4400845894 /* TestDHlibxls-Info.plist */,
 				DEB78B7D14BC7D4400845894 /* InfoPlist.strings */,
 				DEB78B8014BC7D4400845894 /* main.m */,
@@ -484,29 +427,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98240A2E1A94E72C00911983 /* 4_5.xls in Resources */,
-				98240A1E1A94E72C00911983 /* 1_4.xls in Resources */,
 				DEB78B7F14BC7D4400845894 /* InfoPlist.strings in Resources */,
-				98240A281A94E72C00911983 /* 3_4.xls in Resources */,
-				98240A2D1A94E72C00911983 /* 4_4.xls in Resources */,
 				984C38E51A8BC173004A4E2E /* Images.xcassets in Resources */,
-				98240A271A94E72C00911983 /* 3_3.xls in Resources */,
-				98240A241A94E72C00911983 /* 2_5.xls in Resources */,
-				98240A211A94E72C00911983 /* 2_2.xls in Resources */,
-				98240A1B1A94E72C00911983 /* 1_1.xls in Resources */,
-				98240A221A94E72C00911983 /* 2_3.xls in Resources */,
-				98240A261A94E72C00911983 /* 3_2.xls in Resources */,
 				986545E81A8A116F00822291 /* Main.storyboard in Resources */,
-				98240A1C1A94E72C00911983 /* 1_2.xls in Resources */,
-				98240A1F1A94E72C00911983 /* 1_5.xls in Resources */,
-				98240A2A1A94E72C00911983 /* 4_1.xls in Resources */,
-				98240A1D1A94E72C00911983 /* 1_3.xls in Resources */,
-				98240A2C1A94E72C00911983 /* 4_3.xls in Resources */,
-				98240A201A94E72C00911983 /* 2_1.xls in Resources */,
-				98240A231A94E72C00911983 /* 2_4.xls in Resources */,
-				98240A251A94E72C00911983 /* 3_1.xls in Resources */,
-				98240A291A94E72C00911983 /* 3_5.xls in Resources */,
-				98240A2B1A94E72C00911983 /* 4_2.xls in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,24 +441,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				987F18EA1A8A2D35005D1FBC /* AMClassTableViewCell.m in Sources */,
+				98158CB41AA618BA00F028C9 /* ServiceConnector.m in Sources */,
 				989565351A9B8781005AF795 /* AMAddNotesTableViewController.m in Sources */,
-				989565321A9B79C3005AF795 /* AMNotes.m in Sources */,
 				DEB78B8114BC7D4400845894 /* main.m in Sources */,
 				9895652B1A9B7750005AF795 /* AMNotesTableViewCell.m in Sources */,
 				DEB78B8514BC7D4400845894 /* AppDelegate.m in Sources */,
 				981EBC9B1A88D0BA0031E7D8 /* AMCourse.m in Sources */,
+				98D915031AA63A01006C370A /* MZDownloadingCell.m in Sources */,
+				98158CC11AA61D6500F028C9 /* AMNotes.m in Sources */,
 				981EBC981A88C75F0031E7D8 /* AMGroup.m in Sources */,
 				986C74B51A9DF15500DC412D /* AMNotesTextCell.m in Sources */,
 				984C38E01A8B83A3004A4E2E /* AMWeekTabBarController.m in Sources */,
 				9843842E1A921B260068C329 /* CoreData.xcdatamodeld in Sources */,
+				98158CBE1AA61D6500F028C9 /* AMCustomVSchedule.m in Sources */,
+				98158CB81AA61D6400F028C9 /* AMObjects.m in Sources */,
 				986C74B11A9DF11900DC412D /* AMNotesNameCell.m in Sources */,
 				98479B591A91006100C5F4EF /* AMSelVScheduleTableViewController.m in Sources */,
 				98390BD21A9F545F008FB583 /* THNotesTextView.m in Sources */,
 				986D72401A93A86000DD3F46 /* AMAddCourseTableViewController.m in Sources */,
+				98158CBB1AA61D6500F028C9 /* AMxlsFile.m in Sources */,
+				98D915041AA63A01006C370A /* MZDownloadManagerViewController.m in Sources */,
+				98D915051AA63A01006C370A /* MZUtility.m in Sources */,
 				984384331A921D1B0068C329 /* AMDataManager.m in Sources */,
-				9843843C1A9224050068C329 /* AMObjects.m in Sources */,
 				986545F71A8A2C7100822291 /* AMClassTableViewController.m in Sources */,
-				984384391A9224040068C329 /* AMCustomVSchedule.m in Sources */,
 				98760D431A8FDA5E00B67F43 /* AMSetupTableViewController.m in Sources */,
 				986545EC1A8A11E000822291 /* AMGroupsTableViewController.m in Sources */,
 				98372AB91A8A905800B1ACCF /* AMReaderManager.m in Sources */,

@@ -1,8 +1,8 @@
 //
 //  AMCustomVSchedule.m
-//  DimlomTest
+//  DiplomTest
 //
-//  Created by Алтунин Михаил on 16.02.15.
+//  Created by Алтунин Михаил on 03.03.15.
 //
 //
 
@@ -11,8 +11,8 @@
 
 @implementation AMCustomVSchedule
 
-@dynamic scheduleName;
-@dynamic groupName;
 @dynamic courseArray;
+@dynamic groupName;
+@dynamic scheduleName;
 
 @end

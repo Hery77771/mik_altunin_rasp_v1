@@ -12,9 +12,14 @@
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="AMObjects" representedClassName="AMObjects" syncable="YES"/>
+    <entity name="AMxlsFile" representedClassName="AMxlsFile" parentEntity="AMObjects" syncable="YES">
+        <attribute name="changeDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="AMCustomVSchedule" positionX="-650" positionY="-11752" width="128" height="88"/>
-        <element name="AMNotes" positionX="-407" positionY="-11749" width="128" height="103"/>
-        <element name="AMObjects" positionX="-432" positionY="-11952" width="128" height="45"/>
+        <element name="AMCustomVSchedule" positionX="-657" positionY="-11761" width="128" height="88"/>
+        <element name="AMNotes" positionX="-405" positionY="-11709" width="128" height="103"/>
+        <element name="AMObjects" positionX="-432" positionY="-11952" width="128" height="43"/>
+        <element name="AMxlsFile" positionX="-180" positionY="-11763" width="128" height="73"/>
     </elements>
 </model>

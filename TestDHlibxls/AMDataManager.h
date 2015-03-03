@@ -11,6 +11,7 @@
 #import "AMCustomVSchedule.h"
 
 @class  AMNotes;
+@class  AMxlsFile;
 
 @interface AMDataManager : NSObject
 
@@ -29,8 +30,11 @@
 
 - (AMCustomVSchedule*) addScheduleWithName:(NSString*) name groupName:(NSString*) groupName andCourseArray:(NSArray*) courseArray;
 - (AMNotes*) addNoteWithName:(NSString*) name;
+- (AMxlsFile*) addxlsFileWithName:(NSString*) name andChangeDate:(NSDate*) date;
 
 -(BOOL) updateSchedule:(AMCustomVSchedule*)schedule withCourseArray:(NSArray*)courseArray;
 -(BOOL) updateNote:(AMNotes*)note withText:(NSString*)text name:(NSString*)name endDate:(NSDate*)date;
+-(BOOL) havexlsFileWithName:(NSString*)name andchangeDate:(NSDate*)date;
+-(BOOL) deletexlsFileWithName:(NSString*) name;
 
 @end
