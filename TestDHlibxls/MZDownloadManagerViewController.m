@@ -352,9 +352,11 @@ NSString * const RequestStatusFailed = @"RequestStatusFailed";
                     
                     [self presentNotificationForDownload:[downloadInfo objectForKey:kMZDownloadKeyFileName]];
                     
-                    [downloadingArray removeObjectAtIndex:indexOfObject];
+                    NSInteger index = [downloadingArray indexOfObject:downloadInfo];
+          
+                    [downloadingArray removeObjectAtIndex:index];
                     
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfObject inSection:0];
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
                     [bgDownloadTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
                     
                     if([self.delegate respondsToSelector:@selector(downloadRequestFinished:)])

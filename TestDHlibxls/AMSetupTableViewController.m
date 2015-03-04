@@ -47,6 +47,10 @@
 -(void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self saveInUserDefaults];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
     
     if (self.availableDownloadsArray.count == 0) {
         self.updateButton.hidden = YES;

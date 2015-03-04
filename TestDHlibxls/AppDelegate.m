@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[AMDataManager sharedManager]deleteAllObjects];
+    //[[AMDataManager sharedManager]deleteAllObjects];
     return YES;
 }
 

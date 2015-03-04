@@ -165,7 +165,7 @@
 
 - (IBAction)addCustomSchedule:(id)sender {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Создание расписания." message:@"Имя нового расписания:" delegate:self cancelButtonTitle:@"Отмена" otherButtonTitles:@"Используя шаблон mati.ru",@"Пустой шаблон", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Создание расписания." message:@"Имя нового расписания:" delegate:self cancelButtonTitle:@"Отмена" otherButtonTitles:@"С сайта mati.ru",@"Пустрое расписание", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
 }
