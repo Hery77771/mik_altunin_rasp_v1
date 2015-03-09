@@ -35,6 +35,19 @@
 		9895652B1A9B7750005AF795 /* AMNotesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895652A1A9B7750005AF795 /* AMNotesTableViewCell.m */; };
 		9895652F1A9B7830005AF795 /* AMNotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895652E1A9B7830005AF795 /* AMNotesTableViewController.m */; };
 		989565351A9B8781005AF795 /* AMAddNotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 989565341A9B8781005AF795 /* AMAddNotesTableViewController.m */; };
+		98A808991AADF98D00FB9DD9 /* MNMBottomPullToRefresh.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98A808921AADF98D00FB9DD9 /* MNMBottomPullToRefresh.strings */; };
+		98A8089A1AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98A808931AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow.png */; };
+		98A8089B1AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98A808941AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow@2x.png */; };
+		98A8089C1AADF98D00FB9DD9 /* MNMBottomPullToRefreshManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A808961AADF98D00FB9DD9 /* MNMBottomPullToRefreshManager.m */; };
+		98A8089D1AADF98D00FB9DD9 /* MNMBottomPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A808981AADF98D00FB9DD9 /* MNMBottomPullToRefreshView.m */; };
+		98A808AB1AADF99700FB9DD9 /* AMNewsCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A808A51AADF99700FB9DD9 /* AMNewsCellTableViewCell.m */; };
+		98A808AC1AADF99700FB9DD9 /* AMNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A808A61AADF99700FB9DD9 /* AMNewsTableViewController.m */; };
+		98A808AD1AADF99700FB9DD9 /* AMOneNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A808A71AADF99700FB9DD9 /* AMOneNewsTableViewCell.m */; };
+		98A808AE1AADF99700FB9DD9 /* AMOneNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A808A81AADF99700FB9DD9 /* AMOneNewsTableViewController.m */; };
+		98A808B61AADF9D100FB9DD9 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A808B21AADF9D100FB9DD9 /* HTMLNode.m */; };
+		98A808B71AADF9D100FB9DD9 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A808B41AADF9D100FB9DD9 /* HTMLParser.m */; };
+		98A808B81AADF9D100FB9DD9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 98A808B51AADF9D100FB9DD9 /* README.md */; };
+		98A808BB1AADFA4500FB9DD9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A808BA1AADFA4500FB9DD9 /* libxml2.dylib */; };
 		98D915031AA63A01006C370A /* MZDownloadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D914FE1AA63A01006C370A /* MZDownloadingCell.m */; };
 		98D915041AA63A01006C370A /* MZDownloadManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D915001AA63A01006C370A /* MZDownloadManagerViewController.m */; };
 		98D915051AA63A01006C370A /* MZUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D915021AA63A01006C370A /* MZUtility.m */; };
@@ -138,6 +151,27 @@
 		9895652E1A9B7830005AF795 /* AMNotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotesTableViewController.m; sourceTree = "<group>"; };
 		989565331A9B8781005AF795 /* AMAddNotesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAddNotesTableViewController.h; sourceTree = "<group>"; };
 		989565341A9B8781005AF795 /* AMAddNotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAddNotesTableViewController.m; sourceTree = "<group>"; };
+		98A808921AADF98D00FB9DD9 /* MNMBottomPullToRefresh.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = MNMBottomPullToRefresh.strings; sourceTree = "<group>"; };
+		98A808931AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MNMBottomPullToRefreshArrow.png; sourceTree = "<group>"; };
+		98A808941AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MNMBottomPullToRefreshArrow@2x.png"; sourceTree = "<group>"; };
+		98A808951AADF98D00FB9DD9 /* MNMBottomPullToRefreshManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNMBottomPullToRefreshManager.h; sourceTree = "<group>"; };
+		98A808961AADF98D00FB9DD9 /* MNMBottomPullToRefreshManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNMBottomPullToRefreshManager.m; sourceTree = "<group>"; };
+		98A808971AADF98D00FB9DD9 /* MNMBottomPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNMBottomPullToRefreshView.h; sourceTree = "<group>"; };
+		98A808981AADF98D00FB9DD9 /* MNMBottomPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNMBottomPullToRefreshView.m; sourceTree = "<group>"; };
+		98A8089F1AADF99700FB9DD9 /* AMNewsCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNewsCellTableViewCell.h; path = News/AMNewsCellTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		98A808A01AADF99700FB9DD9 /* AMNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNewsTableViewController.h; path = News/AMNewsTableViewController.h; sourceTree = SOURCE_ROOT; };
+		98A808A11AADF99700FB9DD9 /* AMOneNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMOneNewsTableViewCell.h; path = News/AMOneNewsTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		98A808A21AADF99700FB9DD9 /* AMOneNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMOneNewsTableViewController.h; path = News/AMOneNewsTableViewController.h; sourceTree = SOURCE_ROOT; };
+		98A808A51AADF99700FB9DD9 /* AMNewsCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMNewsCellTableViewCell.m; path = News/AMNewsCellTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		98A808A61AADF99700FB9DD9 /* AMNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMNewsTableViewController.m; path = News/AMNewsTableViewController.m; sourceTree = SOURCE_ROOT; };
+		98A808A71AADF99700FB9DD9 /* AMOneNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMOneNewsTableViewCell.m; path = News/AMOneNewsTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		98A808A81AADF99700FB9DD9 /* AMOneNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMOneNewsTableViewController.m; path = News/AMOneNewsTableViewController.m; sourceTree = SOURCE_ROOT; };
+		98A808B11AADF9D100FB9DD9 /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
+		98A808B21AADF9D100FB9DD9 /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
+		98A808B31AADF9D100FB9DD9 /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
+		98A808B41AADF9D100FB9DD9 /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
+		98A808B51AADF9D100FB9DD9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		98A808BA1AADFA4500FB9DD9 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		98D914FD1AA63A01006C370A /* MZDownloadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZDownloadingCell.h; sourceTree = "<group>"; };
 		98D914FE1AA63A01006C370A /* MZDownloadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZDownloadingCell.m; sourceTree = "<group>"; };
 		98D914FF1AA63A01006C370A /* MZDownloadManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZDownloadManagerViewController.h; sourceTree = "<group>"; };
@@ -163,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98A808BB1AADFA4500FB9DD9 /* libxml2.dylib in Frameworks */,
 				DE9798CD14BC83C1006E5AC2 /* libiconv.dylib in Frameworks */,
 				DE9798C814BC8349006E5AC2 /* libDHxlsReaderIOS.a in Frameworks */,
 				DEB78B7914BC7D4400845894 /* CoreGraphics.framework in Frameworks */,
@@ -267,6 +302,59 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		98A8088F1AADF91300FB9DD9 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				98A808A21AADF99700FB9DD9 /* AMOneNewsTableViewController.h */,
+				98A808A81AADF99700FB9DD9 /* AMOneNewsTableViewController.m */,
+				98A808A01AADF99700FB9DD9 /* AMNewsTableViewController.h */,
+				98A808A61AADF99700FB9DD9 /* AMNewsTableViewController.m */,
+				98A808B91AADF9E000FB9DD9 /* NewsCell */,
+				98A808B01AADF9D100FB9DD9 /* Objective-C-HMTL-Parser-master */,
+				98A808911AADF98D00FB9DD9 /* MNMBottomPullToRefresh */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		98A808911AADF98D00FB9DD9 /* MNMBottomPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				98A808921AADF98D00FB9DD9 /* MNMBottomPullToRefresh.strings */,
+				98A808931AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow.png */,
+				98A808941AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow@2x.png */,
+				98A808951AADF98D00FB9DD9 /* MNMBottomPullToRefreshManager.h */,
+				98A808961AADF98D00FB9DD9 /* MNMBottomPullToRefreshManager.m */,
+				98A808971AADF98D00FB9DD9 /* MNMBottomPullToRefreshView.h */,
+				98A808981AADF98D00FB9DD9 /* MNMBottomPullToRefreshView.m */,
+			);
+			name = MNMBottomPullToRefresh;
+			path = News/MNMBottomPullToRefresh;
+			sourceTree = SOURCE_ROOT;
+		};
+		98A808B01AADF9D100FB9DD9 /* Objective-C-HMTL-Parser-master */ = {
+			isa = PBXGroup;
+			children = (
+				98A808B11AADF9D100FB9DD9 /* HTMLNode.h */,
+				98A808B21AADF9D100FB9DD9 /* HTMLNode.m */,
+				98A808B31AADF9D100FB9DD9 /* HTMLParser.h */,
+				98A808B41AADF9D100FB9DD9 /* HTMLParser.m */,
+				98A808B51AADF9D100FB9DD9 /* README.md */,
+			);
+			name = "Objective-C-HMTL-Parser-master";
+			path = "News/Objective-C-HMTL-Parser-master";
+			sourceTree = SOURCE_ROOT;
+		};
+		98A808B91AADF9E000FB9DD9 /* NewsCell */ = {
+			isa = PBXGroup;
+			children = (
+				98A8089F1AADF99700FB9DD9 /* AMNewsCellTableViewCell.h */,
+				98A808A11AADF99700FB9DD9 /* AMOneNewsTableViewCell.h */,
+				98A808A51AADF99700FB9DD9 /* AMNewsCellTableViewCell.m */,
+				98A808A71AADF99700FB9DD9 /* AMOneNewsTableViewCell.m */,
+			);
+			name = NewsCell;
+			sourceTree = "<group>";
+		};
 		98D914FB1AA639C3006C370A /* MZDownloadManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +389,7 @@
 		DEB78B7314BC7D4400845894 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				98A808BA1AADFA4500FB9DD9 /* libxml2.dylib */,
 				DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */,
 				984384341A921E990068C329 /* CoreData.framework */,
 				DEB78B7414BC7D4400845894 /* UIKit.framework */,
@@ -316,6 +405,7 @@
 				DEB78B8314BC7D4400845894 /* AppDelegate.h */,
 				DEB78B8414BC7D4400845894 /* AppDelegate.m */,
 				986545E71A8A116F00822291 /* Main.storyboard */,
+				98A8088F1AADF91300FB9DD9 /* News */,
 				98390BCB1A9F5351008FB583 /* THNotesTextView */,
 				98D914FB1AA639C3006C370A /* MZDownloadManager */,
 				98158CB01AA618A100F028C9 /* Server */,
@@ -427,8 +517,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98A8089B1AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow@2x.png in Resources */,
 				DEB78B7F14BC7D4400845894 /* InfoPlist.strings in Resources */,
 				984C38E51A8BC173004A4E2E /* Images.xcassets in Resources */,
+				98A808B81AADF9D100FB9DD9 /* README.md in Resources */,
+				98A808991AADF98D00FB9DD9 /* MNMBottomPullToRefresh.strings in Resources */,
+				98A8089A1AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow.png in Resources */,
 				986545E81A8A116F00822291 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,9 +539,14 @@
 				989565351A9B8781005AF795 /* AMAddNotesTableViewController.m in Sources */,
 				DEB78B8114BC7D4400845894 /* main.m in Sources */,
 				9895652B1A9B7750005AF795 /* AMNotesTableViewCell.m in Sources */,
+				98A808AE1AADF99700FB9DD9 /* AMOneNewsTableViewController.m in Sources */,
 				DEB78B8514BC7D4400845894 /* AppDelegate.m in Sources */,
+				98A808AB1AADF99700FB9DD9 /* AMNewsCellTableViewCell.m in Sources */,
+				98A808AC1AADF99700FB9DD9 /* AMNewsTableViewController.m in Sources */,
+				98A808B71AADF9D100FB9DD9 /* HTMLParser.m in Sources */,
 				981EBC9B1A88D0BA0031E7D8 /* AMCourse.m in Sources */,
 				98D915031AA63A01006C370A /* MZDownloadingCell.m in Sources */,
+				98A808AD1AADF99700FB9DD9 /* AMOneNewsTableViewCell.m in Sources */,
 				98158CC11AA61D6500F028C9 /* AMNotes.m in Sources */,
 				981EBC981A88C75F0031E7D8 /* AMGroup.m in Sources */,
 				986C74B51A9DF15500DC412D /* AMNotesTextCell.m in Sources */,
@@ -457,6 +556,7 @@
 				98158CB81AA61D6400F028C9 /* AMObjects.m in Sources */,
 				986C74B11A9DF11900DC412D /* AMNotesNameCell.m in Sources */,
 				98479B591A91006100C5F4EF /* AMSelVScheduleTableViewController.m in Sources */,
+				98A808B61AADF9D100FB9DD9 /* HTMLNode.m in Sources */,
 				98390BD21A9F545F008FB583 /* THNotesTextView.m in Sources */,
 				986D72401A93A86000DD3F46 /* AMAddCourseTableViewController.m in Sources */,
 				98158CBB1AA61D6500F028C9 /* AMxlsFile.m in Sources */,
@@ -468,7 +568,9 @@
 				986545EC1A8A11E000822291 /* AMGroupsTableViewController.m in Sources */,
 				98372AB91A8A905800B1ACCF /* AMReaderManager.m in Sources */,
 				9895652F1A9B7830005AF795 /* AMNotesTableViewController.m in Sources */,
+				98A8089C1AADF98D00FB9DD9 /* MNMBottomPullToRefreshManager.m in Sources */,
 				98372AB61A8A8C4100B1ACCF /* AMGroupTableViewCell.m in Sources */,
+				98A8089D1AADF98D00FB9DD9 /* MNMBottomPullToRefreshView.m in Sources */,
 				98760D461A8FE15900B67F43 /* AMPickerSetupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +623,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					DHxlsReader,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = DiplomTest;
@@ -577,6 +683,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					DHxlsReader,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = DiplomTest;
@@ -591,6 +701,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					DHxlsReader,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = DiplomTest;

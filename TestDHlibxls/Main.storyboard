@@ -123,6 +123,7 @@
                         <segue destination="RRb-Du-9xc" kind="relationship" relationship="viewControllers" id="fN6-oJ-b79"/>
                         <segue destination="oZ3-yL-bca" kind="relationship" relationship="viewControllers" id="Sej-Sp-azv"/>
                         <segue destination="I7G-uw-i7n" kind="relationship" relationship="viewControllers" id="xnq-aB-bUd"/>
+                        <segue destination="wBE-Qg-SPE" kind="relationship" relationship="viewControllers" id="REN-wf-yah"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EfZ-ll-9Ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1046,12 +1047,213 @@ Time Left: Calculating...</string>
             </objects>
             <point key="canvasLocation" x="2260" y="1311"/>
         </scene>
+        <!--News Table View Controller - Новости-->
+        <scene sceneID="iqv-u2-9Mi">
+            <objects>
+                <tableViewController id="Fo4-kD-yva" customClass="AMNewsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iDA-HI-Xst">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsCell" rowHeight="57" id="6Xm-wT-gx0" customClass="AMNewsCellTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Xm-wT-gx0" id="eSz-9V-n55">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LeS-kF-u0i">
+                                            <rect key="frame" x="20" y="0.0" width="280" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Name">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Pg-9b-6t9">
+                                            <rect key="frame" x="20" y="28" width="280" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="text">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <font key="NSFont" size="11" name="Palatino-Roman"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="name" destination="LeS-kF-u0i" id="Adn-YP-PTu"/>
+                                    <outlet property="text" destination="9Pg-9b-6t9" id="oyP-6k-Wt6"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logo1" rowHeight="130" id="frP-LY-HEj" customClass="AMNewsCellTableViewCell">
+                                <rect key="frame" x="0.0" y="143" width="320" height="130"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="frP-LY-HEj" id="JkB-E9-OAn">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" highlightedImage="logo1" id="AUX-me-09a">
+                                            <rect key="frame" x="-140" y="0.0" width="600" height="129"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableViewCell>
+                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logo2" rowHeight="130" id="xhN-aY-4Cf" customClass="AMNewsCellTableViewCell">
+                                <rect key="frame" x="0.0" y="273" width="320" height="130"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xhN-aY-4Cf" id="t3Z-FS-nKJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" highlightedImage="logo2" id="Ezd-AF-sYf">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Fo4-kD-yva" id="koQ-x8-c7x"/>
+                            <outlet property="delegate" destination="Fo4-kD-yva" id="OQF-9h-8gZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Новости" id="9mF-Vi-A6g"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksv-rB-RPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1083" y="-798"/>
+        </scene>
+        <!--One News Table View Controller-->
+        <scene sceneID="gkO-ku-6LH">
+            <objects>
+                <tableViewController storyboardIdentifier="oneNews" id="z4g-CQ-RNg" customClass="AMOneNewsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="wfp-1s-3qu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="oneNewsCell" rowHeight="122" id="SAT-po-KbE" customClass="AMOneNewsTableViewCell">
+                                <rect key="frame" x="0.0" y="119" width="320" height="122"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SAT-po-KbE" id="8Tv-0O-W8A">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="07b-aO-b6L">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Name">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y8U-cJ-YLd">
+                                            <rect key="frame" x="10" y="60" width="300" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EM6-uw-tAS">
+                                            <rect key="frame" x="10" y="80" width="290" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLable" destination="EM6-uw-tAS" id="sDW-y2-CS8"/>
+                                    <outlet property="nameLable" destination="07b-aO-b6L" id="yK9-uX-Q0j"/>
+                                    <outlet property="textLable" destination="y8U-cJ-YLd" id="9YX-2A-2Sj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="z4g-CQ-RNg" id="ru5-M6-a0v"/>
+                            <outlet property="delegate" destination="z4g-CQ-RNg" id="qfO-z0-13t"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="DXt-f7-7lL">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="SZW-SI-Wif">
+                            <connections>
+                                <action selector="openMatiCom:" destination="z4g-CQ-RNg" id="URH-kN-Zlh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U0m-gg-6F4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1953" y="-798"/>
+        </scene>
+        <!--Navigation Controller - Новости-->
+        <scene sceneID="F7O-lM-6AG">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="wBE-Qg-SPE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Новости" id="Xz3-zH-7mW"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OhI-RV-2Xe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Fo4-kD-yva" kind="relationship" relationship="rootViewController" id="V7N-nD-NqB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rj8-MP-ZJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="587" y="-798"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="82b-og-q04">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mU4-wp-D0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3EK-fR-qpG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c1j-Gw-q6n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="z4g-CQ-RNg" kind="relationship" relationship="rootViewController" id="MSp-33-FqV"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1569" y="-798"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Numbers-1-icon3030" width="30" height="30"/>
         <image name="book-grey" width="30" height="29"/>
         <image name="clock3030" width="30" height="30"/>
         <image name="groups" width="30" height="30"/>
+        <image name="logo1" width="1890" height="424"/>
+        <image name="logo2" width="1890" height="424"/>
         <image name="numbers-2-icon3030" width="30" height="30"/>
         <image name="setupIcon3030" width="30" height="30"/>
     </resources>
