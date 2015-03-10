@@ -19,7 +19,7 @@
 
 extern int xls_debug;
 
-@interface AMGroupsTableViewController () <UITableViewDelegate>
+@interface AMGroupsTableViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic) NSArray* groupArray;
 @property (strong,nonatomic) AMReaderManager* reader;
@@ -64,7 +64,69 @@ extern int xls_debug;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - API
+
+-(void)selectRowAtGroupName {
+    NSInteger row = nil;
+    
+    for (AMGroup* group in self.groupArray) {
+        if ([group.groupName isEqual:self.selectedGroup]) {
+            row = [self.groupArray indexOfObject:group];
+            break;
+        }
+    }
+    
+    if (row) {
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+        UITableViewCell* uncheckCell = [self.tableView cellForRowAtIndexPath:indexPath];
+        uncheckCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.checkedIndexPath = indexPath;
+    }
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //    self.courseArray = [[AMReaderManager sharedReaderManager] getCourseArrayOfGroup:[self.groupArray objectAtIndex:indexPath.row]];
+    //
+    //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //
+    //    AMWeekTabBarController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"WeekTabBar"];
+    //    dest.courseArray = self.courseArray;
+    //
+    //    UIViewController* mainVC = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
+    //
+    //    [mainVC presentViewController:dest animated:YES completion:nil];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (self.checkedIndexPath) {
+        UITableViewCell* uncheckCell = [tableView cellForRowAtIndexPath:self.checkedIndexPath];
+        uncheckCell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    if([self.checkedIndexPath isEqual:indexPath])
+    {
+        self.checkedIndexPath = nil;
+        AMSetupTableViewController* setup = self.delegate;
+        setup.selectedGroupe.text = @"Выберите  группу";
+        
+    }
+    
+    else {
+        UITableViewCell* uncheckCell = [tableView cellForRowAtIndexPath:indexPath];
+        uncheckCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.checkedIndexPath = indexPath;
+        AMSetupTableViewController* setup = self.delegate;
+        AMGroup* group = [self.groupArray objectAtIndex:indexPath.row];
+        setup.selectedGroupe.text = [group groupName];
+    }
+}
+
+
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -100,60 +162,6 @@ extern int xls_debug;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    self.courseArray = [[AMReaderManager sharedReaderManager] getCourseArrayOfGroup:[self.groupArray objectAtIndex:indexPath.row]];
-//
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    
-//    AMWeekTabBarController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"WeekTabBar"];
-//    dest.courseArray = self.courseArray;
-//    
-//    UIViewController* mainVC = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
-//    
-//    [mainVC presentViewController:dest animated:YES completion:nil];
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (self.checkedIndexPath) {
-        UITableViewCell* uncheckCell = [tableView cellForRowAtIndexPath:self.checkedIndexPath];
-        uncheckCell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
-    if([self.checkedIndexPath isEqual:indexPath])
-    {
-        self.checkedIndexPath = nil;
-        AMSetupTableViewController* setup = self.delegate;
-        setup.selectedGroupe.text = @"Выберите  группу";
-        
-    }
-    
-    else {
-        UITableViewCell* uncheckCell = [tableView cellForRowAtIndexPath:indexPath];
-        uncheckCell.accessoryType = UITableViewCellAccessoryCheckmark;
-        self.checkedIndexPath = indexPath;
-        AMSetupTableViewController* setup = self.delegate;
-        AMGroup* group = [self.groupArray objectAtIndex:indexPath.row];
-        setup.selectedGroupe.text = [group groupName];
-    }
-}
 
--(void)selectRowAtGroupName {
-    NSInteger row = nil;
-    
-    for (AMGroup* group in self.groupArray) {
-        if ([group.groupName isEqual:self.selectedGroup]) {
-             row = [self.groupArray indexOfObject:group];
-            break;
-        }
-    }
-    
-    if (row) {
-        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-        UITableViewCell* uncheckCell = [self.tableView cellForRowAtIndexPath:indexPath];
-        uncheckCell.accessoryType = UITableViewCellAccessoryCheckmark;
-        self.checkedIndexPath = indexPath;
-    }
-}
 
 @end

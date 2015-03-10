@@ -7,6 +7,7 @@
 //
 
 #import "AMClassTableViewCell.h"
+#import "AMClassTableViewController.h"
 
 @implementation AMClassTableViewCell
 
@@ -31,4 +32,8 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)editMode:(id)sender {
+    AMClassTableViewController* vc = self.delegate;
+    [vc edit];
+}
 @end

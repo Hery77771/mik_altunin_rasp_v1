@@ -68,7 +68,7 @@
 
 - (IBAction)saveAction:(id)sender {
     
-if (self.type == ACAdd) {
+    if (self.type == ACAdd) {
         AMClassTableViewController* classTV = self.delegate;
         AMCourse* newCourse = [[AMCourse alloc]init];
         newCourse.time = [AMCourse startTime:self.courseTimeLable.text];
@@ -83,8 +83,8 @@ if (self.type == ACAdd) {
         
         NSInteger row = [AMCourse filterCourseArray:classTV.courseArray witwDay:newCourse.day].count;
         [self.navigationController popViewControllerAnimated:YES];
-        
         [classTV.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:row inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+        
     } else {
         self.changeCourse.classroom = self.courseClassroomLable.text;
         self.changeCourse.courseName = self.courseNameLable.text;
@@ -92,6 +92,8 @@ if (self.type == ACAdd) {
         
         [self.navigationController popViewControllerAnimated:YES];
     }
+    
+    [(AMClassTableViewController*)self.delegate setDayCourseArrayChanged:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

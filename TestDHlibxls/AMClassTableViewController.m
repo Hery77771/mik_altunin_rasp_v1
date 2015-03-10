@@ -10,10 +10,13 @@
 #import "AMClassTableViewCell.h"
 #include "AMAddCourseTableViewController.h"
 
-@interface AMClassTableViewController () <UITableViewDelegate>
+#define TIME_LABEL 20
+
+@interface AMClassTableViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic) NSArray* dayCourseArray;
 @property (strong,nonatomic) NSIndexPath* clickIndexPath;
+
 
 @end
 
@@ -25,6 +28,7 @@
     if (self) {
         self.courseArray = [[NSArray alloc]init];
         self.dayCourseArray = [[NSArray alloc]init];
+        self.dayCourseArrayChanged = NO;
     }
     return self;
 }
@@ -44,59 +48,21 @@
     }
 }
 
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self updateCourseArray];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    [self updateDayCourseArray];
-    return self.dayCourseArray.count + 1;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0) {
-        
-        static NSString* AddStudentIndentifier = @"addClass";
-        UITableViewCell*  cell = [tableView dequeueReusableCellWithIdentifier:AddStudentIndentifier];
-        
-        if (!cell) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AddStudentIndentifier];
-        }
-        return cell;
-    }
-    
-    else {
-        static NSString* indentifier = @"classCell";
-        
-        AMClassTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
-        
-        if (!cell) {
-            cell = [[AMClassTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
-        }
-        
-        
-        AMCourse* course = [self.dayCourseArray objectAtIndex:indexPath.row - 1];
-        cell.courseName.text = course.courseName;
-        cell.classRoom.text = course.classroom;
-        cell.startTime.text = [course stringStartTime];
-        
-        return cell;
-    }
-}
+#pragma mark - API
 
 -(void)updateDayCourseArray {
+    [self updateCourseArray];
     switch(self.weekdaySegmentedControl.selectedSegmentIndex){
         case 0:
             self.dayCourseArray = [AMCourse filterCourseArray:self.courseArray witwDay:TDMonday];
@@ -138,10 +104,149 @@
     }
 }
 
+-(void)updateCourseArray {
+    if (self.dayCourseArrayChanged) {
+        NSMutableArray* array = [NSMutableArray arrayWithArray:self.courseArray];
+        NSMutableArray* removedObj = [[NSMutableArray alloc]init];
+        typeDay type = [(AMCourse*)[self.dayCourseArray firstObject] day];
+        
+        for (AMCourse* course in array) {
+            
+            if (course.day == type) {
+                [removedObj addObject:course];
+            }
+        }
+        
+        [array removeObjectsInArray:removedObj];
+        [array addObjectsFromArray:self.dayCourseArray];
+        self.courseArray = array;
+        self.dayCourseArrayChanged = NO;
+    }
+}
+
 
 - (IBAction)weekSegmetControlChanged:(id)sender {
     [self.tableView reloadData];
 }
+
+
+-(void)edit {
+    BOOL isEditing = self.tableView.editing;
+    
+    [self.tableView setEditing:!isEditing animated:YES];
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return 40;
+    } else {
+        return [NSObject heightLabelOfTextForString:[(AMCourse*)[self.dayCourseArray objectAtIndex:indexPath.row - 1] courseName] fontSize:14.f widthLabel:300.f] + TIME_LABEL;
+    }
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
+    
+    if (proposedDestinationIndexPath.row == 0) {
+        return sourceIndexPath;
+    }
+    else
+        return proposedDestinationIndexPath;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row != 0) {
+        AMCourse* changeCourse = [self.dayCourseArray objectAtIndex:indexPath.row - 1];
+        AMAddCourseTableViewController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"ChangeCourse"];
+        [dest setDelegate:self];
+        [dest setType:ACChange];
+        [dest setChangeCourse:changeCourse];
+        self.clickIndexPath = indexPath;
+        [self.navigationController pushViewController:dest animated:YES];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"Удалить";
+}
+
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return indexPath.row == 0 ? UITableViewCellEditingStyleNone : UITableViewCellEditingStyleDelete;
+//}
+
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return CGFLOAT_MIN;
+    return tableView.sectionHeaderHeight;
+}
+
+
+
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    [self updateDayCourseArray];
+    return self.dayCourseArray.count + 1;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        
+        static NSString* AddStudentIndentifier = @"addClass";
+        AMClassTableViewCell*  cell = [tableView dequeueReusableCellWithIdentifier:AddStudentIndentifier];
+        
+        if (!cell) {
+            cell = [[AMClassTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AddStudentIndentifier];
+        }
+        cell.delegate = self;
+        return cell;
+    }
+    
+    else {
+        static NSString* indentifier = @"classCell";
+        
+        AMClassTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
+        
+        if (!cell) {
+            cell = [[AMClassTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
+        }
+        
+        
+        AMCourse* course = [self.dayCourseArray objectAtIndex:indexPath.row - 1];
+        cell.courseName.text = course.courseName;
+        cell.classRoom.text = course.classroom;
+        cell.startTime.text = [course stringStartTime];
+        
+        CGRect newFrame = cell.courseName.frame;
+        newFrame.size.height = [NSObject heightLabelOfTextForString:[(AMCourse*)[self.dayCourseArray objectAtIndex:indexPath.row - 1] courseName] fontSize:14.f widthLabel:300.f];
+        cell.courseName.frame = newFrame;
+        newFrame = cell.classRoom.frame;
+        newFrame.origin.y = cell.courseName.frame.size.height + 5;
+        cell.classRoom.frame = newFrame;
+        newFrame = cell.startTime.frame;
+        newFrame.origin.y = cell.courseName.frame.size.height + 5;
+        cell.startTime.frame = newFrame;
+        
+        return cell;
+    }
+}
+
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -168,30 +273,9 @@
     }
 }
 
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // The table view should not be re-orderable.
-    return NO;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return 40;
-    } else {
-        return 60;
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row != 0) {
-        AMCourse* changeCourse = [self.dayCourseArray objectAtIndex:indexPath.row - 1];
-        AMAddCourseTableViewController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"ChangeCourse"];
-        [dest setDelegate:self];
-        [dest setType:ACChange];
-        [dest setChangeCourse:changeCourse];
-        self.clickIndexPath = indexPath;
-        [self.navigationController pushViewController:dest animated:YES];
-    }
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return indexPath.row > 0;
 }
 
 
@@ -204,5 +288,20 @@
         [dest setType:ACAdd];
     }
 }
+
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    NSMutableArray* tempArray = [NSMutableArray arrayWithArray:self.dayCourseArray];
+    AMCourse *employee = [tempArray objectAtIndex:sourceIndexPath.row - 1];
+    [tempArray removeObject: employee];
+    [tempArray insertObject:employee atIndex:destinationIndexPath.row - 1];
+   // [tempArray exchangeObjectAtIndex:sourceIndexPath.row - 1 withObjectAtIndex:destinationIndexPath.row - 1];
+    self.dayCourseArray = tempArray;
+    self.dayCourseArrayChanged = YES;
+    [self updateCourseArray];
+}
+
+
 
 @end

@@ -13,4 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *classRoom;
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
 
+@property (weak,nonatomic) id delegate;
+- (IBAction)editMode:(id)sender;
+
+
 @end

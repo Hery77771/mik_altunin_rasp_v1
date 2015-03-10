@@ -12,7 +12,7 @@
 #import "AMNotesTableViewCell.h"
 #import "AMAddNotesTableViewController.h"
 
-@interface AMNotesTableViewController () <UITableViewDataSource>
+@interface AMNotesTableViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -36,6 +36,42 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [self.navigationController.navigationBar setBarStyle:UIStatusBarStyleLightContent];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    self.fetchedResultsController = nil;
+}
+
+#pragma mark - API
+
+- (IBAction)addCustomNotes:(id)sender; {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Создание заметкт." message:@"Имя новой заметки:" delegate:self cancelButtonTitle:@"Отмена" otherButtonTitles:@"Ок", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
+
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (buttonIndex) {
+        case 1: {
+            
+            NSString* noteName = [[NSString alloc]initWithString:[[alertView textFieldAtIndex:0]text]];
+            [[AMDataManager sharedManager]addNoteWithName:noteName];
+            [[AMDataManager sharedManager]saveContext];
+            
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 
@@ -85,15 +121,7 @@
     return _fetchedResultsController;
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.tableView reloadData];
-}
-
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    self.fetchedResultsController = nil;
-}
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -123,48 +151,11 @@
     return cell;
 }
 
-- (IBAction)addCustomNotes:(id)sender; {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Создание заметкт." message:@"Имя новой заметки:" delegate:self cancelButtonTitle:@"Отмена" otherButtonTitles:@"Ок", nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alert show];
-}
-
-
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    switch (buttonIndex) {
-        case 1: {
-            
-            NSString* noteName = [[NSString alloc]initWithString:[[alertView textFieldAtIndex:0]text]];
-            [[AMDataManager sharedManager]addNoteWithName:noteName];
-            [[AMDataManager sharedManager]saveContext];
-            
-            break;
-        }
-        default:
-            break;
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    AMAddNotesTableViewController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"AddNote"];
-    
-    AMNotes* note = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
-    [dest setDelegate:note];
-    
-    [self.navigationController pushViewController:dest animated:YES];
-    
-    
-}
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
+
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -188,8 +179,36 @@
     return NO;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    return @"Нажмите + для добавления заметки.";
+}
 
-#pragma mark - Fetched results controller
+
+#pragma mark -UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    AMAddNotesTableViewController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"AddNote"];
+    
+    AMNotes* note = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
+    [dest setDelegate:note];
+    
+    [self.navigationController pushViewController:dest animated:YES];
+    
+    
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return CGFLOAT_MIN;
+    return tableView.sectionHeaderHeight;
+}
+
+
+#pragma mark - NSFetchedResultsControllerDelegate
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
@@ -236,10 +255,12 @@
     }
 }
 
+
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
 }
+
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
@@ -249,18 +270,6 @@
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];
     dateFormatter.dateFormat = @"dd.MM.yyyy";
     notesCell.timeLabe.text = [dateFormatter stringFromDate:notes.endTime];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    return @"Нажмите + для добавления заметки.";
-}
-
-
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 0)
-        return CGFLOAT_MIN;
-    return tableView.sectionHeaderHeight;
 }
 
 @end

@@ -45,13 +45,23 @@
     
 }
 
+
+
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self loadCourseArray];
     [self.tableView reloadData];
 }
 
-     
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    self.fetchedResultsController = nil;
+}
+
+
+#pragma mark - API
+
 -(void)loadCourseArray {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -78,6 +88,37 @@
     self.courseArray = [reader getCourseArrayOfGroupName:self.selectedGroupe];
 }
 
+- (IBAction)addCustomSchedule:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Создание расписания." message:@"Имя нового расписания:" delegate:self cancelButtonTitle:@"Отмена" otherButtonTitles:@"С сайта mati.ru",@"Пустрое расписание", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
+
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 1: {
+            
+            NSString* scheduleName = [[alertView textFieldAtIndex:0]text];
+            [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.selectedGroupe andCourseArray:self.courseArray];
+            break;
+        }
+        case 2: {
+            
+            NSString* scheduleName = [[alertView textFieldAtIndex:0]text];
+            [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.selectedGroupe andCourseArray:nil];
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+
+
+#pragma mark - NSFetchedResultsControllerDelegate
 
 -(NSManagedObjectContext*)managedObjectContext {
     if (!_managedObjectContext) {
@@ -128,10 +169,8 @@
     return _fetchedResultsController;
 }
 
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    self.fetchedResultsController = nil;
-}
+
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -163,33 +202,6 @@
     return cell;
 }
 
-- (IBAction)addCustomSchedule:(id)sender {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Создание расписания." message:@"Имя нового расписания:" delegate:self cancelButtonTitle:@"Отмена" otherButtonTitles:@"С сайта mati.ru",@"Пустрое расписание", nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alert show];
-}
-
-
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch (buttonIndex) {
-        case 1: {
-            
-            NSString* scheduleName = [[alertView textFieldAtIndex:0]text];
-            [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.selectedGroupe andCourseArray:self.courseArray];
-            break;
-        }
-        case 2: {
-            
-            NSString* scheduleName = [[alertView textFieldAtIndex:0]text];
-            [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.selectedGroupe andCourseArray:nil];
-            break;
-        }
-            
-        default:
-            break;
-    }
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -233,8 +245,19 @@
     return NO;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    return @"Нажмите + для добавления расписания.";
+}
 
-#pragma mark - Fetched results controller
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return CGFLOAT_MIN;
+    return tableView.sectionHeaderHeight;
+}
+
+
+#pragma mark - NSFetchedResultsControllerDelegate
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
@@ -293,16 +316,5 @@
     cell.textLabel.text = sh.scheduleName;
 }
 
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    return @"Нажмите + для добавления расписания.";
-}
-
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 0)
-        return CGFLOAT_MIN;
-    return tableView.sectionHeaderHeight;
-}
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Catigoryes.h"
 
-@interface AMOneNewsTableViewController : UITableViewController <UITableViewDelegate , UITableViewDataSource>
+@interface AMOneNewsTableViewController : UITableViewController 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) NSString *date;

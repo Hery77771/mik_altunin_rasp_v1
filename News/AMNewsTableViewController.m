@@ -35,6 +35,13 @@
     
     self.pullToRefreshManager_ = [[MNMBottomPullToRefreshManager alloc] initWithPullToRefreshViewHeight:60.0f tableView:self.tableView withClient:self];
     
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:70/255.0f green:150/255.0f blue:240/255.0f alpha:0.9f]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [self.navigationController.navigationBar setBarStyle:UIStatusBarStyleLightContent];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -68,20 +75,13 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
+        NSMutableArray *deletePaths = [NSMutableArray array];
         if (self.emptyTable) {
-            self.emptyTable = NO;
-            NSMutableArray *newPaths = [NSMutableArray array];
-            [newPaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
-            [newPaths addObject:[NSIndexPath indexPathForRow:1 inSection:0]];
-            [newPaths addObject:[NSIndexPath indexPathForRow:2 inSection:0]];
-            [newPaths addObject:[NSIndexPath indexPathForRow:3 inSection:0]];
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                [self.tableView beginUpdates];
-                [self.tableView deleteRowsAtIndexPaths:newPaths withRowAnimation:UITableViewRowAnimationFade];
-                [self.tableView endUpdates];
-            });
+            [deletePaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+            [deletePaths addObject:[NSIndexPath indexPathForRow:1 inSection:0]];
+            [deletePaths addObject:[NSIndexPath indexPathForRow:2 inSection:0]];
+            [deletePaths addObject:[NSIndexPath indexPathForRow:3 inSection:0]];
         }
-        
         
         NSMutableArray *newPaths = [NSMutableArray array];
         NSArray* news = [self loadNextNewsPage];
@@ -96,6 +96,10 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             
             [self.tableView beginUpdates];
+            if (self.emptyTable) {
+                [self.tableView deleteRowsAtIndexPaths:deletePaths withRowAnimation:UITableViewRowAnimationFade];
+                self.emptyTable = NO;
+            }
             [self.tableView insertRowsAtIndexPaths:newPaths withRowAnimation:UITableViewRowAnimationFade];
             [self.tableView endUpdates];
             self.loadingData = NO;
@@ -104,15 +108,69 @@
     });
 }
 
+-(NSMutableArray*)loadNextNewsPage {
+    NSURL *tutorialsUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://mati.ru/index.php/novosti/novosti?limitstart=%d",self.pageIndex]];
+    NSData *tutorialsHtmlData = [NSData dataWithContentsOfURL:tutorialsUrl];
+    
+    NSError *error = nil;
+    HTMLParser *parser = [[HTMLParser alloc] initWithData:tutorialsHtmlData error:&error];
+    
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+    
+    HTMLNode *bodyNode = [parser body];
+    
+    NSArray *newsTitle = [bodyNode findChildTags:@"h2"];
+    NSArray *newsText = [bodyNode findChildrenWithAttribute:@"class" matchingName:@"article-intro" allowPartial:NO];
+    NSArray *newsDate = [bodyNode findChildrenWithAttribute:@"class" matchingName:@"article-info muted" allowPartial:NO];
+    
+    NSMutableArray *articlesDone = [[NSMutableArray alloc] init];
+    
+    int i = 0;
+    for (HTMLNode *postNode in newsTitle) {
+        NSMutableDictionary *article = [[NSMutableDictionary alloc] init];
+        NSArray *aTags = [postNode findChildTags:@"a"];
+        if (aTags.count > 0) {
+            HTMLNode *aOne = [aTags objectAtIndex:0];
+            NSString *nameOfArticle = [aOne contents];
+            NSString *link = [aOne getAttributeNamed:@"href"];
+            NSString *text = [self getText:[newsText objectAtIndex:i]];
+            NSString *date = [[newsDate objectAtIndex:i] allContents];
+            [article setObject:nameOfArticle forKey:@"title"];
+            [article setObject:date forKey:@"date"];
+            [article setObject:link forKey:@"link"];
+            [article setObject:text forKey:@"text"];
+            [articlesDone addObject:article];
+            i++;
+        }
+    }
+    
+    self.pageIndex += 5;
+    return articlesDone;
+}
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+-(NSString*)getText:(HTMLNode*)node {
+    NSArray *pTags = [node findChildTags:@"p"];
+    NSMutableString* text = [[NSMutableString alloc]init];
+    if (pTags.count > 0) {
+        for (HTMLNode *pNode in pTags) {
+            if ([pNode findChildTags:@"img"].count > 0)
+                continue;
+            else
+                [text appendString:[NSString stringWithFormat:@"%@ %@",[pNode allContents],@"\n\n"]];
+        }
+    }
+    return text;
 }
 
 
 
 #pragma mark UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.emptyTable) {
@@ -194,6 +252,7 @@
     }
 }
 
+#pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    
@@ -241,61 +300,6 @@
 }
 
 
--(NSMutableArray*)loadNextNewsPage {
-    NSURL *tutorialsUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://mati.ru/index.php/novosti/novosti?limitstart=%d",self.pageIndex]];
-    NSData *tutorialsHtmlData = [NSData dataWithContentsOfURL:tutorialsUrl];
-    
-    NSError *error = nil;
-    HTMLParser *parser = [[HTMLParser alloc] initWithData:tutorialsHtmlData error:&error];
-    
-    if (error) {
-        NSLog(@"Error: %@", error);
-    }
-    
-    HTMLNode *bodyNode = [parser body];
-    
-    NSArray *newsTitle = [bodyNode findChildTags:@"h2"];
-    NSArray *newsText = [bodyNode findChildrenWithAttribute:@"class" matchingName:@"article-intro" allowPartial:NO];
-    NSArray *newsDate = [bodyNode findChildrenWithAttribute:@"class" matchingName:@"article-info muted" allowPartial:NO];
-    
-    NSMutableArray *articlesDone = [[NSMutableArray alloc] init];
-    
-    int i = 0;
-    for (HTMLNode *postNode in newsTitle) {
-        NSMutableDictionary *article = [[NSMutableDictionary alloc] init];
-        NSArray *aTags = [postNode findChildTags:@"a"];
-        if (aTags.count > 0) {
-            HTMLNode *aOne = [aTags objectAtIndex:0];
-            NSString *nameOfArticle = [aOne contents];
-            NSString *link = [aOne getAttributeNamed:@"href"];
-            NSString *text = [self getText:[newsText objectAtIndex:i]];
-            NSString *date = [[newsDate objectAtIndex:i] allContents];
-            [article setObject:nameOfArticle forKey:@"title"];
-            [article setObject:date forKey:@"date"];
-            [article setObject:link forKey:@"link"];
-            [article setObject:text forKey:@"text"];
-            [articlesDone addObject:article];
-            i++;
-        }
-    }
-    
-    self.pageIndex += 5;
-    return articlesDone;
-}
-
--(NSString*)getText:(HTMLNode*)node {
-    NSArray *pTags = [node findChildTags:@"p"];
-    NSMutableString* text = [[NSMutableString alloc]init];
-    if (pTags.count > 0) {
-        for (HTMLNode *pNode in pTags) {
-            if ([pNode findChildTags:@"img"].count > 0)
-                continue;
-            else
-                [text appendString:[NSString stringWithFormat:@"%@ %@",[pNode allContents],@"\n\n"]];
-        }
-    }
-    return text;
-}
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -304,8 +308,9 @@
     return tableView.sectionHeaderHeight;
 }
 
-#pragma mark -
+
 #pragma mark MNMBottomPullToRefreshManagerClient
+#pragma mark UIScrollViewDelegate
 
 /**
  * This is the same delegate method as UIScrollView but required in MNMBottomPullToRefreshManagerClient protocol

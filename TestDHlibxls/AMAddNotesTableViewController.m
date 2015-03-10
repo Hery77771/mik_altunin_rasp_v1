@@ -27,7 +27,7 @@ static NSString *kTextPickerID = @"textCell"; // the cell containing the date pi
 static NSInteger textCellRowHeight = 360;
 static NSInteger nameCellRowHeight = 55;
 
-@interface AMAddNotesTableViewController () <UITextFieldDelegate,UITextViewDelegate>
+@interface AMAddNotesTableViewController () <UITextFieldDelegate,UITextViewDelegate,UITextViewDelegate>
 @property (nonatomic, strong) NSDate *selectedDate;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
@@ -480,6 +480,8 @@ NSUInteger DeviceSystemMajorVersion()
     UIBarButtonItem *rbtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveNote:)];
     self.navigationItem.rightBarButtonItem = rbtn;
 }
+
+#pragma mark - UITextViewDelegate
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     

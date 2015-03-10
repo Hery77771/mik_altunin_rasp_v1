@@ -12,9 +12,10 @@
 
 #define DATE_LABEL 20
 
-@interface AMOneNewsTableViewController () <UIActionSheetDelegate>
+@interface AMOneNewsTableViewController () <UIActionSheetDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @end
+
 
 @implementation AMOneNewsTableViewController
 
@@ -38,40 +39,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
 
-- (CGFloat)heightLabelOfTextForString:(NSString *)aString fontSize:(CGFloat)fontSize widthLabel:(CGFloat)width {
-    
-    UIFont* font = [UIFont systemFontOfSize:fontSize];
-    
-    NSShadow* shadow = [[NSShadow alloc] init];
-    shadow.shadowOffset = CGSizeMake(0, -1);
-    shadow.shadowBlurRadius = 0;
-    
-    NSMutableParagraphStyle* paragraph = [[NSMutableParagraphStyle alloc] init];
-    [paragraph setLineBreakMode:NSLineBreakByWordWrapping];
-    [paragraph setAlignment:NSTextAlignmentLeft];
-    
-    NSDictionary* attributes = [NSDictionary dictionaryWithObjectsAndKeys: font, NSFontAttributeName, paragraph, NSParagraphStyleAttributeName,shadow, NSShadowAttributeName, nil];
-    
-    CGRect rect = [aString boundingRectWithSize:CGSizeMake(300, CGFLOAT_MAX)
-                                        options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                     attributes:attributes
-                                        context:nil];
-    
-    return rect.size.height;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0 && indexPath.section == 0) {
-        
-        return [self heightLabelOfTextForString:self.text fontSize:11.f widthLabel:300] + [self heightLabelOfTextForString:self.name fontSize:15.f widthLabel:300] + DATE_LABEL;
-    } else
-        return 0;
-}
 
 
 -(NSString*) cleanStringOfSpaces:(NSString*)string {
@@ -82,49 +50,7 @@
     return string;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString* indentifier = @"oneNewsCell";
-    
-    AMOneNewsTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
-    
-    if (!cell) {
-        cell = [[AMOneNewsTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
-    }
-    
-    cell.nameLable.text = [self cleanStringOfSpaces:self.name];
-    cell.textLable.text = self.text;
-    cell.dateLable.text = [self cleanStringOfSpaces:self.date];
-    
-    CGRect newFrame =  cell.nameLable.frame;
-    newFrame.size.height = [self heightLabelOfTextForString:self.name fontSize:15.f widthLabel:300];
-    cell.nameLable.frame = newFrame;
-    
-    newFrame = CGRectMake(10.f, newFrame.size.height, 300, 20);
-    newFrame.size.height = [self heightLabelOfTextForString:self.text fontSize:11.f widthLabel:300];
-    cell.textLable.frame = newFrame;
-    
-    newFrame = cell.dateLable.frame;
-    newFrame.origin.y = cell.textLable.frame.size.height + cell.nameLable.frame.size.height;
-    cell.dateLable.frame = newFrame;
-    
-    return cell;
-}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
-
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 0)
-        return CGFLOAT_MIN;
-    return tableView.sectionHeaderHeight;
-}
 
 
 - (UIActionSheet *)actionSheet {
@@ -160,6 +86,14 @@
 }
 
 
+
+- (IBAction)openMatiCom:(id)sender
+{
+    [[self actionSheet] showInView:[self view]];
+}
+
+#pragma mark UIActionSheetDelegate
+
 - (void)actionSheet:(UIActionSheet *)actionSheet
 clickedButtonAtIndex:(NSInteger)buttonIndex {
     
@@ -176,9 +110,68 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     }
 }
 
-- (IBAction)openMatiCom:(id)sender
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0 && indexPath.section == 0) {
+        
+        return [NSObject heightLabelOfTextForString:self.text fontSize:11.f widthLabel:300] + [NSObject heightLabelOfTextForString:self.name fontSize:15.f widthLabel:300] + DATE_LABEL;
+    } else
+        return 0;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    [[self actionSheet] showInView:[self view]];
+    if (section == 0)
+        return CGFLOAT_MIN;
+    return tableView.sectionHeaderHeight;
+}
+
+
+
+#pragma mark UITableViewDataSource
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString* indentifier = @"oneNewsCell";
+    
+    AMOneNewsTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
+    
+    if (!cell) {
+        cell = [[AMOneNewsTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
+    }
+    
+    cell.nameLable.text = [self cleanStringOfSpaces:self.name];
+    cell.textLable.text = self.text;
+    cell.dateLable.text = [self cleanStringOfSpaces:self.date];
+    
+    CGRect newFrame =  cell.nameLable.frame;
+    newFrame.size.height = [NSObject heightLabelOfTextForString:self.name fontSize:15.f widthLabel:300];
+    cell.nameLable.frame = newFrame;
+    
+    newFrame = CGRectMake(10.f, newFrame.size.height, 300, 20);
+    newFrame.size.height = [NSObject heightLabelOfTextForString:self.text fontSize:11.f widthLabel:300];
+    cell.textLable.frame = newFrame;
+    
+    newFrame = cell.dateLable.frame;
+    newFrame.origin.y = cell.textLable.frame.size.height + cell.nameLable.frame.size.height;
+    cell.dateLable.frame = newFrame;
+    
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
 }
 
 @end

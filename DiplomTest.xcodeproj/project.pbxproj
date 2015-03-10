@@ -23,6 +23,7 @@
 		98479B591A91006100C5F4EF /* AMSelVScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98479B581A91006100C5F4EF /* AMSelVScheduleTableViewController.m */; };
 		984C38E01A8B83A3004A4E2E /* AMWeekTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 984C38DF1A8B83A3004A4E2E /* AMWeekTabBarController.m */; };
 		984C38E51A8BC173004A4E2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984C38E41A8BC173004A4E2E /* Images.xcassets */; };
+		9864E4711AAF36B700235DBF /* Catigoryes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9864E4701AAF36B700235DBF /* Catigoryes.m */; };
 		986545E81A8A116F00822291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986545E71A8A116F00822291 /* Main.storyboard */; };
 		986545EC1A8A11E000822291 /* AMGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986545EB1A8A11E000822291 /* AMGroupsTableViewController.m */; };
 		986545F71A8A2C7100822291 /* AMClassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986545F61A8A2C7100822291 /* AMClassTableViewController.m */; };
@@ -128,6 +129,8 @@
 		984C38DE1A8B83A3004A4E2E /* AMWeekTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMWeekTabBarController.h; sourceTree = "<group>"; };
 		984C38DF1A8B83A3004A4E2E /* AMWeekTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMWeekTabBarController.m; sourceTree = "<group>"; };
 		984C38E41A8BC173004A4E2E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		9864E46F1AAF36B700235DBF /* Catigoryes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Catigoryes.h; sourceTree = "<group>"; };
+		9864E4701AAF36B700235DBF /* Catigoryes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Catigoryes.m; sourceTree = "<group>"; };
 		986545E71A8A116F00822291 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		986545EA1A8A11E000822291 /* AMGroupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGroupsTableViewController.h; sourceTree = "<group>"; };
 		986545EB1A8A11E000822291 /* AMGroupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGroupsTableViewController.m; sourceTree = "<group>"; };
@@ -258,6 +261,15 @@
 				984384321A921D1B0068C329 /* AMDataManager.m */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		9864E46D1AAF366300235DBF /* Catigories */ = {
+			isa = PBXGroup;
+			children = (
+				9864E46F1AAF36B700235DBF /* Catigoryes.h */,
+				9864E4701AAF36B700235DBF /* Catigoryes.m */,
+			);
+			name = Catigories;
 			sourceTree = "<group>";
 		};
 		986545F01A8A181D00822291 /* ViewControllers */ = {
@@ -405,6 +417,7 @@
 				DEB78B8314BC7D4400845894 /* AppDelegate.h */,
 				DEB78B8414BC7D4400845894 /* AppDelegate.m */,
 				986545E71A8A116F00822291 /* Main.storyboard */,
+				9864E46D1AAF366300235DBF /* Catigories */,
 				98A8088F1AADF91300FB9DD9 /* News */,
 				98390BCB1A9F5351008FB583 /* THNotesTextView */,
 				98D914FB1AA639C3006C370A /* MZDownloadManager */,
@@ -546,6 +559,7 @@
 				98A808B71AADF9D100FB9DD9 /* HTMLParser.m in Sources */,
 				981EBC9B1A88D0BA0031E7D8 /* AMCourse.m in Sources */,
 				98D915031AA63A01006C370A /* MZDownloadingCell.m in Sources */,
+				9864E4711AAF36B700235DBF /* Catigoryes.m in Sources */,
 				98A808AD1AADF99700FB9DD9 /* AMOneNewsTableViewCell.m in Sources */,
 				98158CC11AA61D6500F028C9 /* AMNotes.m in Sources */,
 				981EBC981A88C75F0031E7D8 /* AMGroup.m in Sources */,

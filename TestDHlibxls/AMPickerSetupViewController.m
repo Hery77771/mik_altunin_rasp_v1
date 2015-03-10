@@ -74,6 +74,9 @@
     }
 }
 
+
+#pragma mark - UIPickerViewDataSource
+
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView
 {
     return 1;
@@ -91,6 +94,8 @@ numberOfRowsInComponent:(NSInteger)component
 {
     return [dataSource objectAtIndex:row];
 }
+
+#pragma mark - UIPickerViewDelegate
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     

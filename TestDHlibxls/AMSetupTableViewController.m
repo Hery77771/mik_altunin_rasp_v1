@@ -33,7 +33,7 @@
     [super viewDidLoad];
     [self loadInUserDefaults];
     
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:70/255.0f green:150/255.0f blue:240/255.0f alpha:0.9f]];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:160/255.0f green:160/255.0f blue:160/255.0f alpha:0.9f]];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTranslucent:YES];
     [self.navigationController.navigationBar
@@ -58,6 +58,15 @@
         [[self.UpdateLable objectAtIndex:0] setHidden:NO];
     }
 }
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - API
+
 
 - (void)saveInUserDefaults {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -95,11 +104,43 @@
 //    }
 //}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)deleteFile:(NSString*)path {
+    NSString *docPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *filePath = [docPath stringByAppendingPathComponent:path];
+    NSError *error = nil;
+    [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
 }
+
+- (void)updateXLSFiles { //perform get request
+    ServiceConnector *serviceConnector = [[ServiceConnector alloc] init];
+    serviceConnector.delegate = self;
+    [serviceConnector updateChangeDate];
+}
+
+-(void)updateFile:(NSDictionary*)changeDate {
+    AMDataManager* data = [AMDataManager sharedManager];
+    NSDateFormatter* dateFormater = [[NSDateFormatter alloc]init];
+    dateFormater.dateFormat = @"dd MM yyyy H:m:s";
+    
+    for (int i = 1; i < 5; i++) {
+        for (int j = 1; j < 6; j++ ) {
+            NSDate* date = [dateFormater dateFromString:[changeDate objectForKey:[NSString stringWithFormat:@"%d_%d",i,j]]];
+            NSString* name = [NSString stringWithFormat:@"%d_%d.xls",i,j];
+            if (![data havexlsFileWithName:name andchangeDate:date]) {
+                NSLog(@"Файл %@ нужно обновить",name);
+                [self.availableDownloadsArray addObject:[NSString stringWithFormat:@"http://www.mati-sched.tk/xlsFile/%d/%d_%d.xls",i,i,j]];
+                if ([self.updateButton isHidden]) {
+                    self.updateButton.hidden = NO;
+                    [[self.UpdateLable objectAtIndex:1] setHidden:NO];
+                    [[self.UpdateLable objectAtIndex:0] setHidden:YES];
+                }
+            }
+        }
+    }
+}
+
+
+#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -150,42 +191,10 @@
     }
 }
 
--(void)deleteFile:(NSString*)path {
-    NSString *docPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSString *filePath = [docPath stringByAppendingPathComponent:path];
-    NSError *error = nil;
-    [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
-}
 
-- (void)updateXLSFiles { //perform get request
-    ServiceConnector *serviceConnector = [[ServiceConnector alloc] init];
-    serviceConnector.delegate = self;
-    [serviceConnector updateChangeDate];
-}
 
--(void)updateFile:(NSDictionary*)changeDate {
-    AMDataManager* data = [AMDataManager sharedManager];
-    NSDateFormatter* dateFormater = [[NSDateFormatter alloc]init];
-    dateFormater.dateFormat = @"dd MM yyyy H:m:s";
-    
-    for (int i = 1; i < 5; i++) {
-        for (int j = 1; j < 6; j++ ) {
-            NSDate* date = [dateFormater dateFromString:[changeDate objectForKey:[NSString stringWithFormat:@"%d_%d",i,j]]];
-            NSString* name = [NSString stringWithFormat:@"%d_%d.xls",i,j];
-            if (![data havexlsFileWithName:name andchangeDate:date]) {
-                NSLog(@"Файл %@ нужно обновить",name);
-                [self.availableDownloadsArray addObject:[NSString stringWithFormat:@"http://www.mati-sched.tk/xlsFile/%d/%d_%d.xls",i,i,j]];
-                if ([self.updateButton isHidden]) {
-                    self.updateButton.hidden = NO;
-                    [[self.UpdateLable objectAtIndex:1] setHidden:NO];
-                    [[self.UpdateLable objectAtIndex:0] setHidden:YES];
-                }
-            }
-        }
-    }
-}
 
-#pragma mark - ServiceConnectorDelegate -
+#pragma mark - ServiceConnectorDelegate
 
 -(void)requestReturnedData:(NSData *)data{ //activated when data is returned
     
