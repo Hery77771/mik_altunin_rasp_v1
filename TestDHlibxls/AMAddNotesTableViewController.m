@@ -20,6 +20,7 @@
 #define kDateStartRow   1
 #define kDateEndRow     2
 
+static NSString *kTimerNameKey = @"kTimerNameKey";
 static NSString *kDateCellID = @"dateCell";     // the cells with the start or end date
 static NSString *kDatePickerID = @"datePicker";
 static NSString *kNameCellID = @"nameCell";     // the cells with the start or end date
@@ -41,13 +42,14 @@ static NSInteger nameCellRowHeight = 55;
 
 @property (nonatomic, strong) IBOutlet UIDatePicker *pickerView;
 
+@property (nonatomic, strong) NSMutableArray *notificationsArray;
+
 // this button appears only when the date picker is shown (iOS 6.1.x or earlier)
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *doneButton;
 
 @end
 
 @implementation AMAddNotesTableViewController
-
 
 - (void)viewDidLoad
 {
@@ -56,23 +58,32 @@ static NSInteger nameCellRowHeight = 55;
     if (self.delegate) {
         self.selectedDate = self.delegate.endTime;
     }
-        
-        self.dateFormatter = [[NSDateFormatter alloc] init];
-        self.dateFormatter.dateFormat = @"dd.MM.yyyy";
-        
-        // obtain the picker view cell's height, works because the cell was pre-defined in our storyboard
-        UITableViewCell *pickerViewCellToCheck = [self.tableView dequeueReusableCellWithIdentifier:kDatePickerID];
-        self.pickerCellRowHeight = CGRectGetHeight(pickerViewCellToCheck.frame);
-        self.title = @"Редактирование";
-        
-        // if the local changes while in the background, we need to be notified so we can update the date
-        // format in the table view cells
-        //
     
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(localeChanged:)
-                                                     name:NSCurrentLocaleDidChangeNotification
-                                                   object:nil];
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    self.dateFormatter.dateFormat = @"dd.MM.yyyy";
+    
+    // obtain the picker view cell's height, works because the cell was pre-defined in our storyboard
+    UITableViewCell *pickerViewCellToCheck = [self.tableView dequeueReusableCellWithIdentifier:kDatePickerID];
+    self.pickerCellRowHeight = CGRectGetHeight(pickerViewCellToCheck.frame);
+    self.title = @"Редактирование";
+    
+    self.notificationsArray = [[NSMutableArray alloc]init];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults objectForKey:@"notificationsKey"]) {
+        NSData *data = [defaults objectForKey:@"notificationsKey"];
+        self.notificationsArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    
+    // if the local changes while in the background, we need to be notified so we can update the date
+    // format in the table view cells
+    //
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(localeChanged:)
+                                                 name:NSCurrentLocaleDidChangeNotification
+                                               object:nil];
     
     
     UIBarButtonItem *rbtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveNote:)];
@@ -463,9 +474,18 @@ NSUInteger DeviceSystemMajorVersion()
 
 - (void)saveNote:(id)sender {
     
-    
-    [[AMDataManager sharedManager]updateNote:self.delegate withText:self.textCell.noteText.text name:self.nameCell.noteName.text endDate:self.selectedDate];
-    [self.navigationController popViewControllerAnimated:YES];
+    NSDate *currentDate = [NSDate date];
+    if ([[self.selectedDate earlierDate:currentDate] isEqual:self.selectedDate]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Некорректная дата напоминания." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        [[AMDataManager sharedManager]updateNote:self.delegate withText:self.textCell.noteText.text name:self.nameCell.noteName.text endDate:self.selectedDate];
+        
+        [self disableNotification];
+        [self enableNotification];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextView *)textField {
@@ -489,6 +509,49 @@ NSUInteger DeviceSystemMajorVersion()
     self.navigationItem.rightBarButtonItem = rbtn;
     
     return YES;
+}
+
+#pragma mark - Notifications
+
+-(void)enableNotification
+{
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.fireDate = self.selectedDate;
+    notification.alertBody = self.nameCell.noteName.text;
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.nameCell.noteName.text forKey:kTimerNameKey];
+    notification.userInfo = userInfo;
+    
+    [self.notificationsArray addObject:notification];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.notificationsArray];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:data forKey:@"notificationsKey"];
+    [defaults synchronize];
+    
+    BOOL enabledNotifications = YES;
+    if ([defaults objectForKey:@"notificationSwitch"]) {
+        enabledNotifications = [defaults boolForKey:@"notificationSwitch"];
+    }
+    
+    if (enabledNotifications) {
+        [UIApplication sharedApplication].scheduledLocalNotifications = self.notificationsArray;
+    }
+}
+
+-(void)disableNotification {
+    NSDate *currentDate = [NSDate date];
+    for (UILocalNotification *notification in self.notificationsArray){
+        NSDictionary *userInfo = notification.userInfo;
+        if ([self.nameCell.noteName.text isEqualToString:[userInfo objectForKey:kTimerNameKey]]) {
+            [self.notificationsArray removeObject:notification];
+            break;
+        } else if ([[self.selectedDate earlierDate:currentDate] isEqual:self.selectedDate]) {
+            [self.notificationsArray removeObject:notification];
+        }
+    }
 }
 
 @end

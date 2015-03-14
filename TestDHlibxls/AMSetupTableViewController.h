@@ -20,6 +20,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *updateButton;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *UpdateLable;
+@property (weak, nonatomic) IBOutlet UISwitch *pushNotificationSwitch;
+
+- (IBAction)ChangeNotificationSwitch:(UISwitch*)sender;
 
 - (void)downloadRequestFinished:(NSString *)fileName;
 

@@ -68,6 +68,20 @@
 
 - (IBAction)saveAction:(id)sender {
     
+    if ([self.courseNameLable.text isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Введите название предмета." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    } else if ([self.courseClassroomLable.text isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Введите номер кабинета." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    } else if ([self.courseTimeLable.text isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Выберите время." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
     if (self.type == ACAdd) {
         AMClassTableViewController* classTV = self.delegate;
         AMCourse* newCourse = [[AMCourse alloc]init];

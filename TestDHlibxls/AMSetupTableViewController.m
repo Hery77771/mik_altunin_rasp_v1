@@ -67,12 +67,18 @@
 
 #pragma mark - API
 
+- (IBAction)ChangeNotificationSwitch:(UISwitch*)sender {
+    if (!sender.isOn) {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    }
+}
 
 - (void)saveInUserDefaults {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.selectedInstitute.text forKey:@"selectedInstitute"];
     [defaults setObject:self.selectedCourse.text forKey:@"selectedCourse"];
     [defaults setObject:self.selectedGroupe.text forKey:@"selectedGroupe"];
+    [defaults setInteger:self.pushNotificationSwitch.isOn forKey:@"notificationSwitch"];
     [defaults setInteger:self.courseIndex forKey:@"courseIndex"];
     [defaults setInteger:self.instituteIndex forKey:@"instituteIndex"];
     [defaults setObject:self.selectedCourse.text forKey:@"selectedCourse"];
@@ -81,6 +87,12 @@
 
 - (void)loadInUserDefaults {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults objectForKey:@"notificationSwitch"]) {
+        BOOL isOn = [defaults boolForKey:@"notificationSwitch"];
+        [self.pushNotificationSwitch setOn:isOn];
+    }
+    
     if ([defaults objectForKey:@"selectedInstitute"]) {
         self.instituteIndex = [defaults integerForKey:@"instituteIndex"];
         self.selectedInstitute.text = [defaults objectForKey:@"selectedInstitute"];
@@ -203,6 +215,7 @@
     NSLog(@"%@",dictionary);
     [self updateFile:dictionary];
 }
+
 
 - (void)downloadRequestFinished:(NSString *)fileName {
     NSString *name = [[fileName componentsSeparatedByString:@"."] firstObject];
