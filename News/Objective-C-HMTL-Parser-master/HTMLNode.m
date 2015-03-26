@@ -42,8 +42,6 @@ void setAttributeNamed(xmlNode * node, const char * nameStr, const char * value)
 			break;
 		}
 	}
-	
-	
 }
 
 NSString * getAttributeNamed(xmlNode * node, const char * nameStr)

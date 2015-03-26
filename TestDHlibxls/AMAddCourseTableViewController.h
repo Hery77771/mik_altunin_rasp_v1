@@ -19,7 +19,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UITextField *courseNameLable;
 @property (weak, nonatomic) IBOutlet UITextField *courseClassroomLable;
 @property (weak, nonatomic) IBOutlet UITextField *courseTimeLable;
-@property (strong, nonatomic) id delegate;
+@property (weak, nonatomic) id delegate;
 @property (nonatomic,assign) ACType type;
 @property (nonatomic,strong) AMCourse* changeCourse;
 

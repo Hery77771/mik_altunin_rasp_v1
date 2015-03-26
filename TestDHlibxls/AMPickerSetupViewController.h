@@ -20,7 +20,7 @@ typedef enum {
 
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (strong, nonatomic) NSArray *dataSource;
-@property (strong, nonatomic) id delegate;
+@property (weak, nonatomic) id delegate;
 @property (nonatomic,assign) typeSetupViewController type;
 
 @end

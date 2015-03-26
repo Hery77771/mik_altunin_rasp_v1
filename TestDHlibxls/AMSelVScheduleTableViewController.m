@@ -73,8 +73,8 @@
             self.selectedGroupe = [defaults objectForKey:@"selectedGroupe"];
     }
     
-    NSInteger courseIndex;
-    NSInteger instituteIndex;
+    NSInteger courseIndex = INT_MAX;
+    NSInteger instituteIndex = INT_MAX;
 
     if ([defaults objectForKey:@"selectedInstitute"]) {
         instituteIndex = [defaults integerForKey:@"instituteIndex"];
@@ -83,9 +83,11 @@
         courseIndex = [defaults integerForKey:@"courseIndex"];
     }
     
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld_%ld.xls",(long)instituteIndex,(long)courseIndex]];
-    AMReaderManager* reader = [[AMReaderManager alloc]initWithPath:path];
-    self.courseArray = [reader getCourseArrayOfGroupName:self.selectedGroupe];
+    if (courseIndex != INT_MAX) {
+        NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%ld_%ld.xls",(long)instituteIndex,(long)courseIndex]];
+        AMReaderManager* reader = [[AMReaderManager alloc]initWithPath:path];
+        self.courseArray = [reader getCourseArrayOfGroupName:self.selectedGroupe];
+    }
 }
 
 - (IBAction)addCustomSchedule:(id)sender {

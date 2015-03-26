@@ -166,7 +166,9 @@
         else {
             AMGroupsTableViewController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectGroup"];
             [dest setDelegate:self];
-            [dest setSelectedGroup:self.selectedGroupe.text];
+            if (![self.selectedGroupe.text isEqualToString:@"Выберите  группу"]) {
+                [dest setSelectedGroup:self.selectedGroupe.text];
+            }
             [self.navigationController pushViewController:dest animated:YES];
         }
     }

@@ -11,6 +11,6 @@
 
 @interface AMAddNotesTableViewController : UITableViewController
 
-@property (strong, nonatomic) AMNotes* delegate;
+@property (weak, nonatomic) AMNotes* delegate;
 
 @end

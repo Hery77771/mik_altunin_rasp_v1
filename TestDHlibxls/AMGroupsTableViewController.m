@@ -43,10 +43,10 @@ extern int xls_debug;
     [super viewDidLoad];
     self.groupArray = [NSMutableArray array];
     AMSetupTableViewController* setup = self.delegate;
-    NSLog(@"%@",[NSString stringWithFormat:@"%ld_%ld.xls",(long)setup.instituteIndex,(long)setup.courseIndex]);
-	NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld_%ld.xls",(long)setup.instituteIndex,(long)setup.courseIndex]];
     
-	// xls_debug = 1; // good way to see everything in the Excel file
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%ld_%ld.xls",(long)setup.instituteIndex,(long)setup.courseIndex]];
+    
+	 xls_debug = 0; // good way to see everything in the Excel file
 	
     self.reader = [[AMReaderManager alloc]initWithPath:path];
     self.groupArray = self.reader.groupArray;

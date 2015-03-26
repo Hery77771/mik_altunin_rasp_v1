@@ -16,7 +16,7 @@
 
 @interface ServiceConnector : NSObject <NSURLConnectionDelegate,NSURLConnectionDataDelegate>
 
-@property (strong,nonatomic) id <ServiceConnectorDelegate> delegate;
+@property (weak,nonatomic) id <ServiceConnectorDelegate> delegate;
 
 -(void)updateChangeDate;
 
