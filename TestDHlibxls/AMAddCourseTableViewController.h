@@ -24,5 +24,6 @@ typedef enum {
 @property (nonatomic,strong) AMCourse* changeCourse;
 
 - (IBAction)saveAction:(id)sender;
+- (IBAction)backAction:(id)sender;
 
 @end

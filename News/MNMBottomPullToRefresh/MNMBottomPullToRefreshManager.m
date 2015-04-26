@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2012 Mario Negro Martín
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -8,17 +8,17 @@
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
  * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
  * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 #import "MNMBottomPullToRefreshManager.h"
@@ -66,11 +66,11 @@ CGFloat const kAnimationDuration = 0.2f;
  * Initializes the manager object with the information to link view and table
  */
 - (id)initWithPullToRefreshViewHeight:(CGFloat)height tableView:(UITableView *)table withClient:(id<MNMBottomPullToRefreshManagerClient>)client {
-
+    
     if (self = [super init]) {
         
         client_ = client;
-        table_ = table;        
+        table_ = table;
         pullToRefreshView_ = [[MNMBottomPullToRefreshView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth([table_ frame]), height)];
     }
     
@@ -85,7 +85,7 @@ CGFloat const kAnimationDuration = 0.2f;
  */
 - (CGFloat)tableScrollOffset {
     
-    CGFloat offset = 0.0f;        
+    CGFloat offset = 0.0f;
     
     if ([table_ contentSize].height < CGRectGetHeight([table_ frame])) {
         
@@ -141,13 +141,13 @@ CGFloat const kAnimationDuration = 0.2f;
     if (![pullToRefreshView_ isHidden] && ![pullToRefreshView_ isLoading]) {
         
         CGFloat offset = [self tableScrollOffset];
-
+        
         if (offset >= 0.0f) {
             
             [pullToRefreshView_ changeStateOfControl:MNMBottomPullToRefreshViewStateIdle offset:offset];
             
         } else if (offset <= 0.0f && offset >= -[pullToRefreshView_ fixedHeight]) {
-                
+            
             [pullToRefreshView_ changeStateOfControl:MNMBottomPullToRefreshViewStatePull offset:offset];
             
         } else {
@@ -176,12 +176,12 @@ CGFloat const kAnimationDuration = 0.2f;
             [UIView animateWithDuration:kAnimationDuration animations:^{
                 
                 if ([table_ contentSize].height >= CGRectGetHeight([table_ frame])) {
-                
-                    [table_ setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, -height + 45, 0.0f)];
+                    
+                    [table_ setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, -height, 0.0f)];
                     
                 } else {
                     
-                    [table_ setContentInset:UIEdgeInsetsMake(height - 45, 0.0f, 0.0f, 0.0f)];
+                    [table_ setContentInset:UIEdgeInsetsMake(height, 0.0f, 0.0f, 0.0f)];
                 }
             }];
         }
@@ -193,10 +193,10 @@ CGFloat const kAnimationDuration = 0.2f;
  */
 - (void)tableViewReloadFinished {
     
-    [table_ setContentInset:UIEdgeInsetsMake(65, 0, 0, 0)];
-
+    [table_ setContentInset:UIEdgeInsetsZero];
+    
     [self relocatePullToRefreshView];
-
+    
     [pullToRefreshView_ changeStateOfControl:MNMBottomPullToRefreshViewStateIdle offset:CGFLOAT_MAX];
 }
 

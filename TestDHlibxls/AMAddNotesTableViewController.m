@@ -11,6 +11,7 @@
 #import "AMDataManager.h"
 #import "AMNotesNameCell.h"
 #import "AMNotesTextCell.h"
+#import "AMNotesNotificationCell.h"
 
 
 #define kPickerAnimationDuration    0.40   // duration for the animation to slide the date picker into view
@@ -281,8 +282,13 @@ NSUInteger DeviceSystemMajorVersion()
     {
         // we have either start or end date cells, populate their date field
         //
+        AMNotesNotificationCell* notCell = cell;
         
-        cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.selectedDate];
+        if ([notCell.NotificationSwitch isOn]) {
+            notCell.StatusLable.text = @"Напомнить";
+        }
+        
+        notCell.TimeLable.text = [self.dateFormatter stringFromDate:self.selectedDate];
     }
     
 	return cell;
@@ -403,11 +409,18 @@ NSUInteger DeviceSystemMajorVersion()
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.reuseIdentifier == kDateCellID)
     {
-        if (EMBEDDED_DATE_PICKER)
-            [self displayInlineDatePickerForRowAtIndexPath:indexPath];
-        else
-            [self displayExternalDatePickerForRowAtIndexPath:indexPath];
+        if ([((AMNotesNotificationCell*)cell).NotificationSwitch isOn]) {
+            
+            if (EMBEDDED_DATE_PICKER)
+                [self displayInlineDatePickerForRowAtIndexPath:indexPath];
+            else
+                [self displayExternalDatePickerForRowAtIndexPath:indexPath];
+        } else {
+            
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
     }
+    
     else
     {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -443,7 +456,8 @@ NSUInteger DeviceSystemMajorVersion()
     self.selectedDate = targetedDatePicker.date;
     
     // update the cell's date string
-    cell.detailTextLabel.text = [self.dateFormatter stringFromDate:targetedDatePicker.date];
+    
+    ((AMNotesNotificationCell*) cell).TimeLable.text = [self.dateFormatter stringFromDate:targetedDatePicker.date];
 }
 
 
@@ -481,8 +495,12 @@ NSUInteger DeviceSystemMajorVersion()
     } else {
         [[AMDataManager sharedManager]updateNote:self.delegate withText:self.textCell.noteText.text name:self.nameCell.noteName.text endDate:self.selectedDate];
         
-        [self disableNotification];
-        [self enableNotification];
+        NSIndexPath* idex = [NSIndexPath indexPathForRow:1 inSection:0];
+        if ([((AMNotesNotificationCell*)[self.tableView cellForRowAtIndexPath:idex]).NotificationSwitch isOn]) {
+            
+            [self disableNotification];
+            [self enableNotification];
+        }
         
         [self.navigationController popViewControllerAnimated:YES];
     }

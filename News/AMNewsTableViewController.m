@@ -11,6 +11,7 @@
 #import "AMNewsCellTableViewCell.h"
 #import "AMOneNewsTableViewController.h"
 #import "AMPhoto.h"
+#import "defines.h"
 
 #define DELTA_LABEL 30
 
@@ -41,6 +42,12 @@
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [self.navigationController.navigationBar setBarStyle:UIStatusBarStyleLightContent];
+    
+    if (IS_IPAD || IS_IPHONE_4) {
+        [self.tableView setFrame:CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, 370)];
+    } else if(IS_IPHONE_5) {
+        [self.tableView setFrame:CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, 460)];
+    }
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -75,14 +82,6 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
-        NSMutableArray *deletePaths = [NSMutableArray array];
-        if (self.emptyTable) {
-            [deletePaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
-            [deletePaths addObject:[NSIndexPath indexPathForRow:1 inSection:0]];
-            [deletePaths addObject:[NSIndexPath indexPathForRow:2 inSection:0]];
-            [deletePaths addObject:[NSIndexPath indexPathForRow:3 inSection:0]];
-        }
-        
         NSMutableArray *newPaths = [NSMutableArray array];
         NSArray* news = [self loadNextNewsPage];
         
@@ -96,13 +95,10 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             
             [self.tableView beginUpdates];
-            if (self.emptyTable) {
-                [self.tableView deleteRowsAtIndexPaths:deletePaths withRowAnimation:UITableViewRowAnimationFade];
-                self.emptyTable = NO;
-            }
             [self.tableView insertRowsAtIndexPaths:newPaths withRowAnimation:UITableViewRowAnimationFade];
             [self.tableView endUpdates];
             self.loadingData = NO;
+            self.emptyTable = NO;
             [self.pullToRefreshManager_ tableViewReloadFinished];
         });
     });
@@ -173,45 +169,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.emptyTable) {
-        return 4;
-    } else {
-        return [self.newsArray count];
-    }
+    return [self.newsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (self.emptyTable) {
-        static NSString* indentifier;
-        switch (indexPath.row) {
-            case 1:
-                indentifier = @"logo1";
-                break;
-            case 2:
-                indentifier = @"logo2";
-                break;
-            default:
-                indentifier = @"cell";
-                break;
-        }
-        
-        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
-        
-        if (!cell) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:indentifier];
-        }
-        
-        if (indexPath.row == 3) {
-            NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue" size:10.0], NSFontAttributeName,[UIColor grayColor],NSForegroundColorAttributeName,nil];
-            
-            NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"Для загрузки новостей потяните вверх" attributes:attributesDictionary];
-            cell.detailTextLabel.attributedText = string;
-        }
-        
-        return cell;
-        
-    } else {
         static NSString* indentifier = @"newsCell";
         
         AMNewsCellTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
@@ -249,7 +211,6 @@
         newFrame.size.height = requiredHeight.size.height;
         cell.text.frame = newFrame;
         return cell;
-    }
 }
 
 #pragma mark UITableViewDelegate
@@ -270,9 +231,6 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.emptyTable) {
-        return 120;
-    } else {
         NSDictionary* news = [self.newsArray objectAtIndex:indexPath.row];
         NSString* text = [news objectForKey:@"text"];
         
@@ -296,16 +254,14 @@
         newFrame.size.height = requiredHeight.size.height;
         
         return newFrame.size.height + DELTA_LABEL;
-    }
 }
 
 
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 0)
         return CGFLOAT_MIN;
-    return tableView.sectionHeaderHeight;
+    
 }
 
 

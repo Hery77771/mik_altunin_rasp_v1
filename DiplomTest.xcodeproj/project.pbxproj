@@ -22,7 +22,7 @@
 		984384361A92200A0068C329 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984384341A921E990068C329 /* CoreData.framework */; };
 		98479B591A91006100C5F4EF /* AMSelVScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98479B581A91006100C5F4EF /* AMSelVScheduleTableViewController.m */; };
 		984C38E01A8B83A3004A4E2E /* AMWeekTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 984C38DF1A8B83A3004A4E2E /* AMWeekTabBarController.m */; };
-		984C38E51A8BC173004A4E2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984C38E41A8BC173004A4E2E /* Images.xcassets */; };
+		985666D81AE30C0600D0FF5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 985666D71AE30C0600D0FF5C /* Images.xcassets */; };
 		9864E4711AAF36B700235DBF /* Catigoryes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9864E4701AAF36B700235DBF /* Catigoryes.m */; };
 		986545E81A8A116F00822291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986545E71A8A116F00822291 /* Main.storyboard */; };
 		986545EC1A8A11E000822291 /* AMGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986545EB1A8A11E000822291 /* AMGroupsTableViewController.m */; };
@@ -52,6 +52,7 @@
 		98D915031AA63A01006C370A /* MZDownloadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D914FE1AA63A01006C370A /* MZDownloadingCell.m */; };
 		98D915041AA63A01006C370A /* MZDownloadManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D915001AA63A01006C370A /* MZDownloadManagerViewController.m */; };
 		98D915051AA63A01006C370A /* MZUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D915021AA63A01006C370A /* MZUtility.m */; };
+		9B865A121AE906BE008017A5 /* AMNotesNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B865A111AE906BE008017A5 /* AMNotesNotificationCell.m */; };
 		DE9798C814BC8349006E5AC2 /* libDHxlsReaderIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B9A14BC7D9700845894 /* libDHxlsReaderIOS.a */; };
 		DE9798CD14BC83C1006E5AC2 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */; };
 		DEB78B7514BC7D4400845894 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB78B7414BC7D4400845894 /* UIKit.framework */; };
@@ -128,7 +129,7 @@
 		98479B581A91006100C5F4EF /* AMSelVScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSelVScheduleTableViewController.m; sourceTree = "<group>"; };
 		984C38DE1A8B83A3004A4E2E /* AMWeekTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMWeekTabBarController.h; sourceTree = "<group>"; };
 		984C38DF1A8B83A3004A4E2E /* AMWeekTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMWeekTabBarController.m; sourceTree = "<group>"; };
-		984C38E41A8BC173004A4E2E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		985666D71AE30C0600D0FF5C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9864E46F1AAF36B700235DBF /* Catigoryes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Catigoryes.h; sourceTree = "<group>"; };
 		9864E4701AAF36B700235DBF /* Catigoryes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Catigoryes.m; sourceTree = "<group>"; };
 		986545E71A8A116F00822291 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -181,6 +182,9 @@
 		98D915001AA63A01006C370A /* MZDownloadManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZDownloadManagerViewController.m; sourceTree = "<group>"; };
 		98D915011AA63A01006C370A /* MZUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZUtility.h; sourceTree = "<group>"; };
 		98D915021AA63A01006C370A /* MZUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZUtility.m; sourceTree = "<group>"; };
+		9B865A0D1AE900DF008017A5 /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
+		9B865A101AE906BE008017A5 /* AMNotesNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNotesNotificationCell.h; sourceTree = "<group>"; };
+		9B865A111AE906BE008017A5 /* AMNotesNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotesNotificationCell.m; sourceTree = "<group>"; };
 		DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		DEB78B7014BC7D4400845894 /* DiplomTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiplomTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB78B7414BC7D4400845894 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -307,6 +311,8 @@
 				989565291A9B7750005AF795 /* AMNotesTableViewCell.h */,
 				9895652A1A9B7750005AF795 /* AMNotesTableViewCell.m */,
 				986C74AF1A9DF11900DC412D /* AMNotesNameCell.h */,
+				9B865A101AE906BE008017A5 /* AMNotesNotificationCell.h */,
+				9B865A111AE906BE008017A5 /* AMNotesNotificationCell.m */,
 				986C74B01A9DF11900DC412D /* AMNotesNameCell.m */,
 				986C74B31A9DF15500DC412D /* AMNotesTextCell.h */,
 				986C74B41A9DF15500DC412D /* AMNotesTextCell.m */,
@@ -360,8 +366,8 @@
 			isa = PBXGroup;
 			children = (
 				98A8089F1AADF99700FB9DD9 /* AMNewsCellTableViewCell.h */,
-				98A808A11AADF99700FB9DD9 /* AMOneNewsTableViewCell.h */,
 				98A808A51AADF99700FB9DD9 /* AMNewsCellTableViewCell.m */,
+				98A808A11AADF99700FB9DD9 /* AMOneNewsTableViewCell.h */,
 				98A808A71AADF99700FB9DD9 /* AMOneNewsTableViewCell.m */,
 			);
 			name = NewsCell;
@@ -416,6 +422,7 @@
 			children = (
 				DEB78B8314BC7D4400845894 /* AppDelegate.h */,
 				DEB78B8414BC7D4400845894 /* AppDelegate.m */,
+				9B865A0D1AE900DF008017A5 /* defines.h */,
 				986545E71A8A116F00822291 /* Main.storyboard */,
 				9864E46D1AAF366300235DBF /* Catigories */,
 				98A8088F1AADF91300FB9DD9 /* News */,
@@ -435,7 +442,7 @@
 		DEB78B7B14BC7D4400845894 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				984C38E41A8BC173004A4E2E /* Images.xcassets */,
+				985666D71AE30C0600D0FF5C /* Images.xcassets */,
 				9843842C1A921B260068C329 /* CoreData.xcdatamodeld */,
 				DEB78B7C14BC7D4400845894 /* TestDHlibxls-Info.plist */,
 				DEB78B7D14BC7D4400845894 /* InfoPlist.strings */,
@@ -483,6 +490,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					DEB78B6F14BC7D4400845894 = {
+						DevelopmentTeam = 3UMUM239R6;
+					};
+				};
 			};
 			buildConfigurationList = DEB78B6A14BC7D4400845894 /* Build configuration list for PBXProject "DiplomTest" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -532,7 +544,7 @@
 			files = (
 				98A8089B1AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow@2x.png in Resources */,
 				DEB78B7F14BC7D4400845894 /* InfoPlist.strings in Resources */,
-				984C38E51A8BC173004A4E2E /* Images.xcassets in Resources */,
+				985666D81AE30C0600D0FF5C /* Images.xcassets in Resources */,
 				98A808B81AADF9D100FB9DD9 /* README.md in Resources */,
 				98A808991AADF98D00FB9DD9 /* MNMBottomPullToRefresh.strings in Resources */,
 				98A8089A1AADF98D00FB9DD9 /* MNMBottomPullToRefreshArrow.png in Resources */,
@@ -549,6 +561,7 @@
 			files = (
 				987F18EA1A8A2D35005D1FBC /* AMClassTableViewCell.m in Sources */,
 				98158CB41AA618BA00F028C9 /* ServiceConnector.m in Sources */,
+				9B865A121AE906BE008017A5 /* AMNotesNotificationCell.m in Sources */,
 				989565351A9B8781005AF795 /* AMAddNotesTableViewController.m in Sources */,
 				DEB78B8114BC7D4400845894 /* main.m in Sources */,
 				9895652B1A9B7750005AF795 /* AMNotesTableViewCell.m in Sources */,
@@ -635,6 +648,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sergey Kozhukhov (TNVP69K6X4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sergey Kozhukhov (TNVP69K6X4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -642,7 +657,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = DiplomTest;
 				WRAPPER_EXTENSION = app;
 			};
@@ -695,6 +710,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sergey Kozhukhov (TNVP69K6X4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sergey Kozhukhov (TNVP69K6X4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -702,7 +719,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = DiplomTest;
 				WRAPPER_EXTENSION = app;
 			};
@@ -713,6 +730,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sergey Kozhukhov (TNVP69K6X4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sergey Kozhukhov (TNVP69K6X4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestDHlibxls/DiplomTest-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -720,7 +739,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = DiplomTest;
 				WRAPPER_EXTENSION = app;
 			};

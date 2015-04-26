@@ -12,5 +12,6 @@
 @interface AMWeekTabBarController : UITabBarController
 
 @property (strong,nonatomic) AMCustomVSchedule* customSchedule;
+-(void)swipeRight;
 
 @end

@@ -75,7 +75,7 @@
     
     NSInteger courseIndex = INT_MAX;
     NSInteger instituteIndex = INT_MAX;
-
+    
     if ([defaults objectForKey:@"selectedInstitute"]) {
         instituteIndex = [defaults integerForKey:@"instituteIndex"];
     }
@@ -91,7 +91,6 @@
 }
 
 - (IBAction)addCustomSchedule:(id)sender {
-    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Создание расписания." message:@"Имя нового расписания:" delegate:self cancelButtonTitle:@"Отмена" otherButtonTitles:@"С сайта mati.ru",@"Пустрое расписание", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
@@ -101,11 +100,18 @@
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 1: {
+            if (!self.courseArray) {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Скачайте расписание в меню \"Настройки\"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+                break;
+            }
             
             NSString* scheduleName = [[alertView textFieldAtIndex:0]text];
             [[AMDataManager sharedManager]addScheduleWithName:scheduleName groupName:self.selectedGroupe andCourseArray:self.courseArray];
             break;
         }
+            
         case 2: {
             
             NSString* scheduleName = [[alertView textFieldAtIndex:0]text];
@@ -160,13 +166,13 @@
     self.fetchedResultsController = aFetchedResultsController;
     
     
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
+    NSError *error = nil;
+    if (![self.fetchedResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
     
     return _fetchedResultsController;
 }

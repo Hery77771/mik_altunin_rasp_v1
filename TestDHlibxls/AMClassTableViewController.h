@@ -12,9 +12,10 @@
 
 @class AMGroup;
 
-@interface AMClassTableViewController : UITableViewController
+@interface AMClassTableViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UISegmentedControl *weekdaySegmentedControl;
 
+@property (weak, nonatomic) IBOutlet UITableView *TableView;
 @property (strong,nonatomic) NSArray* courseArray;
 @property (nonatomic,assign) typeWeak weak;
 @property (assign,nonatomic) BOOL dayCourseArrayChanged;
@@ -22,5 +23,6 @@
 - (IBAction)weekSegmetControlChanged:(id)sender;
 -(void)edit;
 -(typeDay)typeDay;
+- (IBAction)backAction:(id)sender;
 
 @end

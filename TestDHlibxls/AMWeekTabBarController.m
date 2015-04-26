@@ -32,11 +32,8 @@
     
     self.delegate = self;
     NSArray* controllers = self.viewControllers;
-    UINavigationController* firstNV = (UINavigationController*)[controllers objectAtIndex:0];
-    UINavigationController* secondNV = (UINavigationController*)[controllers objectAtIndex:1];
-    
-    AMClassTableViewController* firstWeek = [firstNV.viewControllers firstObject];
-    AMClassTableViewController* secondWeek = [secondNV.viewControllers firstObject];
+    AMClassTableViewController* firstWeek = (AMClassTableViewController*)[controllers objectAtIndex:0];
+    AMClassTableViewController* secondWeek = (AMClassTableViewController*)[controllers objectAtIndex:1];
     
     NSArray* courseArray = [NSKeyedUnarchiver unarchiveObjectWithData:self.customSchedule.courseArray];
     
@@ -62,11 +59,10 @@
 -(void)swipeRight {
     
     NSArray* controllers = self.viewControllers;
-    UINavigationController* firstNV = (UINavigationController*)[controllers objectAtIndex:0];
-    UINavigationController* secondNV = (UINavigationController*)[controllers objectAtIndex:1];
     
-    AMClassTableViewController* firstWeek = [firstNV.viewControllers firstObject];
-    AMClassTableViewController* secondWeek = [secondNV.viewControllers firstObject];
+    AMClassTableViewController* firstWeek = (AMClassTableViewController*)[controllers objectAtIndex:0];
+    AMClassTableViewController* secondWeek = (AMClassTableViewController*)[controllers objectAtIndex:1];
+
     
     NSArray* courseArray = [firstWeek.courseArray arrayByAddingObjectsFromArray:secondWeek.courseArray];
     

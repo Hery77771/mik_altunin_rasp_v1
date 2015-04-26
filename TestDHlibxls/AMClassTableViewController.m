@@ -9,6 +9,7 @@
 #import "AMClassTableViewController.h"
 #import "AMClassTableViewCell.h"
 #include "AMAddCourseTableViewController.h"
+#import "AMWeekTabBarController.h"
 
 #define TIME_LABEL 20
 
@@ -22,9 +23,9 @@
 
 @implementation AMClassTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)init
 {
-    self = [super initWithStyle:style];
+    self = [super init];
     if (self) {
         self.courseArray = [[NSArray alloc]init];
         self.dayCourseArray = [[NSArray alloc]init];
@@ -41,9 +42,9 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (self.clickIndexPath) {
-        [self.tableView beginUpdates];
-        [self.tableView reloadRowsAtIndexPaths:@[self.clickIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-        [self.tableView endUpdates];
+        [self.TableView beginUpdates];
+        [self.TableView reloadRowsAtIndexPaths:@[self.clickIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [self.TableView endUpdates];
         self.clickIndexPath = nil;
     }
 }
@@ -104,6 +105,10 @@
     }
 }
 
+- (IBAction)backAction:(id)sender {
+    [(AMWeekTabBarController*)self.parentViewController swipeRight];
+}
+
 -(void)updateCourseArray {
     if (self.dayCourseArrayChanged) {
         NSMutableArray* array = [NSMutableArray arrayWithArray:self.courseArray];
@@ -126,14 +131,14 @@
 
 
 - (IBAction)weekSegmetControlChanged:(id)sender {
-    [self.tableView reloadData];
+    [self.TableView reloadData];
 }
 
 
 -(void)edit {
-    BOOL isEditing = self.tableView.editing;
+    BOOL isEditing = self.TableView.editing;
     
-    [self.tableView setEditing:!isEditing animated:YES];
+    [self.TableView setEditing:!isEditing animated:YES];
 }
 
 
@@ -157,6 +162,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.TableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if (indexPath.row != 0) {
         AMCourse* changeCourse = [self.dayCourseArray objectAtIndex:indexPath.row - 1];
         AMAddCourseTableViewController *dest = [self.storyboard instantiateViewControllerWithIdentifier:@"ChangeCourse"];
@@ -164,7 +172,7 @@
         [dest setType:ACChange];
         [dest setChangeCourse:changeCourse];
         self.clickIndexPath = indexPath;
-        [self.navigationController pushViewController:dest animated:YES];
+        [self presentViewController:dest animated:YES completion:nil];
     }
 }
 
@@ -265,11 +273,11 @@
         [tempCourseArray removeObject:course];
         self.courseArray = tempCourseArray;
         
-        [self.tableView beginUpdates];
+        [self.TableView beginUpdates];
         
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        [self.TableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
         
-        [self.tableView endUpdates];
+        [self.TableView endUpdates];
     }
 }
 

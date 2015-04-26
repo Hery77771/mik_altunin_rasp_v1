@@ -18,6 +18,11 @@
     [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     // Override point for customization after application launch.
     //[[AMDataManager sharedManager]deleteAllObjects];
+    
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+    }
+    
     return YES;
 }
 

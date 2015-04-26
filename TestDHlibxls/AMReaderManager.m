@@ -27,9 +27,15 @@ extern int xls_debug;
     if (self) {
         self.filePath = [[NSString alloc]initWithString:path];
         DHxlsReader* reader = [DHxlsReader xlsReaderWithPath:path];
-        assert(reader);
-        self.reader = reader;
-        [self initGroupArray];
+        
+        if (!reader) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Скачайте расписание в меню \"Настройки\"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+        } else {
+            assert(reader);
+            self.reader = reader;
+            [self initGroupArray];
+        }
     }
     return self;
 }

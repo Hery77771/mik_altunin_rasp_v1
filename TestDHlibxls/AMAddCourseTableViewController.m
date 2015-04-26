@@ -96,22 +96,29 @@
         classTV.courseArray = newcourseArray;
         
         NSInteger row = [AMCourse filterCourseArray:classTV.courseArray witwDay:newCourse.day].count;
-        [self.navigationController popViewControllerAnimated:YES];
-        [classTV.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:row inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self backAction:nil];
+        
+        [classTV.TableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:row inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
         
     } else {
         self.changeCourse.classroom = self.courseClassroomLable.text;
         self.changeCourse.courseName = self.courseNameLable.text;
         self.changeCourse.time = [AMCourse startTime:self.courseTimeLable.text];
         
-        [self.navigationController popViewControllerAnimated:YES];
+        [self backAction:nil];
     }
     
     [(AMClassTableViewController*)self.delegate setDayCourseArrayChanged:YES];
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)backAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

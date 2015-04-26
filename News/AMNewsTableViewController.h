@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MNMBottomPullToRefreshManager.h"
 
-@interface AMNewsTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, MNMBottomPullToRefreshManagerClient>
+@interface AMNewsTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, MNMBottomPullToRefreshManagerClient>
 
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
