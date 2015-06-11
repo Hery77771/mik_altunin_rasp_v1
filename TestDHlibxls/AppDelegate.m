@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AMGroupsTableViewController.h"
 #import "AMDataManager.h"
+#import "defines.h"
 
 @implementation AppDelegate
 
@@ -19,8 +20,14 @@
     // Override point for customization after application launch.
     //[[AMDataManager sharedManager]deleteAllObjects];
     
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+    if(SYSTEM_VERSION_LESS_THAN(@"8.0"))
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
     }
     
     return YES;

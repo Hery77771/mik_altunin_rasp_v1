@@ -148,6 +148,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     cell.nameLable.text = [self cleanStringOfSpaces:self.name];
     cell.textLable.text = self.text;
+    
+    NSRange range = [self.date rangeOfString:@"^\\s*" options:NSRegularExpressionSearch];
+    self.date = [self.date stringByReplacingCharactersInRange:range withString:@""];
+    self.date = [self.date stringByReplacingOccurrencesOfString:@"Создано:" withString:@"Опубликовано:"];
+    
     cell.dateLable.text = [self cleanStringOfSpaces:self.date];
     
     CGRect newFrame =  cell.nameLable.frame;

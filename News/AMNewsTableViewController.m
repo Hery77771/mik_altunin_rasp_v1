@@ -105,7 +105,7 @@
 }
 
 -(NSMutableArray*)loadNextNewsPage {
-    NSURL *tutorialsUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://mati.ru/index.php/novosti/novosti?limitstart=%d",self.pageIndex]];
+    NSURL *tutorialsUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://mati.ru/index.php/novosti?limitstart=%d",self.pageIndex]];
     NSData *tutorialsHtmlData = [NSData dataWithContentsOfURL:tutorialsUrl];
     
     NSError *error = nil;
@@ -119,7 +119,7 @@
     
     NSArray *newsTitle = [bodyNode findChildTags:@"h2"];
     NSArray *newsText = [bodyNode findChildrenWithAttribute:@"class" matchingName:@"article-intro" allowPartial:NO];
-    NSArray *newsDate = [bodyNode findChildrenWithAttribute:@"class" matchingName:@"article-info muted" allowPartial:NO];
+    NSArray *newsDate = [bodyNode findChildrenWithAttribute:@"class" matchingName:@"create" allowPartial:NO];
     
     NSMutableArray *articlesDone = [[NSMutableArray alloc] init];
     
@@ -133,8 +133,9 @@
             NSString *link = [aOne getAttributeNamed:@"href"];
             NSString *text = [self getText:[newsText objectAtIndex:i]];
             NSString *date = [[newsDate objectAtIndex:i] allContents];
-            [article setObject:nameOfArticle forKey:@"title"];
+            
             [article setObject:date forKey:@"date"];
+            [article setObject:nameOfArticle forKey:@"title"];
             [article setObject:link forKey:@"link"];
             [article setObject:text forKey:@"text"];
             [articlesDone addObject:article];

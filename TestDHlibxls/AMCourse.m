@@ -18,7 +18,10 @@
     
     if (self) {
         _courseName = [cell str];
-        _classroom = room;
+        
+        NSArray *tempArray = [room componentsSeparatedByString:@"."];
+        
+        _classroom = [tempArray objectAtIndex:0];
         
         if ((cell.row - 10)%2 == 0) {
             _weak = TWFirstWeak;

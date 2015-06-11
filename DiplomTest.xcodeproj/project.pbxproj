@@ -186,7 +186,7 @@
 		9B865A101AE906BE008017A5 /* AMNotesNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNotesNotificationCell.h; sourceTree = "<group>"; };
 		9B865A111AE906BE008017A5 /* AMNotesNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNotesNotificationCell.m; sourceTree = "<group>"; };
 		DE9798CC14BC83C1006E5AC2 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
-		DEB78B7014BC7D4400845894 /* DiplomTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiplomTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEB78B7014BC7D4400845894 /* Sched.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sched.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB78B7414BC7D4400845894 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DEB78B7614BC7D4400845894 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DEB78B7814BC7D4400845894 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -310,9 +310,9 @@
 				98372AB51A8A8C4100B1ACCF /* AMGroupTableViewCell.m */,
 				989565291A9B7750005AF795 /* AMNotesTableViewCell.h */,
 				9895652A1A9B7750005AF795 /* AMNotesTableViewCell.m */,
-				986C74AF1A9DF11900DC412D /* AMNotesNameCell.h */,
 				9B865A101AE906BE008017A5 /* AMNotesNotificationCell.h */,
 				9B865A111AE906BE008017A5 /* AMNotesNotificationCell.m */,
+				986C74AF1A9DF11900DC412D /* AMNotesNameCell.h */,
 				986C74B01A9DF11900DC412D /* AMNotesNameCell.m */,
 				986C74B31A9DF15500DC412D /* AMNotesTextCell.h */,
 				986C74B41A9DF15500DC412D /* AMNotesTextCell.m */,
@@ -399,7 +399,7 @@
 		DEB78B7114BC7D4400845894 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DEB78B7014BC7D4400845894 /* DiplomTest.app */,
+				DEB78B7014BC7D4400845894 /* Sched.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -480,7 +480,7 @@
 			);
 			name = DiplomTest;
 			productName = TestDHlibxls;
-			productReference = DEB78B7014BC7D4400845894 /* DiplomTest.app */;
+			productReference = DEB78B7014BC7D4400845894 /* Sched.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -658,7 +658,7 @@
 				);
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = DiplomTest;
+				PRODUCT_NAME = Sched;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Distribution;
@@ -720,7 +720,7 @@
 				);
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = DiplomTest;
+				PRODUCT_NAME = Sched;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -740,7 +740,7 @@
 				);
 				INFOPLIST_FILE = "TestDHlibxls/TestDHlibxls-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = DiplomTest;
+				PRODUCT_NAME = Sched;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

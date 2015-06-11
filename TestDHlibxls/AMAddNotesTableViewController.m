@@ -40,6 +40,7 @@ static NSInteger nameCellRowHeight = 55;
 @property (nonatomic, strong) NSIndexPath *datePickerIndexPath;
 
 @property (assign) NSInteger pickerCellRowHeight;
+@property (assign,nonatomic) BOOL localNotificationSwitch;
 
 @property (nonatomic, strong) IBOutlet UIDatePicker *pickerView;
 
@@ -81,6 +82,8 @@ static NSInteger nameCellRowHeight = 55;
     // format in the table view cells
     //
     
+    [self setlocalNotificationSwitch];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(localeChanged:)
                                                  name:NSCurrentLocaleDidChangeNotification
@@ -90,11 +93,6 @@ static NSInteger nameCellRowHeight = 55;
     UIBarButtonItem *rbtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveNote:)];
     self.navigationItem.rightBarButtonItem = rbtn;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)dealloc
@@ -283,6 +281,7 @@ NSUInteger DeviceSystemMajorVersion()
         // we have either start or end date cells, populate their date field
         //
         AMNotesNotificationCell* notCell = cell;
+        notCell.NotificationSwitch.on = self.localNotificationSwitch;
         
         if ([notCell.NotificationSwitch isOn]) {
             notCell.StatusLable.text = @"Напомнить";
@@ -489,19 +488,18 @@ NSUInteger DeviceSystemMajorVersion()
 - (void)saveNote:(id)sender {
     
     NSDate *currentDate = [NSDate date];
-    if ([[self.selectedDate earlierDate:currentDate] isEqual:self.selectedDate]) {
+    NSIndexPath* idex = [NSIndexPath indexPathForRow:1 inSection:0];
+    AMNotesNotificationCell* cell = (AMNotesNotificationCell*)[self.tableView cellForRowAtIndexPath:idex];
+    
+    if ([[self.selectedDate earlierDate:currentDate] isEqual:self.selectedDate] && [cell.NotificationSwitch isOn]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Некорректная дата напоминания." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     } else {
         [[AMDataManager sharedManager]updateNote:self.delegate withText:self.textCell.noteText.text name:self.nameCell.noteName.text endDate:self.selectedDate];
         
-        NSIndexPath* idex = [NSIndexPath indexPathForRow:1 inSection:0];
-        if ([((AMNotesNotificationCell*)[self.tableView cellForRowAtIndexPath:idex]).NotificationSwitch isOn]) {
-            
-            [self disableNotification];
-            [self enableNotification];
-        }
-        
+        [self disableNotification];
+        [self enableNotification];
+    
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -533,16 +531,22 @@ NSUInteger DeviceSystemMajorVersion()
 
 -(void)enableNotification
 {
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.fireDate = self.selectedDate;
-    notification.alertBody = self.nameCell.noteName.text;
-    notification.timeZone = [NSTimeZone defaultTimeZone];
-    notification.soundName = UILocalNotificationDefaultSoundName;
     
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.nameCell.noteName.text forKey:kTimerNameKey];
-    notification.userInfo = userInfo;
+    NSIndexPath* idex = [NSIndexPath indexPathForRow:1 inSection:0];
     
-    [self.notificationsArray addObject:notification];
+    if ([((AMNotesNotificationCell*)[self.tableView cellForRowAtIndexPath:idex]).NotificationSwitch isOn]) {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.fireDate = self.selectedDate;
+        notification.alertBody = self.nameCell.noteName.text;
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.nameCell.noteName.text forKey:kTimerNameKey];
+        notification.userInfo = userInfo;
+        
+        [self.notificationsArray addObject:notification];
+    }
+    
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.notificationsArray];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -557,6 +561,18 @@ NSUInteger DeviceSystemMajorVersion()
     if (enabledNotifications) {
         [UIApplication sharedApplication].scheduledLocalNotifications = self.notificationsArray;
     }
+}
+
+-(void)setlocalNotificationSwitch {
+    for (UILocalNotification *notification in self.notificationsArray){
+        NSDictionary *userInfo = notification.userInfo;
+        if ([self.delegate.name isEqualToString:[userInfo objectForKey:kTimerNameKey]]) {
+            self.localNotificationSwitch = YES;
+            return;
+        }
+    }
+    
+    self.localNotificationSwitch = NO;
 }
 
 -(void)disableNotification {
